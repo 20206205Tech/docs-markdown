@@ -2,17 +2,10 @@ site_name: Documentation
 site_description: Tài liệu dự án
 site_author: Vũ Văn Nghĩa
 
-
 theme:
   name: material
 
-
-
-
-nav:
-  - Trang chủ: index.md
-  - 1 - Nội dung 1:
-      - 1.1 - Nội dung 1.1: 1-khoi-dau/cai-dat.md
-      - 1.2 - Nội dung 1.2: 1-khoi-dau/cau-hinh.md
-  - 2 - Nội dung 2: 2-huong-dan/su-dung-co-ban.md
-  - 3 - Nội dung 3: 3-tham-khao/api.md
+plugins:
+  - search:
+      lang: vi
+  - mkdocs-nav-weight
