@@ -1,1 +1,3 @@
-site_name: My Docs
+site_name: 20206205.tech Documentation
+theme:
+  name: material
