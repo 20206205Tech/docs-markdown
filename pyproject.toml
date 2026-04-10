@@ -15,4 +15,9 @@ dependencies = [
 [dependency-groups]
 dev = [
     "pre-commit>=4.5.1",
+    "taskipy>=1.14.1",
 ]
+
+[tool.taskipy.tasks]
+start = "mkdocs serve"
+build = "mkdocs build"
