@@ -1,1 +1,1 @@
-![alt text](../pictures/LogoHust.png)
+![alt text](pictures/LogoHust.png)
