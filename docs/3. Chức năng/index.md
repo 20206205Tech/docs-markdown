@@ -1,5 +1,5 @@
 ---
-weight: 2
+weight: 1
 ---
 # Tiêu đề
 Nội dung bài viết...
