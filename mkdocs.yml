@@ -4,6 +4,9 @@ site_author: Vũ Văn Nghĩa
 
 theme:
   name: material
+  features:
+    - navigation.footer
+    - navigation.keyboard
 
 plugins:
   - search:
