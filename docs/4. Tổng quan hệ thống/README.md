@@ -1,0 +1,112 @@
+# Tổng quan nghiệp vụ
+
+## Phân tích thiết kế hệ thống
+
+### Sơ đồ usecase
+
+### Sơ đồ tuần tự
+
+### Sơ đồ lớp
+
+### Thiết kế cơ sở dữ liệu
+
+<!-- Công nghệ sử dụng:  -->
+
+<!-- - streamlit: giao diện -->
+
+<!-- github -->
+<!-- github action auto amtion -->
+
+<!-- redis -->
+
+<!-- doppler -->
+
+<!-- telegram -->
+
+<!-- terraform -->
+
+<!-- cloudflare -->
+
+<!-- render + Kong API Gateway -->
+
+<!-- heroku -->
+
+<!-- python: fastapi, scrapy -->
+
+<!-- database: supabase, neon, MongoDB -->
+
+# Tổng quan kiến trúc hệ thống
+
+## Sơ đồ tổng quát chung request và response
+
+![alt text](pictures/request-response-result-Kong-API-Gateway.excalidraw.png)
+
+## Sơ đồ quản lý secret bằng doppler
+
+![alt text](pictures/secret-by-doppler.excalidraw.png)
+
+## Sơ đồ CICD bằng Github Action
+
+![alt text](pictures/cicd-by-github-action.excalidraw.png)
+
+## Sơ đồ quản lý Kong API Gateway
+
+![alt text](pictures/Deck-CICD-Kong-API-Gateway.excalidraw.png)
+
+## Sơ đồ Infrastructure as Code (IaC) sử dụng terraform
+
+![alt text](pictures/infrastructure-as-code-IaC-terraform.excalidraw.png)
+
+## Sơ đồ Data Pipeline
+
+<!-- Data Source -->
+
+<!-- crawl-data -->
+
+<!-- Staging Area -->
+
+<!-- ETL -->
+
+<!-- Destination -->
+
+![alt text](pictures/Data-Pipeline.excalidraw.png)
+
+## Sơ đồ thu thập dữ liệu
+
+![alt text](pictures/crawl-data.excalidraw.png)
+
+## Sơ đồ tiền xử lý dữ liệu ETL
+
+- [ ] Trích xuất nội dung thẻ HTML
+
+- [ ] Trích xuất nội dung tiêu đề số liệu bên trên
+
+- [ ] Trích xuất nội dung người ký bên dưới
+
+- [ ] Chuyển đổi ngày tháng năm
+
+- [ ] Trích xuất nội dung quan trọng ở giữa
+
+- [ ] Sử dụng docling để chuyển thành JSON, markdown
+
+- [ ] Sử dụng langchain : Chunking và embeddings dữ liệu
+
+- [ ] Có thể dùng chroma hoặc database postgres
+
+## Sơ đồ RAG
+
+![alt text](pictures/rag-1.excalidraw.png)
+
+![alt text](pictures/rag-2.excalidraw.png)
+
+## Sơ đồ Tổng quan chung về backend AI
+
+Backend và AI cùng chung 1 dự án, sau này có thể tách thành 1 backend hoặc microservices NestJS (dự kiến)
+
+![alt text](pictures/be-ai.excalidraw.png)
+
+## Tích hợp LangChain
+
+![alt text](pictures/LocalLLM.png)
+
+![alt text](pictures/LocalLLMWithLangSmith.png)
