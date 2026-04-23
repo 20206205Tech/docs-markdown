@@ -13,6 +13,8 @@
 
 
 
+
+
 ## Sơ đồ quản lý secret bằng doppler
 
 ![alt text](pictures/secret-by-doppler.excalidraw.png)
@@ -88,8 +90,11 @@
 
 ![alt text](pictures/rag-2.excalidraw.png)
 
-<!-- ## Sơ đồ Tổng quan chung về backend AI -->
+## Sơ đồ Tổng quan chung về backend AI
 
 <!-- Backend và AI cùng chung 1 dự án, sau này có thể tách thành 1 backend hoặc microservices NestJS (dự kiến) -->
 
 <!-- ![alt text](pictures/be-ai.excalidraw.png) -->
+
+
+![alt text](<Client App API Gateway-2026-04-23-030755.png>)
