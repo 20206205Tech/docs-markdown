@@ -12,3 +12,8 @@ plugins:
   - search:
       lang: vi
   - mkdocs-nav-weight
+
+markdown_extensions:
+  - pymdownx.tasklist:
+      custom_checkbox: true
+      clickable_checkbox: false
