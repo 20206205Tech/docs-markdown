@@ -3,3 +3,5 @@
 uv run mkdocs serve
 
 <!-- https://20206205tech.github.io/docs-markdown -->
+
+touch {3..6}.md
