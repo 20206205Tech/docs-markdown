@@ -42,3 +42,14 @@ test ai,api, unit, e2e, automation,...
 <!-- Chức năng Dashboard của ADMIN??? -->
 
 <!-- Dùng google trend để tạo câu hỏi theo thông tin hiện tại -->
+
+
+
+- [x]   Do dùng miễn phí nên Neon không đủ , bị giới hạn => đổi  qdrant  và neon => thay đổi pháp điển dùng qdrant và user docs dùng neon
+
+
+
+<!--  -->
+
+
+gh repo delete --yes   20206205Tech/docs-2026_04_29_21_00_30_283255
