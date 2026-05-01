@@ -52,4 +52,5 @@ test ai,api, unit, e2e, automation,...
 <!--  -->
 
 
-gh repo delete --yes   20206205Tech/docs-2026_04_29_21_00_30_283255
+gh repo delete --yes   20206205Tech/docs-2026_04_30_21_00_28_263426
+docs-2026_04_30_21_00_28_263426
