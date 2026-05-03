@@ -1,15 +1,15 @@
 - [x] Tạo gói common: 20206205tech-nestjs-common
+
 - [x] Thêm tracing với honeycomb
-      Sử dụng docker, docker compose, kubernetes, skaffold, ...
-- [x] Tạo gitops với argocd
-      Thêm âm thanh auto_play_audio=false, true
+
+- [x] Sử dụng docker, kubernetes, ...Tạo gitops với argocd
 
 - [x] Tạo vbplnew và vbplnew service
-      Thêm pháp điển service
 
-Quay lại Màn giao diện thanh toán thành công
+<!-- Thêm âm thanh auto_play_audio=false, true -->
+<!-- Thêm pháp điển service -->
 
-Xem kỹ lại các cổng thanh toán
+<!-- Quay lại Màn giao diện thanh toán thành công -->
 
 <!-- Chức năng voice và **Persona** Service -->
 
@@ -32,16 +32,18 @@ test ai,api, unit, e2e, automation,...
 
 <!-- Dùng google trend để tạo câu hỏi theo thông tin hiện tại -->
 
-- [x] Do dùng miễn phí nên Neon không đủ , bị giới hạn => đổi qdrant và neon => thay đổi pháp điển dùng qdrant và user docs dùng neon
+- [x] Do dùng miễn phí nên Neon không đủ , bị giới hạn => đổi qdrant và neon => thay đổi pháp điển dùng qdrant và user docs dùng neon , Chuyển database vbpl sang digitalocean
+<!-- Tạo sơ đồ terraform -->
 
-<!-- Viết test,  DDD và xem kỹ các cổng thanh toán khác nhau -->
-
-<!--  -->
+<!-- -->
 
 gh repo delete --yes 20206205Tech/docs-2026_05_03
 gh repo delete --yes 20206205Tech/docs-2026_05_01_21_00_29_075881
 
-<!-- Do dùng miễn phí nên Neon không đủ , bị giới hạn => Chuyển  database vbpl sang digitalocean -->
-<!-- Tạo sơ đồ terraform     -->
+<!-- -->
+
 
 <!-- 1 hay nhiều hàm PORT -->
+
+<!-- Xem kỹ lại các cổng thanh toán -->
+<!-- Viết test, DDD và xem kỹ các cổng thanh toán khác nhau -->
