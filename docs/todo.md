@@ -7,22 +7,20 @@
 - [x] Tạo vbplnew và vbplnew service
 
 <!-- Thêm âm thanh auto_play_audio=false, true -->
-<!-- Thêm pháp điển service -->
 
-<!-- Quay lại Màn giao diện thanh toán thành công -->
+<!-- Thêm pháp điển service -->
 
 <!-- Chức năng voice và **Persona** Service -->
 
-- [ ] Thay thế 2 space INPUT của người dùng Và Đếm text để giới hạn INPUT (VIP) + check api (=> lắng nghe event)
+<!-- - [ ] Thay thế 2 space INPUT của người dùng Và Đếm text để giới hạn INPUT (VIP) + check api (=> lắng nghe event) -->
 
-RABBITMQ_URL: chat_deletions, Chưa có phân biệt dev prod
+<!-- RABBITMQ_URL: chat_deletions, Chưa có phân biệt dev prod -->
 
-Thêm phần nếu Queue bị lỗi => cần xử lý lại
+<!-- Thêm phần nếu Queue bị lỗi => cần xử lý lại -->
 
-Bị ngược rabbit, kafka vì người dùng mua ít, dùng doc nhiều
+<!-- Test API: unit test, test container, ... và test AI Ragas -->
 
-Test API: unit test, test container, ... và test AI Ragas
-test ai,api, unit, e2e, automation,...
+<!-- test ai,api, unit, e2e, automation,... -->
 
 <!-- Phân trang cho tất cả -->
 
@@ -32,8 +30,9 @@ test ai,api, unit, e2e, automation,...
 
 <!-- Dùng google trend để tạo câu hỏi theo thông tin hiện tại -->
 
-- [x] Do dùng miễn phí nên Neon không đủ , bị giới hạn => đổi qdrant và neon => thay đổi pháp điển dùng qdrant và user docs dùng neon , Chuyển database vbpl sang digitalocean
 <!-- Tạo sơ đồ terraform -->
+
+- [x] Do dùng miễn phí nên Neon không đủ , bị giới hạn => đổi qdrant và neon => thay đổi pháp điển dùng qdrant và user docs dùng neon , Chuyển database vbpl sang digitalocean
 - [x] phapdien trong step_download_zip có zip_check
 
 <!-- -->
@@ -46,12 +45,13 @@ gh repo delete --yes 20206205Tech/docs-2026_05_01_21_00_29_075881
 - [x] Tự động cập nhật thư viện hàng ngày
 - [x] Xem kỹ về DDD và Viết test
 - [x] Xem kỹ lại các cổng thanh toán
-- [x]   Nếu 1 người mua nhiều gói => cộng dồn ngày
+- [x] Nếu 1 người mua nhiều gói => cộng dồn ngày
 
 <!-- doc Dùng cả markdown và docling -->
 
-call back web
-
-
-
 <!-- Sự kiện phải được đánh phiên bản là số thứ tự -->
+
+- [x] Quay lại Màn giao diện thanh toán thành công
+
+<!-- Bị ngược rabbit, kafka vì người dùng mua ít, dùng doc nhiều -->
+<!-- @contextScopeItemMention @contextScopeItemMention Tôi muốn bạn dựa vào RabbitMqAdapter -->
