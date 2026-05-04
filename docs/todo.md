@@ -34,6 +34,7 @@ test ai,api, unit, e2e, automation,...
 
 - [x] Do dùng miễn phí nên Neon không đủ , bị giới hạn => đổi qdrant và neon => thay đổi pháp điển dùng qdrant và user docs dùng neon , Chuyển database vbpl sang digitalocean
 <!-- Tạo sơ đồ terraform -->
+- [x] phapdien trong step_download_zip có zip_check
 
 <!-- -->
 
@@ -42,8 +43,9 @@ gh repo delete --yes 20206205Tech/docs-2026_05_01_21_00_29_075881
 
 <!-- -->
 
+- [x] Xem kỹ về DDD và Viết test
+- [x] Xem kỹ lại các cổng thanh toán
 
-<!-- 1 hay nhiều hàm PORT -->
+<!-- Dùng cả markdown và docling -->
 
-<!-- Xem kỹ lại các cổng thanh toán -->
-<!-- Viết test, DDD và xem kỹ các cổng thanh toán khác nhau -->
+call back web
