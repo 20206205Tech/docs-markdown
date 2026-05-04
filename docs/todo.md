@@ -43,8 +43,10 @@ gh repo delete --yes 20206205Tech/docs-2026_05_01_21_00_29_075881
 
 <!-- -->
 
+- [x] Tự động cập nhật thư viện hàng ngày
 - [x] Xem kỹ về DDD và Viết test
 - [x] Xem kỹ lại các cổng thanh toán
+
 
 <!-- Dùng cả markdown và docling -->
 
