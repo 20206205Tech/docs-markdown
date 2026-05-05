@@ -31,3 +31,12 @@ repos:
             "--remove-unused-variables",
             "--remove-all-unused-imports",
           ]
+# repos:
+#   - repo: local
+#     hooks:
+#       - id: update-terms-markdown
+#         name: Tự động cập nhật từ điển thuật ngữ
+#         entry: python generate_docs.py
+#         language: python
+#         pass_filenames: false
+#         always_run: true
