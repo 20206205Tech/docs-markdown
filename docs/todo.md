@@ -7,8 +7,6 @@
 
 <!-- Thêm pháp điển service -->
 
-<!-- Chức năng voice và **Persona** Service -->
-
 <!-- - [ ] Thay thế 2 space INPUT của người dùng Và Đếm text để giới hạn INPUT (VIP) + check api (=> lắng nghe event) -->
 
 <!-- RABBITMQ_URL: chat_deletions, Chưa có phân biệt dev prod -->
@@ -55,6 +53,9 @@ gh repo delete --yes 20206205Tech/docs-2026_05_04
 VPS mới => Cấu hình lại k8s
 
 Hacker Gửi thanh toán
-Xử lý nếu thông báo gửi 2 lần
+
+Nếu thông báo gửi 2 lần thì hệ thống có cơ chế xử lý không???
 
 npm run ddd:check
+
+<!-- Chức năng voice và **Persona** Service -->
