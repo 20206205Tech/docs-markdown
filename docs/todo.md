@@ -91,3 +91,5 @@ https://testcontainers.com
 GraphQL
 gRPC
 Pytest
+
+Xử lý các định dạng file khác nhau => RAG
