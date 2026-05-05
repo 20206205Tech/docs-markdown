@@ -97,3 +97,7 @@ Xử lý các định dạng file khác nhau => RAG
 
 Giao diện chương trình
 G:\My Drive\contents\New folder (2)\Sau báo cáo lần 1
+
+
+
+Sự phức tạp không chỉ nằm ở khối lượng dữ liệu, mà các văn bản có thể thay thế, bổ sung, hết hiệu lực, ...
