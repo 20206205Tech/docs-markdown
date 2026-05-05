@@ -93,3 +93,6 @@ gRPC
 Pytest
 
 Xử lý các định dạng file khác nhau => RAG
+
+Giao diện chương trình
+G:\My Drive\contents\New folder (2)\Sau báo cáo lần 1
