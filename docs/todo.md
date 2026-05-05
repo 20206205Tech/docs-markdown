@@ -1,9 +1,6 @@
 - [x] Tạo gói common: 20206205tech-nestjs-common
-
 - [x] Thêm tracing với honeycomb
-
 - [x] Sử dụng docker, kubernetes, ...Tạo gitops với argocd
-
 - [x] Tạo vbplnew và vbplnew service
 
 <!-- Thêm âm thanh auto_play_audio=false, true -->
@@ -39,14 +36,12 @@
 
 gh repo delete --yes 20206205Tech/docs-2026_05_04
 
-
-
 <!-- -->
 
 - [x] Tự động cập nhật thư viện hàng ngày
 - [x] Xem kỹ về DDD và Viết test
 - [x] Xem kỹ lại các cổng thanh toán
-- [x] Nếu  người dùng  mua nhiều lần => cộng dồn ngày
+- [x] Nếu người dùng mua nhiều lần => cộng dồn ngày
 
 <!-- doc Dùng cả markdown và docling -->
 
@@ -59,6 +54,7 @@ gh repo delete --yes 20206205Tech/docs-2026_05_04
 
 VPS mới => Cấu hình lại k8s
 
-
-Hacker Gửi  thanh toán
+Hacker Gửi thanh toán
 Xử lý nếu thông báo gửi 2 lần
+
+npm run ddd:check
