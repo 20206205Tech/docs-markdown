@@ -52,10 +52,41 @@ gh repo delete --yes 20206205Tech/docs-2026_05_04
 
 VPS mới => Cấu hình lại k8s
 
-Hacker Gửi thanh toán
 
-Nếu thông báo gửi 2 lần thì hệ thống có cơ chế xử lý không???
+<!-- Nếu thông báo gửi 2 lần thì hệ thống có cơ chế xử lý không??? -->
+<!-- Nếu Hacker Gửi thanh toán? -->
 
-npm run ddd:check
 
 <!-- Chức năng voice và **Persona** Service -->
+
+<!-- Giao diện admin thanh toán thủ công như thế nào ? -->
+
+
+new Error
+new NotFoundException
+
+
+Kiểm tra số tiền
+
+Tôi có nên chỉnh lại BaseVersionAggregateRoot trong common không cần version để đỡ phức tạp???
+
+
+<!-- Lý thuyết  DOMAIN DRIVEN DESIGN => Cấu trúc thư mục dự án -->
+<!-- sơ đồ tuần tự luồng đi -->
+
+Tôi thấy code-payment-service có 293 thay đổi trên github nhưng code-conversation-service chỉ có 192?
+
+
+<!-- hình tách microservices  -->
+Cộng dồn thanh toán
+
+<!-- Viết qui định nghiệp vụ DDD -->
+
+
+https://testcontainers.com
+
+
+
+![alt text](image.png)
+
+![alt text](image-1.png)
