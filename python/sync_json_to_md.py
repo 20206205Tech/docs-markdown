@@ -12,7 +12,7 @@ DATA = [
     {
         "abbr": "RAG",
         "eng": "Retrieval Augmented Generation",
-        "vie": "Thế hệ tăng cường truy xuất",
+        "vie": "Tạo tăng cường truy xuất",
     },
     {"abbr": "DDD", "eng": "Domain Driven Design", "vie": "Thiết kế hướng miền"},
 ]
