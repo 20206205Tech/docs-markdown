@@ -17,6 +17,12 @@ DATA = [
     {"abbr": "DDD", "eng": "Domain Driven Design", "vie": "Thiết kế hướng miền"},
 ]
 
+# <!-- NLP,Natural Language Processing,Xử lý ngôn ngữ tự nhiên -->
+
+# <!-- JSON,JavaScript Object Notation,Ký hiệu đối tượng JavaScript -->
+
+# <!-- UML -->
+
 
 def generate_markdown():
     # Path relative to the root of the repository
