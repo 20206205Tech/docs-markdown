@@ -1,4 +1,5 @@
 - [x] Tạo gói common: 20206205tech-nestjs-common
+<!-- =>Vé hình -->
 - [x] Thêm tracing với honeycomb
 - [x] Sử dụng docker, kubernetes, ...Tạo gitops với argocd
 - [x] Tạo vbplnew và vbplnew service
