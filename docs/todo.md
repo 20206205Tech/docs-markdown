@@ -37,15 +37,16 @@
 
 <!-- -->
 
-gh repo delete --yes 20206205Tech/docs-2026_05_03
-gh repo delete --yes 20206205Tech/docs-2026_05_01_21_00_29_075881
+gh repo delete --yes 20206205Tech/docs-2026_05_04
+
+
 
 <!-- -->
 
 - [x] Tự động cập nhật thư viện hàng ngày
 - [x] Xem kỹ về DDD và Viết test
 - [x] Xem kỹ lại các cổng thanh toán
-- [x] Nếu 1 người mua nhiều gói => cộng dồn ngày
+- [x] Nếu  người dùng  mua nhiều lần => cộng dồn ngày
 
 <!-- doc Dùng cả markdown và docling -->
 
@@ -55,3 +56,9 @@ gh repo delete --yes 20206205Tech/docs-2026_05_01_21_00_29_075881
 
 <!-- Bị ngược rabbit, kafka vì người dùng mua ít, dùng doc nhiều -->
 <!-- @contextScopeItemMention @contextScopeItemMention Tôi muốn bạn dựa vào RabbitMqAdapter -->
+
+VPS mới => Cấu hình lại k8s
+
+
+Hacker Gửi  thanh toán
+Xử lý nếu thông báo gửi 2 lần
