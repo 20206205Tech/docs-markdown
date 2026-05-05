@@ -40,3 +40,10 @@ repos:
         language: python
         files: ^python/sync_json_to_md\.py$
         pass_filenames: false
+
+      - id: format-markdown-punctuation
+        name: Format Markdown Punctuation
+        entry: python python/format_markdown_punctuation.py
+        language: python
+        files: ^docs/.*\.md$
+        pass_filenames: false
