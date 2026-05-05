@@ -58,7 +58,7 @@
 
 - [ ] Trích xuất nội dung thẻ HTML
 
-- [ ] Trích xuất nội dung tiêu đề số liệu , số văn bản , thời gian  vị trí bên trên
+- [ ] Trích xuất nội dung tiêu đề số liệu, số văn bản, thời gian  vị trí bên trên
 
 - [ ] Trích xuất nội dung người ký bên dưới
 

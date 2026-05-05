@@ -16,7 +16,7 @@
 
 <!-- Test API: unit test, test container, ... và test AI Ragas -->
 
-<!-- test ai,api, unit, e2e, automation,... -->
+<!-- test ai, api, unit, e2e, automation, ... -->
 
 <!-- Phân trang cho tất cả -->
 
@@ -28,7 +28,7 @@
 
 <!-- Tạo sơ đồ terraform -->
 
-- [x] Do dùng miễn phí nên Neon không đủ , bị giới hạn => đổi qdrant và neon => thay đổi pháp điển dùng qdrant và user docs dùng neon , Chuyển database vbpl sang digitalocean
+- [x] Do dùng miễn phí nên Neon không đủ, bị giới hạn => đổi qdrant và neon => thay đổi pháp điển dùng qdrant và user docs dùng neon, Chuyển database vbpl sang digitalocean
 - [x] phapdien trong step_download_zip có zip_check
 
 <!-- -->
