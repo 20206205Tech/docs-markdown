@@ -88,3 +88,6 @@ https://testcontainers.com
 
 
 ![alt text](image-3.png)
+GraphQL
+gRPC
+Pytest
