@@ -84,12 +84,6 @@
 
 
 
-## Sơ đồ RAG
-
-![alt text](pictures/rag-1.excalidraw.png)
-
-![alt text](pictures/rag-2.excalidraw.png)
-
 ## Sơ đồ Tổng quan chung về backend AI
 
 <!-- Backend và AI cùng chung 1 dự án, sau này có thể tách thành 1 backend hoặc microservices NestJS (dự kiến) -->
