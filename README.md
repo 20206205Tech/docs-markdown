@@ -1,7 +1,7 @@
-<!-- https://gemini.google.com/app/c575bb5ba219f505 -->
+https://20206205tech.github.io/docs-markdown
 
 uv run mkdocs serve
 
-<!-- https://20206205tech.github.io/docs-markdown -->
+<!-- https://gemini.google.com/app/c575bb5ba219f505 -->
 
 touch {3..6}.md
