@@ -1,9 +1,11 @@
 - [x] Tạo gói common: 20206205tech-nestjs-common
 <!-- =>Vé hình -->
+
 - [x] Thêm tracing với honeycomb
+
 - [x] Sử dụng docker, kubernetes, ...Tạo gitops với argocd
 - [x] Tạo vbplnew và vbplnew service
-
+<!-- dependabot -->
 <!-- Thêm âm thanh auto_play_audio=false, true -->
 
 <!-- Thêm pháp điển service -->
@@ -111,3 +113,4 @@ Tìm kiếm theo id, user, ....
 
 
 Key Kong API Gateway thì mới cho gọi request response result
+thiết lập Kong truyền thêm một Header bí mật (ví dụ: X-Gateway-Auth)
