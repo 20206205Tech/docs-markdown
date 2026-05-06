@@ -107,3 +107,7 @@ G:\My Drive\contents\New folder (2)\Sau báo cáo lần 1
 admin quản lý thanh toán và kích hoạt thủ công
 
 Tìm kiếm theo id, user, ....
+
+
+
+Key Kong API Gateway thì mới cho gọi request response result
