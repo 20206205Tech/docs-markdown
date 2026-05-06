@@ -15,7 +15,9 @@ DATA = [
         "vie": "Tạo tăng cường truy xuất",
     },
     {"abbr": "DDD", "eng": "Domain Driven Design", "vie": "Thiết kế hướng miền"},
+    {"abbr": "MSA", "eng": "Microservices Architecture", "vie": "Kiến trúc vi dịch vụ"},
 ]
+
 
 # <!-- NLP,Natural Language Processing,Xử lý ngôn ngữ tự nhiên -->
 
