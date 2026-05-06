@@ -12,7 +12,7 @@ Xây dựng ứng dụng hỗ trợ tư vấn pháp luật sử dụng công ngh
 
 Chuyên ngành: Toán tin
 
-Giảng viên hướng dẫn: Trần Anh Tú
+Giảng viên hướng dẫn: TS. Trần Anh Tú
 
 Sinh viên thực hiện: Vũ Văn Nghĩa
 
