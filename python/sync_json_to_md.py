@@ -1,6 +1,5 @@
 import os
 
-# Dữ liệu thuật ngữ
 DATA = [
     {"abbr": "AI", "eng": "Artificial Intelligence", "vie": "Trí tuệ nhân tạo"},
     {

@@ -54,3 +54,10 @@ repos:
         language: python
         files: \.mmd$
         additional_dependencies: ["requests"]
+
+      - id: delete-empty-markdown
+        name: Delete Empty Markdown Files
+        entry: python python/delete_empty_markdown_files.py
+        language: python
+        files: ^docs/.*\.md$
+        pass_filenames: false

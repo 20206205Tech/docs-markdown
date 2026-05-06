@@ -29,8 +29,12 @@ def delete_empty_markdown_files(directory):
 
 
 if __name__ == "__main__":
-    # Scan from the current directory
-    target_directory = "."
+    # Scan from the 'docs' directory for safety
+    target_directory = "docs"
+
+    if not os.path.exists(target_directory):
+        print(f"Directory not found: {target_directory}")
+        sys.exit(0)
 
     print(f"Scanning for empty markdown files in: {os.path.abspath(target_directory)}")
     delete_empty_markdown_files(target_directory)
