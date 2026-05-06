@@ -33,7 +33,7 @@
 
 <!-- -->
 
-gh repo delete --yes 20206205Tech/docs-2026_05_04
+gh repo delete --yes 20206205Tech/docs-2026_05_05
 
 <!-- -->
 
