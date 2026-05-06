@@ -5,8 +5,8 @@
 
 - [x] Sử dụng docker, kubernetes, ...Tạo gitops với argocd
 - [x] Tạo vbplnew và vbplnew service
-<!-- dependabot -->
-<!-- Thêm âm thanh auto_play_audio=false, true -->
+  <!-- dependabot -->
+  <!-- Thêm âm thanh auto_play_audio=false, true -->
 
 <!-- Thêm pháp điển service -->
 
@@ -74,7 +74,7 @@ Tôi có nên chỉnh lại BaseVersionAggregateRoot trong common không cần v
 
 Tôi thấy code-payment-service có 293 thay đổi trên github nhưng code-conversation-service chỉ có 192?
 
-<!-- hình tách microservices  -->
+<!-- hình tách microservice  -->
 
 Cộng dồn thanh toán
 
@@ -86,9 +86,7 @@ https://testcontainers.com
 
 ![alt text](image-1.png)
 
-
 ![alt text](image-2.png)
-
 
 ![alt text](image-3.png)
 GraphQL
@@ -100,37 +98,27 @@ Xử lý các định dạng file khác nhau => RAG
 Giao diện chương trình
 G:\My Drive\contents\New folder (2)\Sau báo cáo lần 1
 
-
-
 <!-- Sự phức tạp không chỉ nằm ở khối lượng dữ liệu, mà các văn bản có thể thay thế, bổ sung, hết hiệu lực, ... -->
-
-
 
 admin quản lý thanh toán và kích hoạt thủ công
 
 Tìm kiếm theo id, user, ....
 
-
-
 Key Kong API Gateway thì mới cho gọi request response result
 thiết lập Kong truyền thêm một Header bí mật (ví dụ: X-Gateway-Auth)
-
-
-
 
 BuG:
 
 Người dùng nhắc văn bản pháp luật thì mới check
 AI đã trả lời nhưng giao diện vừa trả lời vừa có suy nghĩ "Đang kiểm tra câu trả lời"??
 
-
 Chức năng TOTP do nội dung pháp luật cần bảo vệ
 
 KHi trả lời quá lâu thì vẫn bị lỗi=> Kong API Gateway
+
 <!-- Chức năng tìm kiếm văn bản -->
+
 Cố định loại cổng thanh tonas
-
-
 
 shared-chats
 shared-link

@@ -1,0 +1,47 @@
+graph TB
+    %% Định nghĩa màu sắc (Styles)
+    classDef client fill:#000,stroke:#fff,stroke-width:2px,color:#fff;
+    classDef gateway  fill:#3776ab,stroke:#fff,stroke-width:1px,color:#fff;
+    classDef nestjs fill:#e0234e,stroke:#fff,stroke-width:1px,color:#fff;
+    classDef python fill:#f96,stroke:#333,stroke-width:2px;
+    classDef database  fill:#3776ab,stroke:#fff,stroke-width:1px,color:#fff;
+
+    %% Nodes
+    Client["Next.js Client"]:::client
+
+    %% subgraph Gateway_Layer [API Gateway]
+        Kong["Kong API Gateway (Render)"]:::gateway
+    %% end
+
+    %% subgraph NestJS_Services [NestJS Ecosystem]
+        Payment["Payment Service"]:::nestjs
+        Conv["Conversation Service"]:::nestjs
+        Auth["Auth Service"]:::nestjs
+        Supa[("Supabase")]:::database
+        Auth --- Supa
+    %% end
+
+    %% subgraph Python_Services [Python Ecosystem]
+        Chatbot["Chatbot (LangGraph)"]:::python
+        Doc["Document (Docling)"]:::python
+    %% end
+
+    %% subgraph Other_Services [Others]
+        Setting["Setting Service"]:::nestjs
+        Neon[("Neon API")]:::database
+        Setting --- Neon
+    %% end
+
+    %% Connections
+    Client --> Kong
+
+    Kong --> Auth
+    Kong --> Setting
+    Kong --> Payment
+    Kong --> Conv
+    Kong --> Chatbot
+    Kong --> Doc
+
+    %% Logic Flow
+    Conv <--> Chatbot
+    Chatbot --> Doc
