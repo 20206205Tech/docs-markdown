@@ -42,12 +42,12 @@ DATA = [
         "vie": "Định danh tài nguyên Internet",
     },
     {"abbr": "CLI", "eng": "Command Line Interface", "vie": "Giao diện dòng lệnh"},
-    {"abbr": "CSDL", "eng": "Cơ sở dữ liệu", "vie": "Cơ sở dữ liệu"},
     {
         "abbr": "NLP",
         "eng": "Natural Language Processing",
         "vie": "Xử lý ngôn ngữ tự nhiên",
     },
+    {"abbr": "CSDL", "eng": "Cơ sở dữ liệu", "vie": "Cơ sở dữ liệu"},
 ]
 
 
