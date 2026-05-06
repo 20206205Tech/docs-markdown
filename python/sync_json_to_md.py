@@ -16,12 +16,38 @@ DATA = [
     },
     {"abbr": "DDD", "eng": "Domain Driven Design", "vie": "Thiết kế hướng miền"},
     {"abbr": "MSA", "eng": "Microservices Architecture", "vie": "Kiến trúc vi dịch vụ"},
+    {
+        "abbr": "SQL",
+        "eng": "Structured Query Language",
+        "vie": "Ngôn ngữ truy vấn cấu trúc",
+    },
+    {
+        "abbr": "JWT",
+        "eng": "JSON Web Token",
+        "vie": "Một tiêu chuẩn dùng để truyền tải thông tin dưới dạng JSON",
+    },
+    {
+        "abbr": "JSON",
+        "eng": "JavaScript Object Notation",
+        "vie": "Ký hiệu đối tượng JavaScript",
+    },
+    {
+        "abbr": "OOP",
+        "eng": "Object-Oriented Programming",
+        "vie": "Lập trình hướng đối tượng",
+    },
+    {
+        "abbr": "URL",
+        "eng": "Uniform Resource Locator",
+        "vie": "Định danh tài nguyên Internet",
+    },
+    {"abbr": "CLI", "eng": "Command Line Interface", "vie": "Giao diện dòng lệnh"},
+    {"abbr": "CSDL", "eng": "Cơ sở dữ liệu", "vie": "Cơ sở dữ liệu"},
 ]
 
-# CSDL
+#
 # <!-- NLP,Natural Language Processing,Xử lý ngôn ngữ tự nhiên -->
 
-# <!-- JSON,JavaScript Object Notation,Ký hiệu đối tượng JavaScript -->
 
 # <!-- UML -->
 
@@ -35,14 +61,14 @@ DATA = [
 
 def generate_markdown():
     # Path relative to the root of the repository
-    md_path = os.path.join("docs", "0", "1.md")
+    md_path = os.path.join("docs", "0", "9.md")
 
     # Sắp xếp theo Từ viết tắt (A-Z)
     sorted_data = sorted(DATA, key=lambda x: x["abbr"])
 
     # Tạo nội dung Markdown
     md_content = "# Danh sách viết tắt\n\n"
-    md_content += "| Từ viết tắt | Tên tiếng Anh | Nghĩa tiếng Việt |\n"
+    md_content += "| Từ viết tắt | Từ viết đầy đủ | Mô tả |\n"
     md_content += "| --- | --- | --- |\n"
 
     for item in sorted_data:
