@@ -18,7 +18,7 @@ DATA = [
     {"abbr": "MSA", "eng": "Microservices Architecture", "vie": "Kiến trúc vi dịch vụ"},
 ]
 
-
+# CSDL
 # <!-- NLP,Natural Language Processing,Xử lý ngôn ngữ tự nhiên -->
 
 # <!-- JSON,JavaScript Object Notation,Ký hiệu đối tượng JavaScript -->
