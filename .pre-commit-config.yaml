@@ -61,3 +61,10 @@ repos:
         language: python
         files: ^docs/.*\.md$
         pass_filenames: false
+
+      - id: plantuml-to-png
+        name: Convert PlantUML to PNG
+        entry: python python/plantuml_to_png.py
+        language: python
+        files: \.puml$
+        additional_dependencies: ["plantuml", "requests", "six"]
