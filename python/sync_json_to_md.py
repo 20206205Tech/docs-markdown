@@ -26,6 +26,13 @@ DATA = [
 # <!-- UML -->
 
 
+# CQRS (Command Query Responsibility Segregation)
+
+# là mẫu thiết kế tách biệt mô hình dữ liệu cho các thao tác đọc (Query) và ghi (Command). Việc tách biệt này giúp tối ưu hóa hiệu suất, tăng khả năng mở rộng (scalability), bảo mật tốt hơn và quản lý độ phức tạp trong các hệ thống lớn
+
+# <!-- CQRS là viết tắt của Command and Query Responsibility Segregation -->
+
+
 def generate_markdown():
     # Path relative to the root of the repository
     md_path = os.path.join("docs", "0", "1.md")

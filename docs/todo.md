@@ -100,4 +100,10 @@ G:\My Drive\contents\New folder (2)\Sau báo cáo lần 1
 
 
 
-Sự phức tạp không chỉ nằm ở khối lượng dữ liệu, mà các văn bản có thể thay thế, bổ sung, hết hiệu lực, ...
+<!-- Sự phức tạp không chỉ nằm ở khối lượng dữ liệu, mà các văn bản có thể thay thế, bổ sung, hết hiệu lực, ... -->
+
+
+
+admin quản lý thanh toán và kích hoạt thủ công
+
+Tìm kiếm theo id, user, ....
