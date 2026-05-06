@@ -1,0 +1,97 @@
+flowchart LR
+    %% Định nghĩa Actors
+    User(["👤 Người dùng"])
+    Admin(["🛠️ Quản trị viên (Admin)"])
+
+    %% --- Dịch vụ XÁC THỰC ---
+    subgraph Auth["Xác thực (Auth Service - Supabase)"]
+        A1([Đăng nhập Google])
+        A2([Xem thông tin cá nhân])
+        A3([Cập nhật tên])
+        A4([Cập nhật ảnh avatar])
+        A5([Xác thực 2FA bằng TOTP])
+    end
+
+    %% --- Dịch vụ TRÒ CHUYỆN ---
+    subgraph Conversation["Trò chuyện (Conversation Service)"]
+        C1([Sử dụng câu hỏi gợi ý])
+        C2([Nhập văn bản text])
+        C3([Nhập văn bản micro])
+        C4([Chia sẻ cuộc trò chuyện])
+        C5([Lưu vào thư mục/ghi chú])
+        C6([Sử dụng chức năng Voice])
+    end
+
+    %% --- Dịch vụ CHATBOT ---
+    subgraph Chatbot["Chatbot (Chatbot Service)"]
+        CB1([Tương tác với Conversation])
+        CB2([Lấy lịch sử trò chuyện])
+        CB3([Lấy chi tiết trò chuyện])
+    end
+
+    %% --- Dịch vụ VĂN BẢN ---
+    subgraph Document["Văn bản (Document Service)"]
+        D1([Tải lên file tài liệu])
+        D2([Xem trạng thái văn bản])
+    end
+
+    %% --- Dịch vụ NHÂN VẬT ---
+    subgraph Persona["Nhân vật (Persona Service)"]
+        P1([Chọn nhân vật trò chuyện])
+        P2([CRUD nhân vật])
+    end
+
+    %% --- Dịch vụ CÀI ĐẶT ---
+    subgraph Setting["Cài đặt (Setting Service)"]
+        S1([Bật/tắt Dark mode])
+        S2([Bật/tắt câu hỏi gợi ý])
+        S3([Bật/tắt tự động gửi văn bản])
+        S4([Bật/tắt tự động phát âm thanh])
+    end
+
+    %% --- Dịch vụ THANH TOÁN ---
+    subgraph Payment["Thanh toán (Payment Service)"]
+        Pay1([Xem các gói và mức giá])
+        Pay2([Mua gói])
+        Pay3([Lưu lịch sử giao dịch])
+        Pay4([Quản lý các gói/mức giá])
+    end
+
+    %% --- Dịch vụ ADMIN DASHBOARD ---
+    subgraph AdminDash["Dashboard Admin"]
+        AD1([Quản lý data-pipeline-vbplnew])
+        AD2([Quản lý data-pipeline-phapdien])
+    end
+
+    %% ==========================================
+    %% KẾT NỐI ACTORS VỚI USE CASES
+    %% ==========================================
+
+    %% User Connections
+    User --> A1 & A2 & A3 & A4 & A5
+    User --> C1 & C2 & C3 & C4 & C5 & C6
+    User --> D1 & D2
+    User --> P1
+    User --> S1 & S2 & S3 & S4
+    User --> Pay1 & Pay2
+
+    %% Admin Connections
+    Admin --> P2
+    Admin --> Pay4
+    Admin --> AD1 & AD2
+
+    %% ==========================================
+    %% KẾT NỐI GIỮA CÁC SERVICES (Tương tác hệ thống)
+    %% ==========================================
+
+    %% Chatbot giao tiếp với Conversation
+    Conversation -. "Giao tiếp" .-> CB1
+    CB2 -. "Truy xuất" .-> Conversation
+    CB3 -. "Truy xuất" .-> Conversation
+
+    %% System lưu lịch sử giao dịch sau khi mua
+    Pay2 -. "Tự động kích hoạt" .-> Pay3
+
+    %% Áp dụng style để làm nổi bật Actor
+    classDef actorStyle fill:#2d3436,stroke:#00b894,stroke-width:3px,color:#fff;
+    class User,Admin actorStyle;
