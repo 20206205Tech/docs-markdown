@@ -2,7 +2,7 @@
 
 KHOA TOÁN TIN
 
-![alt text](pictures/LogoHust.png)
+![alt text](LogoHust.png)
 
 BÁO CÁO
 
