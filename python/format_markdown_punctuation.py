@@ -30,6 +30,10 @@ def format_punctuation(content):
             parts[i] = re.sub(r"(https?|ftp)\s*:\s*//", r"\1://", parts[i])
             parts[i] = re.sub(r"([a-zA-Z])\s*:\s*\\", r"\1:\\", parts[i])
 
+            # 3. Terminology replacement
+            parts[i] = parts[i].replace("hội thoại", "trò chuyện")
+            parts[i] = parts[i].replace("HỘI THOẠI", "TRÒ CHUYỆN")
+
     return "".join(parts)
 
 

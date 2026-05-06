@@ -22,7 +22,7 @@
 
 <!-- Phân trang cho tất cả -->
 
-<!-- Tải xuống file pdf hội thoại??? -->
+<!-- Tải xuống file pdf trò chuyện??? -->
 <!-- - [ ] Chức năng Tra cứu???? -->
 <!-- Chức năng Dashboard của ADMIN??? -->
 
