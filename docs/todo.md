@@ -114,3 +114,25 @@ Tìm kiếm theo id, user, ....
 
 Key Kong API Gateway thì mới cho gọi request response result
 thiết lập Kong truyền thêm một Header bí mật (ví dụ: X-Gateway-Auth)
+
+
+
+
+BuG:
+
+Người dùng nhắc văn bản pháp luật thì mới check
+AI đã trả lời nhưng giao diện vừa trả lời vừa có suy nghĩ "Đang kiểm tra câu trả lời"??
+
+
+Chức năng TOTP do nội dung pháp luật cần bảo vệ
+
+KHi trả lời quá lâu thì vẫn bị lỗi=> Kong API Gateway
+<!-- Chức năng tìm kiếm văn bản -->
+Cố định loại cổng thanh tonas
+
+
+
+shared-chats
+shared-link
+Chỉnh thành
+share
