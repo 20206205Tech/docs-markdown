@@ -138,3 +138,10 @@ share
 
 <!-- code-persona-service -->
 Chạy được lại ổn định đã
+
+Xử lý cảnh báo Redis BullMQ
+<!-- chỉnh Redis thành noeviction -->
+IMPORTANT! Eviction policy is volatile-lru. It should be "noeviction"
+<!-- Nguồn Văn bản tiếng anh -->
+
+[text](../../../code-payment-service/docs/README.md)
