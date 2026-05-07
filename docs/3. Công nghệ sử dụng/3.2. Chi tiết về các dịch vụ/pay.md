@@ -1,4 +1,4 @@
-
+pay
 # Thông tin subscription-service (Dịch vụ thanh toán của người dùng)
 
 <!-- 6: Đang thiếu phần hóa đơn (Để sau) -->
