@@ -5,26 +5,25 @@ flowchart TD
 
     Client <-->|"HTTPS / WebSocket"| Gateway
 
-    %% Nhóm Authentication & CI/CD
-    subgraph Global [Hạ tầng Toàn cục]
-        JWKS(("Supabase JWKS\n(Xác thực Token chung cho mọi Service)"))
-        CICD[["GitHub Actions (Tự động hóa CI/CD)"]]
-    end
 
     %% Nhóm Database & Storage
     subgraph Databases [Databases & Storage]
         SupabaseDB[("Supabase\n(Profiles, Bucket Avatars)")]
-        NeonDB[("Neon Postgres\n(Settings, Pháp điển Vector)")]
+        NeonDB_Setting[("Neon Postgres\n(Settings - DB độc lập)")]
         Pinecone[("Pinecone\n(VBPL Vector)")]
         Qdrant[("Qdrant\n(User Doc Vector)")]
+        NeonDB_Phapdien[("Neon Postgres\n(Pháp điển Vector)")]
         R2[("Cloudflare R2\n(Lưu File Raw)")]
+
+        %% Dùng liên kết vô hình để ép thứ tự từ trái sang phải
+        R2 ~~~ Qdrant ~~~ Pinecone ~~~ NeonDB_Phapdien
     end
 
+
+
     %% Nhóm Message Broker & Cache
-    subgraph Infra [Event Bus & Cache]
         Kafka[["Kafka Broker\n(Events: payment_success, delete_chat)"]]
-        Redis[("Redis Cache\n(Cache Persona, Rate Limit...)")]
-    end
+        Redis[("Redis & BullMQ\n(Rate Limit, Hủy thanh toán)")]
 
     %% Nhóm Core Services (Vùng Cốt lõi)
     subgraph CoreDomain [Vùng Cốt lõi - Core Domain]
@@ -35,7 +34,6 @@ flowchart TD
     %% Nhóm Supporting Services (Vùng Hỗ trợ)
     subgraph SupportDomain [Vùng Hỗ trợ - Supporting]
         DocService["Document Service\n(Chỉ VIP: Xử lý file, Docling, RAG)"]
-        PersonaService["Persona Service\n(LiveKit - Bỏ qua xử lý văn bản luật)"]
     end
 
     %% Nhóm Generic Services (Vùng Chung)
@@ -46,7 +44,7 @@ flowchart TD
     end
 
     %% External Systems
-    LLM(("External LLMs\n(OpenAI / Gemini)"))
+    LLM(("LLM"))
     Payment(("Cổng Thanh Toán\n(VNPay, Momo, Zalo - DDD Interface)"))
 
     %% --- ĐỊNH NGHĨA LUỒNG GIAO TIẾP ---
@@ -57,17 +55,15 @@ flowchart TD
     Gateway -->|"Mua gói, Hủy gói"| SubService
     Gateway -->|"Upload File (VIP)"| DocService
     Gateway <-->|"Nhận Request / Gửi response"| ConvService
-    Gateway <-->|"Chọn nhân vật (LiveKit RTC)"| PersonaService
 
     %% Service to Database/Storage
     UserService <-->|"Đọc/Ghi/Upload"| SupabaseDB
-    SettingService <-->|"RESTful API"| NeonDB
-    PersonaService <-->|"Lấy Avatar"| SupabaseDB
-    PersonaService <-->|"Get Data Nhanh"| Redis
+    SettingService <-->|"RESTful API"| NeonDB_Setting
 
     %% Payment Luồng
     SubService <-->|"Xử lý giao dịch"| Payment
     SubService -->|"Bắn Event: payment_success"| Kafka
+    SubService <-->|"Lên lịch tác vụ (BullMQ)"| Redis
 
     %% Document Processing Luồng
     DocService -->|"Lưu file vật lý"| R2
@@ -78,21 +74,28 @@ flowchart TD
     ConvService -->|"Bắn Event: Xóa Chat"| Kafka
 
     ChatbotService <-->|"Truy vấn VBPL"| Pinecone
-    ChatbotService <-->|"Truy vấn Pháp điển"| NeonDB
+    ChatbotService <-->|"Truy vấn Pháp điển"| NeonDB_Phapdien
     ChatbotService <-->|"Truy vấn File VIP"| Qdrant
     ChatbotService <-->|"Suy luận Agentic AI"| LLM
 
-    %% Style Định dạng màu sắc
+    %% --- LUỒNG CONSUMER NHẬN EVENT TỪ KAFKA ---
+    Kafka -.->|"Lắng nghe: payment_success\n(Mở khóa VIP tải file)"| DocService
+    Kafka -.->|"Lắng nghe: delete_chat\n(Xóa lịch sử AI context)"| ChatbotService
+
+    %% Style Định dạng màu sắc chung
     classDef core fill:#e1f5fe,stroke:#03a9f4,stroke-width:2px,color:#000
     classDef support fill:#f3e5f5,stroke:#9c27b0,stroke-width:2px,color:#000
     classDef generic fill:#fff3e0,stroke:#ff9800,stroke-width:2px,color:#000
-    classDef infra fill:#eceff1,stroke:#607d8b,stroke-width:2px,color:#000
     classDef db fill:#e8f5e9,stroke:#4caf50,stroke-width:2px,color:#000
-    classDef globalDef fill:#fbe9e7,stroke:#ff5722,stroke-width:2px,stroke-dasharray: 5 5,color:#000
 
     class ConvService,ChatbotService core
-    class DocService,PersonaService support
+    class DocService support
     class UserService,SettingService,SubService generic
-    class Redis,Kafka infra
-    class SupabaseDB,NeonDB,Pinecone,Qdrant,R2 db
-    class JWKS,CICD globalDef
+    class SupabaseDB,NeonDB_Setting,NeonDB_Phapdien,Pinecone,Qdrant,R2 db
+
+    %% --- TÔ MÀU ĐỘC LẬP THEO YÊU CẦU ---
+    style Redis fill:#ffebee,stroke:#d32f2f,stroke-width:2px,color:#c62828
+    style Kafka fill:#ffe0b2,stroke:#f57c00,stroke-width:2px,color:#e65100
+    style Payment fill:#fffde7,stroke:#fbc02d,stroke-width:2px,color:#000
+    style Client fill:#e3f2fd,stroke:#1e88e5,stroke-width:2px,color:#000
+    style LLM fill:#f3e5f5,stroke:#8e24aa,stroke-width:2px,color:#000
