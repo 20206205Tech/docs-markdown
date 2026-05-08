@@ -161,6 +161,7 @@ shared-chats, shared-link, Chỉnh thành share
 
 <!-- Do doc đơn giản nên dùng langfuse -->
 
+<!-- bullMQ đã có và Celery sau -->
 <!-- gRPC làm xong thì mới thư viện =>  -->
 <!-- code-persona-service -->
 <!-- Nguồn Văn bản tiếng anh -->
