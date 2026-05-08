@@ -149,6 +149,18 @@ shared-chats, shared-link, Chỉnh thành share
 
 ![alt text](image-5.png)
 
+
+
+
+
+<!-- use_reasoning -->
+
+
+<!-- demo-payment-ddd + heroku + swagger + demo -->
+
+
+<!-- Do doc đơn giản nên dùng langfuse -->
+
 <!-- gRPC làm xong thì mới thư viện =>  -->
 <!-- code-persona-service -->
 <!-- Nguồn Văn bản tiếng anh -->
