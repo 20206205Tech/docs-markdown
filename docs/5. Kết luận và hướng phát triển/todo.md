@@ -118,31 +118,29 @@ KHi trả lời quá lâu thì vẫn bị lỗi=> Kong API Gateway
 
 <!-- Chức năng tìm kiếm văn bản -->
 
-Cố định loại cổng thanh tonas
 
-shared-chats
-shared-link
-Chỉnh thành
-share
+<!-- Cố định loại cổng thanh toán -->
+
+shared-chats, shared-link, Chỉnh thành share
 
 
 
-<!--  -->
+
 
 
 
 <!-- Xoay vòng các url: 20206205.work.gd, toeic.work.gd, hust.work.gd   -->
 
+
+
 <!-- admin ít truy vấn, ổn định url cố định => vercel-->
 
 
-<!-- code-persona-service -->
-Chạy được lại ổn định đã
 
-Xử lý cảnh báo Redis BullMQ
+<!-- Xử lý cảnh báo Redis BullMQ -->
 <!-- chỉnh Redis thành noeviction -->
-IMPORTANT! Eviction policy is volatile-lru. It should be "noeviction"
-<!-- Nguồn Văn bản tiếng anh -->
+<!-- IMPORTANT! Eviction policy is volatile-lru. It should be "noeviction" -->
+
 
 [text](../../../code-payment-service/docs/README.md)
 
@@ -150,3 +148,7 @@ IMPORTANT! Eviction policy is volatile-lru. It should be "noeviction"
 ![alt text](image-4.png)
 
 ![alt text](image-5.png)
+
+<!-- gRPC làm xong thì mới thư viện =>  -->
+<!-- code-persona-service -->
+<!-- Nguồn Văn bản tiếng anh -->
