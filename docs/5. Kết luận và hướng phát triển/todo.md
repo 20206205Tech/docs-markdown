@@ -159,9 +159,30 @@ shared-chats, shared-link, Chỉnh thành share
 <!-- demo-payment-ddd + heroku + swagger + demo -->
 
 
+
 <!-- Do doc đơn giản nên dùng langfuse -->
+
+
+
+
+
+
+
+<!-- Sự kiện phải được đánh phiên bản là số thứ tự -->
+
+Câu bắt đầu
+
+zilliz=> Milvus
 
 <!-- bullMQ đã có và Celery sau -->
 <!-- gRPC làm xong thì mới thư viện =>  -->
 <!-- code-persona-service -->
 <!-- Nguồn Văn bản tiếng anh -->
+<!-- csrf -->
+<!-- CORS  -->
+
+
+
+<!-- Không có chức năng giảm giá -->
+<!-- Không có chức năng hủy gói -->
+<!-- Không có chức năng tự động gia hạn vì phụ thuộc cổng thanh toán -->
