@@ -172,3 +172,8 @@ Vẽ cả RAG langchain-text-splitters tương tư Data pipeline
 
 
 Ấn new chat nhưng vẫn hiện file của chat cũ???
+Khi ấn nút new chat phải gọi api /start?
+
+
+
+
