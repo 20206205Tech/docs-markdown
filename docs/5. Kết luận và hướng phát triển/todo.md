@@ -60,9 +60,12 @@ https://testcontainers.com
 
 - [x] Xoay vòng các url: 20206205.work.gd, toeic.work.gd, hust.work.gd
 
-- [x] doc service xử lý FILE dùng database Milvus
 
 - [x] Xử lý cảnh báo Redis BullMQ (IMPORTANT! Eviction policy is volatile-lru. It should be "noeviction") => chỉnh Redis thành noeviction và xóa task bằng code
+
+<!-- - [x] bullMQ thì đã có và Celery  -->
+<!-- đồng thời thêm cơ chế kích hoạt Retry (thử lại) khi có lỗi xảy ra. -->
+<!-- Không dùng background task nữa. Sử dụng Celery với REDIS_URL = env.str("REDIS_URL") để độc lập và scale hệ thống dễ dàng mở rộng -->
 
 - [x] Xem kỹ lại các cổng thanh toán
 - [x] Quay lại Màn giao diện thanh toán thành công
@@ -83,6 +86,7 @@ https://testcontainers.com
 
 <!-- Nếu thông báo gửi 2 lần thì hệ thống có cơ chế xử lý không??? Hoặc Nếu Hacker Gửi thanh toán? -->
 
+- [x] doc-service xử lý FILE dùng database Milvus
 # ==========================================
 
 <!-- QUEUE: RABBITMQ_URL: chat_deletions, Chưa có phân biệt dev prod -->
@@ -93,13 +97,17 @@ https://testcontainers.com
 
 <!-- Thêm phần nếu Queue bị lỗi => cần xử lý lại -->
 
+
+Chụp ảnh database vector
+Chụp 2 loại database
+
+<!-- Vẽ cả LangSmith và  Langfuse trong AI -->
 # ==========================================
 
-- [ ] bullMQ thì đã có và Celery sau
 - [ ] gRPC làm xong thì mới thành thư viện
-      Thiết lập Kong truyền thêm một Header bí mật (ví dụ: X-Gateway-Auth) thì mới cho gọi request
+- [ ]        Thiết lập Kong truyền thêm một Header bí mật (ví dụ: X-Gateway-Auth) thì mới cho gọi request
+- [ ] Chức năng TOTP do nội dung pháp luật cần bảo vệ (TOTP làm xong thì mới thêm vì thêm bước) https://gemini.google.com/app/a33cd53e27c33d50
 
-- [ ] Chức năng TOTP do nội dung pháp luật cần bảo vệ (TOTP làm xong thì mới thêm vì thêm bước)
 
 - [ ] code-persona-service
 - [ ] Nguồn Văn bản tiếng anh, (Sự phức tạp không chỉ nằm ở khối lượng dữ liệu, mà các văn bản có thể thay thế, bổ sung, hết hiệu lực, ...)
@@ -140,3 +148,10 @@ Chức năng voice và **Persona** Service
 <!-- doc Dùng cả markdown và docling -->
 
 <!-- - [ ] Thay thế 2 space INPUT của người dùng Và Đếm text để giới hạn INPUT (VIP) + check api (=> lắng nghe event) -->
+
+<!-- from fastapi import BackgroundTasks tạo topic và lập lịch tóm tắt lịch sử -->
+
+<!-- Giao diện Flower Celery và BullMQ admin -->
+
+Gói auth  python , nestjs vì auth service supabse => tiện, không lặp code
+
