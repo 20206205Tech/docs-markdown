@@ -171,4 +171,4 @@ Vẽ cả RAG langchain-text-splitters tương tư Data pipeline
 <!-- Tải lên file thì giao diện chờ lâu mới hiển thị đang tải lên -->
 
 
-Ấn new chat nhưng vẫn hiện file chat cũ???
+Ấn new chat nhưng vẫn hiện file của chat cũ???
