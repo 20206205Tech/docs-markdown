@@ -172,7 +172,8 @@ shared-chats, shared-link, Chỉnh thành share
 
 Câu bắt đầu
 
-zilliz=> Milvus
+<!-- zilliz=> Milvus -->
+doc dùng Milvus
 
 <!-- bullMQ đã có và Celery sau -->
 <!-- gRPC làm xong thì mới thư viện =>  -->
