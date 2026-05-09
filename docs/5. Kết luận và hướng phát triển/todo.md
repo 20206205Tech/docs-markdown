@@ -162,3 +162,13 @@ Gói auth  python , nestjs vì auth service supabse => tiện, không lặp code
 Khi chia doc service  => doc nhẹ GET thoải mái và doc không cần AI nữa
 Vẽ cả RAG langchain-text-splitters tương tư Data pipeline 
 
+
+
+
+
+<!-- Nếu tải lên file bị lỗi thì gọi api thử lại (retry) -->
+
+Tải lên file thì giao diện chờ lâu mới hiển thị đang tải lên
+
+
+Ấn new chat nhưng vẫn hiện file chat cũ???
