@@ -153,14 +153,14 @@ Chức năng voice và **Persona** Service
 
 <!-- Giao diện Flower Celery và BullMQ admin -->
 
-Gói auth  python , nestjs vì auth service supabse => tiện, không lặp code
+Gói auth  python, nestjs vì auth service supabse => tiện, không lặp code
 
 <!-- vietnamese-sbert -->
 
 
 
 Khi chia doc service  => doc nhẹ GET thoải mái và doc không cần AI nữa
-Vẽ cả RAG langchain-text-splitters tương tư Data pipeline 
+Vẽ cả RAG langchain-text-splitters tương tư Data pipeline
 
 
 
@@ -177,3 +177,9 @@ Khi ấn nút new chat phải gọi api /start?
 
 
 
+<!-- Bộ ngắt mạch -->
+
+
+
+
+Không thể retry tài liệu đang ở trạng thái:   PROCESSING, COMPLETED
