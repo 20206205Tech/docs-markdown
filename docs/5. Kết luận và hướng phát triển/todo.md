@@ -24,6 +24,10 @@
 
 ![alt text](image-3.png)
 
+<!-- ![alt text](image-6.png) -->
+
+![alt text](image-6.png)
+
 https://testcontainers.com
 
 # ==========================================
@@ -60,7 +64,6 @@ https://testcontainers.com
 
 - [x] Xoay vòng các url: 20206205.work.gd, toeic.work.gd, hust.work.gd
 
-
 - [x] Xử lý cảnh báo Redis BullMQ (IMPORTANT! Eviction policy is volatile-lru. It should be "noeviction") => chỉnh Redis thành noeviction và xóa task bằng code
 
 <!-- - [x] bullMQ thì đã có và Celery  -->
@@ -87,6 +90,7 @@ https://testcontainers.com
 <!-- Nếu thông báo gửi 2 lần thì hệ thống có cơ chế xử lý không??? Hoặc Nếu Hacker Gửi thanh toán? -->
 
 - [x] doc-service xử lý FILE dùng database Milvus
+
 # ==========================================
 
 <!-- QUEUE: RABBITMQ_URL: chat_deletions, Chưa có phân biệt dev prod -->
@@ -97,17 +101,16 @@ https://testcontainers.com
 
 <!-- Thêm phần nếu Queue bị lỗi => cần xử lý lại -->
 
-
 Chụp ảnh database vector
 Chụp 2 loại database
 
 <!-- Vẽ cả LangSmith và  Langfuse trong AI -->
+
 # ==========================================
 
 - [ ] gRPC làm xong thì mới thành thư viện
 - [ ]        Thiết lập Kong truyền thêm một Header bí mật (ví dụ: X-Gateway-Auth) thì mới cho gọi request
 - [ ] Chức năng TOTP do nội dung pháp luật cần bảo vệ (TOTP làm xong thì mới thêm vì thêm bước) https://gemini.google.com/app/a33cd53e27c33d50
-
 
 - [ ] code-persona-service
 - [ ] Nguồn Văn bản tiếng anh, (Sự phức tạp không chỉ nằm ở khối lượng dữ liệu, mà các văn bản có thể thay thế, bổ sung, hết hiệu lực, ...)
@@ -153,33 +156,22 @@ Chức năng voice và **Persona** Service
 
 <!-- Giao diện Flower Celery và BullMQ admin -->
 
-Gói auth  python, nestjs vì auth service supabse => tiện, không lặp code
+Gói auth python, nestjs vì auth service supabse => tiện, không lặp code
 
 <!-- vietnamese-sbert -->
 
-
-
-Khi chia doc service  => doc nhẹ GET thoải mái và doc không cần AI nữa
+Khi chia doc service => doc nhẹ GET thoải mái và doc không cần AI nữa
 Vẽ cả RAG langchain-text-splitters tương tư Data pipeline
-
-
-
-
 
 <!-- Nếu tải lên file bị lỗi thì gọi api thử lại (retry) -->
 
 <!-- Tải lên file thì giao diện chờ lâu mới hiển thị đang tải lên -->
 
-
 Ấn new chat nhưng vẫn hiện file của chat cũ???
 Khi ấn nút new chat phải gọi api /start?
 
-
-
-
 <!-- Bộ ngắt mạch -->
 
+Không thể retry tài liệu đang ở trạng thái: PROCESSING, COMPLETED
 
-
-
-Không thể retry tài liệu đang ở trạng thái:   PROCESSING, COMPLETED
+@20206205tech/nestjs-auth Mục đích là chia tách nhỏ phần auth ra gói riêng. Gói auth hỗ trợ các service khác auth, tái sử dụng. chỉ cần tập trung logic. Dễ thay đổi
