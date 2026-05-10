@@ -175,3 +175,7 @@ Khi ấn nút new chat phải gọi api /start?
 Không thể retry tài liệu đang ở trạng thái: PROCESSING, COMPLETED
 
 @20206205tech/nestjs-auth Mục đích là chia tách nhỏ phần auth ra gói riêng. Gói auth hỗ trợ các service khác auth, tái sử dụng. chỉ cần tập trung logic. Dễ thay đổi
+
+
+
+<!-- Lắng nghe sự kiện thanh toán => voice -->
