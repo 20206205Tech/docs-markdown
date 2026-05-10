@@ -178,4 +178,4 @@ Không thể retry tài liệu đang ở trạng thái: PROCESSING, COMPLETED
 
 
 
-<!-- Lắng nghe sự kiện thanh toán => voice -->
+<!-- Lắng nghe sự kiện thanh toán => voice, suy luận -->
