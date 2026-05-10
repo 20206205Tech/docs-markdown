@@ -179,3 +179,4 @@ Không thể retry tài liệu đang ở trạng thái: PROCESSING, COMPLETED
 
 
 <!-- Lắng nghe sự kiện thanh toán => voice, suy luận -->
+<!-- Pesona không cần nghe event vì livekit phải có thêm api key , người dùng không biết để kết nối -->
