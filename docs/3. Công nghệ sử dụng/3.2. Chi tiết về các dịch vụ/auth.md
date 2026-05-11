@@ -1,4 +1,3 @@
-
 # Thông tin user-service (Dịch vụ người dùng)
 
 Mục đích: xác thực & quản lý hồ sơ người dùng (supabase)
@@ -11,7 +10,7 @@ Do mỗi lần user đăng nhập lại, Supabase/Google sẽ ghi đè lại th�
 
 ### REQUEST:
 
-https://[PROJECT_REF].supabase.co/auth/v1/authorize?provider=google
+https://[PROJECT_REF].supabase.co/auth/v1/authorize?provider=google&redirect_to=https://20206205tech.github.io/auth-callback
 
 ### RESPONSE:
 
