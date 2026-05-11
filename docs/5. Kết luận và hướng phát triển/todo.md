@@ -182,3 +182,6 @@ Không thể retry tài liệu đang ở trạng thái: PROCESSING, COMPLETED
 <!-- Pesona không cần nghe event vì livekit phải có thêm api key, người dùng không biết để kết nối -->
 
 
+
+
+<!-- HUST => không google  -->
