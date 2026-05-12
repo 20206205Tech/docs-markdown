@@ -188,3 +188,7 @@ Không thể retry tài liệu đang ở trạng thái: PROCESSING, COMPLETED
 
 
 <!-- Chụp ảnh mail -->
+
+
+Chụp ảnh reids
+
