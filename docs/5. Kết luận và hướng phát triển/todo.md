@@ -192,3 +192,11 @@ Không thể retry tài liệu đang ở trạng thái: PROCESSING, COMPLETED
 
 Chụp ảnh reids
 
+
+
+
+Nhiều giấy tờ văn bản khó tiếp cận
+
+
+ngừi già cần voice
+
