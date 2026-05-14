@@ -28,6 +28,10 @@
 
 ![alt text](image-6.png)
 
+
+
+![alt text](image-7.png)
+
 https://testcontainers.com
 
 # ==========================================
@@ -198,5 +202,12 @@ Chụp ảnh reids
 Nhiều giấy tờ văn bản khó tiếp cận
 
 
-ngừi già cần voice
+người già cần voice
+người trẻ cần voice
+
+
+demo mail
+
+
+
 
