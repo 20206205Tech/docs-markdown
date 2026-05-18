@@ -225,3 +225,8 @@ demo mail
 
 
 
+
+
+<!-- sử dụng thuật toán LRU (Least Recently Used) -->
+
+ 
