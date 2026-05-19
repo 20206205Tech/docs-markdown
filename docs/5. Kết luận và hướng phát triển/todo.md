@@ -1,12 +1,10 @@
 Hỏi file => không hiểu => phải cho ai hiểu metadata, STATE => thêm tool
 
-<!-- Do cần thời gian phản hồi nhanh cả gRPC và voice: tôi muốn chủ đề topic = null. Sau đó sẽ được xử lý sau? -->
+Do cần thời gian phản hồi nhanh cả gRPC và voice: tôi muốn chủ đề topic = null. Sau đó sẽ được xử lý sau?
 
-<!-- Tương tự tôi nghĩ cần bỏ summarize_history và sẽ chạy việc đó sau -->
+Tương tự tôi nghĩ cần bỏ summarize_history và sẽ chạy việc đó sau
 
 <!-- cd ~/Documents/GitHub/docs-markdown && code . -->
-
-<!--  -->
 
 <!-- Nguoonf khi voice -->
 <!-- Chỉnh lại chia sẻ -->
