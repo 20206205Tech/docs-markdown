@@ -180,53 +180,40 @@ Không thể retry tài liệu đang ở trạng thái: PROCESSING, COMPLETED
 
 <!-- @20206205tech/nestjs-auth => Mục đích là chia tách nhỏ phần auth ra gói riêng. Gói auth hỗ trợ các service khác auth, tái sử dụng. chỉ cần tập trung logic. Dễ thay đổi -->
 
-
-
 <!-- Lắng nghe sự kiện thanh toán => voice, suy luận -->
 <!-- Pesona không cần nghe event vì livekit phải có thêm api key, người dùng không biết để kết nối -->
 
-
-
-
 <!-- HUST => không google: Đăng ký, email xác nhận, Đăng nhập, quên mật khẩu  -->
-
 
 <!-- Chụp ảnh mail -->
 
-
 Chụp ảnh reids
 
-
-
-
 Nhiều giấy tờ văn bản khó tiếp cận
-
 
 người già cần voice
 người trẻ cần voice
 
-
 demo mail
-
-
-
 
 <!-- load ai tương tự 1 lần -->
 
-
-
-
-
 ![alt text](image-9.png)
-
-
 
 ![alt text](image-10.png)
 
-
-
-
-
 <!-- sử dụng thuật toán LRU (Least Recently Used) -->
 
- 
+
+
+TOOL
+
+
+
+<!-- https://chromewebstore.google.com/detail/authenticator/bhghoamapcdpbohphigoooaddinpkbai -->
+
+<!-- https://chromewebstore.google.com/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo -->
+
+<!--  https://github.com/20206205Tech/dev-vnpay-helper/raw/refs/heads/build/dist/dev-vnpay-helper.user.js -->
+
+<!-- https://github.com/20206205Tech/dev-momo-helper/raw/refs/heads/build/dist/dev-momo-helper.user.js -->
