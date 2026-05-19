@@ -2,7 +2,7 @@ Hỏi file => không hiểu => phải cho ai hiểu metadata, STATE => thêm too
 
 <!-- Do cần thời gian phản hồi nhanh cả gRPC và voice: tôi muốn chủ đề topic = null. Sau đó sẽ được xử lý sau? -->
 
-<!-- summarize_history sau -->
+<!-- Tương tự tôi nghĩ cần bỏ summarize_history và sẽ chạy việc đó sau -->
 
 <!-- cd ~/Documents/GitHub/docs-markdown && code . -->
 
