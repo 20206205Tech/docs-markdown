@@ -6,8 +6,15 @@ Tương tự tôi nghĩ cần bỏ summarize_history và sẽ chạy việc đó
 
 <!-- cd ~/Documents/GitHub/docs-markdown && code . -->
 
-<!-- Nguoonf khi voice -->
+
+
 <!-- Chỉnh lại chia sẻ -->
+http://localhost:3000/share/01ee2872-36bb-4491-8c4f-283f09e5eee5/undefined
+
+
+
+
+
 
 <!-- Tắt mic khi RAG -->
 <!-- Khả năng đợi xác nhận: text x, voice y -->
@@ -73,3 +80,6 @@ cron và redis : dùng domain, application
 <!-- kafka? -->
 <!-- Sự kiện... cộng dồn => chỉ lưu update -->
 <!-- Queue lỗi gửi lỗi nhận -->
+
+
+RAGAs
