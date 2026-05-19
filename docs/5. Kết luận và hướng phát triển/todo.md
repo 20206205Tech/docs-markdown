@@ -10,6 +10,7 @@ Tương tự tôi nghĩ cần bỏ summarize_history và sẽ chạy việc đó
 <!-- Chỉnh lại chia sẻ -->
 
 <!-- Tắt mic khi RAG -->
+<!-- Khả năng đợi xác nhận: text x, voice y -->
 
 Xử lý ngắt lời => dừng RAG
 
@@ -69,14 +70,6 @@ cron và redis : dùng domain, application
 
 <!--  -->
 
-<!--  -->
-
-<!-- Khả năng đợi xác nhận: text x, voice y -->
-
-<!--  -->
-
-Sự kiện... cộng dồn => chỉ lưu update
-
-kafka?
-
-Queue lỗi gửi lỗi nhận
+<!-- kafka? -->
+<!-- Sự kiện... cộng dồn => chỉ lưu update -->
+<!-- Queue lỗi gửi lỗi nhận -->
