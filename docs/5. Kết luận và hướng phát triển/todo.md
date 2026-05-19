@@ -1,4 +1,17 @@
+Hỏi file        =>       không hiểu        =>        phải cho ai hiểu metadata, STATE => thêm tool
+
+
+
+
+
+
+
+
 <!-- cd ~/Documents/GitHub/docs-markdown && code . -->
+
+
+
+
 
 <!--  -->
 
@@ -65,8 +78,6 @@ cron và redis : dùng domain, application
 
 <!--  -->
 
-Hỏi file => không hiểu => phải cho ai hiểu metadata STATE
-=> thêm tool
 
 <!--  -->
 
@@ -84,3 +95,5 @@ Hỏi file => không hiểu => phải cho ai hiểu metadata STATE
 Sự kiện... cộng dồn => chỉ lưu update
 
 kafka?
+
+Queue lỗi gửi lỗi nhận
