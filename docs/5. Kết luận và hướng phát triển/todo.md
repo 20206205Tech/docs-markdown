@@ -4,17 +4,13 @@ Do cần thời gian phản hồi nhanh cả gRPC và voice: tôi muốn chủ �
 
 Tương tự tôi nghĩ cần bỏ summarize_history và sẽ chạy việc đó sau
 
-<!-- cd ~/Documents/GitHub/docs-markdown && code . -->
+<!-- Cần chỉnh lại phần chia sẻ vì có thêm phần nước suy luận và nguồn tài liệu -->
 
-
-
-<!-- Chỉnh lại chia sẻ -->
 http://localhost:3000/share/01ee2872-36bb-4491-8c4f-283f09e5eee5/undefined
 
+http://localhost:3000/share/ec392f3c-57f1-4150-b6e8-6a7052568249/undefined
 
-
-
-
+<!-- cd ~/Documents/GitHub/docs-markdown && code . -->
 
 <!-- Tắt mic khi RAG -->
 <!-- Khả năng đợi xác nhận: text x, voice y -->
@@ -80,6 +76,5 @@ cron và redis : dùng domain, application
 <!-- kafka? -->
 <!-- Sự kiện... cộng dồn => chỉ lưu update -->
 <!-- Queue lỗi gửi lỗi nhận -->
-
 
 RAGAs
