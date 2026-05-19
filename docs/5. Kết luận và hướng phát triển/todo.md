@@ -1,17 +1,14 @@
-Hỏi file        =>       không hiểu        =>        phải cho ai hiểu metadata, STATE => thêm tool
+Hỏi file => không hiểu => phải cho ai hiểu metadata, STATE => thêm tool
 
+Do cần thời gian phản hồi nhanh cả gRPC và voice:
 
+tôi muốn chủ đề topic = null
 
+Sau đó sẽ được xử lý sau?
 
-
-
-
+<!-- summarize_history sau -->
 
 <!-- cd ~/Documents/GitHub/docs-markdown && code . -->
-
-
-
-
 
 <!--  -->
 
@@ -78,15 +75,7 @@ cron và redis : dùng domain, application
 
 <!--  -->
 
-
 <!--  -->
-
-<!-- Cuojc trò chuyện mới -->
-<!-- chủ đề topic = null xử lý sau -->
-
-<!-- create_topic sau -->
-
-<!-- summarize_history sau -->
 
 <!-- Khả năng đợi xác nhận: text x, voice y -->
 
