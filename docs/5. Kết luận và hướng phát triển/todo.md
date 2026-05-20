@@ -44,6 +44,11 @@ cron và redis : dùng domain, application
 <!-- Queue lỗi gửi lỗi nhận -->
 
 <!-- Kong 1 2 = key, request id -->
+<!-- # if env.ENVIRONMENT == "development": => không cần request id -->
+
+
+
+
 <!-- RAGAs -->
 
 <!-- Quay video demo -->
