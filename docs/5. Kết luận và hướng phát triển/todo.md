@@ -5,26 +5,14 @@ Tương tự tôi nghĩ cần bỏ summarize_history và sẽ chạy việc đó
 Cần chỉnh lại phần chia sẻ vì có thêm phần nước suy luận và nguồn tài liệu
 Khi ấn chia sẻ thì nhận được undefined: http://localhost:3000/share/01ee2872-36bb-4491-8c4f-283f09e5eee5/undefined
 
+<!-- Hệ thống voice có khả năng Xử lý ngắt lời hay không? -->
+
 <!-- cd ~/Documents/GitHub/docs-markdown && code . -->
 
 <!-- Khả năng đợi xác nhận: text, voice  -->
 <!-- "Xác nhận", trong đó khách hàng gửi một chuỗi dữ liệu cụ thể để buộc tổng đài viên bắt đầu xử lý giọng nói -->
 
-Tắt mic khi RAG
-Xử lý ngắt lời => dừng RAG
 
-await context.session.say("Let me search for that...")
-context.disallow_interruptions()
-
-<!--  -->
-
-Xử lý Ngắt lời (Barge-in) khi đang chạy Tool
-
-LiveKit hỗ trợ ngắt TTS khá tốt khi người dùng nói chen vào. Tuy nhiên, nếu Agent đang trong quá trình thực thi một chuỗi reasoning dài hoặc đang thực hiện các tác vụ nặng ở background, việc người dùng đổi ý và ngắt lời cần phải dừng luôn cả các tiến trình logic đó.
-
-Xử lý: Cần đảm bảo các task bất đồng bộ trong chuỗi reasoning có hỗ trợ "cancellation token" hoặc check trạng thái bị ngắt để tránh việc Agent tốn token API để tính toán một kết quả mà người dùng không còn quan tâm nữa.
-
-<!--  -->
 
 Tắt bằng câu nói?
 
