@@ -5,10 +5,9 @@ Tương tự tôi nghĩ cần bỏ summarize_history và sẽ chạy việc đó
 Cần chỉnh lại phần chia sẻ vì có thêm phần nước suy luận và nguồn tài liệu
 Khi ấn chia sẻ thì nhận được undefined: http://localhost:3000/share/01ee2872-36bb-4491-8c4f-283f09e5eee5/undefined
 
-<!-- Hệ thống voice có khả năng Xử lý ngắt lời hay không? -->
+Hệ thống voice có khả năng Xử lý ngắt lời
 
-Ở chế độ nói voice. Tôi hỏi câu hỏi thứ nhất, ngắt lời hỏi cầu hỏi thứ 2. thì ứng dụng  python có trả lời câu hỏi thứ 2 rất nhanh dừng như không dùng langgraph. nhưng sau đó vẫn đọc lên các bước của câu hỏi 1
-
+Ở chế độ nói voice. Tôi hỏi câu hỏi thứ nhất, ngắt lời hỏi cầu hỏi thứ 2. thì ứng dụng python có trả lời câu hỏi thứ 2 rất nhanh dừng như không dùng langgraph. nhưng sau đó vẫn đọc lên các bước của câu hỏi 1
 
 Bị sai input
 
@@ -17,18 +16,11 @@ Không lấy kêt quả
 <!-- cd ~/Documents/GitHub/docs-markdown && code . -->
 
 Tắt bằng câu nói?
+
 <!-- Khả năng đợi xác nhận: text, voice  -->
 <!-- "Xác nhận", trong đó khách hàng gửi một chuỗi dữ liệu cụ thể để buộc tổng đài viên bắt đầu xử lý giọng nói -->
 <!-- Nút xác nhận continue -->
 <!-- Xác nhận bằng câu nói -->
-
-
-
-
-
-
-
-
 
 - **`agent_false_interruption` / `overlapping_speech**`: Xảy ra khi hệ thống nhận diện việc ngắt lời (người dùng nói xen vào khi AI đang nói).
 
@@ -39,10 +31,6 @@ agent_false_interruption
 overlapping_speech
 
 => dừng RAG
-
-
-
-
 
 <!-- chuyển nhân vật: Đang Nữ => chuyển Nam, phải hiện nam -->
 
@@ -63,8 +51,6 @@ cron và redis : dùng domain, application
 <!-- Kong 1 2 = key, request id -->
 <!-- RAGAs -->
 
-
-
 <!-- Quay video demo -->
 
-<!-- Nguồn dữ liệu,  Tài nguyên api,  VPS -->
+<!-- Nguồn dữ liệu, Tài nguyên api, VPS -->
