@@ -8,7 +8,9 @@ Khi ấn chia sẻ thì nhận được undefined: http://localhost:3000/share/0
 Hệ thống voice có khả năng Xử lý ngắt lời
 
 <!-- Bị sai input -->
+
 <!-- Không lấy kêt quả -->
+<!-- Có tài liệu Pháp điển=> nhưng AI lại bảo không biết -->
 
 <!-- cd ~/Documents/GitHub/docs-markdown && code . -->
 
@@ -21,9 +23,9 @@ Tắt bằng câu nói?
 <!-- Nút xác nhận continue -->
 <!-- Xác nhận bằng câu nói -->
 
-- **`agent_false_interruption` / `overlapping_speech**`: Xảy ra khi hệ thống nhận diện việc ngắt lời (người dùng nói xen vào khi AI đang nói).
+<!-- - **`agent_false_interruption` / `overlapping_speech**`: Xảy ra khi hệ thống nhận diện việc ngắt lời (người dùng nói xen vào khi AI đang nói). -->
 
-Hướng dẫn ứng dụng
+<!-- Hướng dẫn ứng dụng -->
 
 agent_false_interruption
 
@@ -34,12 +36,6 @@ overlapping_speech
 <!-- chuyển nhân vật: Đang Nữ => chuyển Nam, phải hiện nam -->
 
 <!-- chat hiện mặc định => đúng -->
-
-<!--  -->
-
-Có tài liệu Pháp điển=> nhưng AI lại bảo không biết
-
-<!--  -->
 
 cron và redis : dùng domain, application
 
