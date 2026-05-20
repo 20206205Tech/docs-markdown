@@ -6,9 +6,8 @@ Tương tự tôi nghĩ cần bỏ summarize_history và sẽ chạy việc đó
 
 <!-- Cần chỉnh lại phần chia sẻ vì có thêm phần nước suy luận và nguồn tài liệu -->
 
-http://localhost:3000/share/01ee2872-36bb-4491-8c4f-283f09e5eee5/undefined
+<!-- Khi ấn chia sẻ thì nhận được undefined:  http://localhost:3000/share/01ee2872-36bb-4491-8c4f-283f09e5eee5/undefined -->
 
-http://localhost:3000/share/ec392f3c-57f1-4150-b6e8-6a7052568249/undefined
 
 <!-- cd ~/Documents/GitHub/docs-markdown && code . -->
 
