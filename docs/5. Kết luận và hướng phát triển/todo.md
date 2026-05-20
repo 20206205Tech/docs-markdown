@@ -7,8 +7,8 @@ Khi ấn chia sẻ thì nhận được undefined: http://localhost:3000/share/0
 
 <!-- cd ~/Documents/GitHub/docs-markdown && code . -->
 
-
-<!-- Khả năng đợi xác nhận: text x, voice y -->
+<!-- Khả năng đợi xác nhận: text, voice  -->
+<!-- "Xác nhận", trong đó khách hàng gửi một chuỗi dữ liệu cụ thể để buộc tổng đài viên bắt đầu xử lý giọng nói -->
 
 Tắt mic khi RAG
 Xử lý ngắt lời => dừng RAG
@@ -46,22 +46,16 @@ overlapping_speech
 
 <!--  -->
 
-ặc "Xác nhận", trong đó khách hàng gửi một chuỗi dữ liệu cụ thể để buộc tổng đài viên bắt đầu xử lý giọng nói
-
 <!--  -->
 
-BUG:
-
 <!-- chuyển nhân vật: Đang Nữ => chuyển Nam, phải hiện nam -->
-<!--, chat hiện mặc định => đúng -->
+<!-- chat hiện mặc định => đúng -->
 
 <!--  -->
 
 Có tài liệu Pháp điển=> nhưng AI lại bảo không biết
 
 <!--  -->
-
-DOMAIN DRIVEN DESIGN
 
 cron và redis : dùng domain, application
 
