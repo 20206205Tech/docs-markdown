@@ -59,12 +59,9 @@ Có tài liệu Pháp điển=> nhưng AI lại bảo không biết
 
 cron và redis : dùng domain, application
 
-<!--  -->
-
 <!-- kafka? -->
 <!-- Sự kiện... cộng dồn => chỉ lưu update -->
 <!-- Queue lỗi gửi lỗi nhận -->
 
-RAGAs
-
-Kong 1 2 = key, request id
+<!-- Kong 1 2 = key, request id -->
+<!-- RAGAs -->
