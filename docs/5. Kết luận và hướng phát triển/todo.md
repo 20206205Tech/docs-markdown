@@ -7,20 +7,24 @@ Khi ấn chia sẻ thì nhận được undefined: http://localhost:3000/share/0
 
 <!-- Hệ thống voice có khả năng Xử lý ngắt lời hay không? -->
 
+Ở chế độ nói voice. Tôi hỏi câu hỏi thứ nhất, ngắt lời hỏi cầu hỏi thứ 2. thì ứng dụng  python có trả lời câu hỏi thứ 2 rất nhanh dừng như không dùng langgraph. nhưng sau đó vẫn đọc lên các bước của câu hỏi 1
+
+
 <!-- cd ~/Documents/GitHub/docs-markdown && code . -->
 
+Tắt bằng câu nói?
 <!-- Khả năng đợi xác nhận: text, voice  -->
 <!-- "Xác nhận", trong đó khách hàng gửi một chuỗi dữ liệu cụ thể để buộc tổng đài viên bắt đầu xử lý giọng nói -->
+<!-- Nút xác nhận continue -->
+<!-- Xác nhận bằng câu nói -->
 
 
 
-Tắt bằng câu nói?
 
-Xác nhận bằng câu nói
 
-Nút xác nhận continue
 
-<!--  -->
+
+
 
 - **`agent_false_interruption` / `overlapping_speech**`: Xảy ra khi hệ thống nhận diện việc ngắt lời (người dùng nói xen vào khi AI đang nói).
 
@@ -32,11 +36,12 @@ overlapping_speech
 
 => dừng RAG
 
-<!--  -->
 
-<!--  -->
+
+
 
 <!-- chuyển nhân vật: Đang Nữ => chuyển Nam, phải hiện nam -->
+
 <!-- chat hiện mặc định => đúng -->
 
 <!--  -->
@@ -53,3 +58,9 @@ cron và redis : dùng domain, application
 
 <!-- Kong 1 2 = key, request id -->
 <!-- RAGAs -->
+
+
+
+<!-- Quay video demo -->
+
+<!-- Nguồn dữ liệu,  Tài nguyên api,  VPS -->
