@@ -6,6 +6,8 @@ Cần chỉnh lại phần chia sẻ vì có thêm phần nước suy luận và
 Khi ấn chia sẻ thì nhận được undefined: http://localhost:3000/share/01ee2872-36bb-4491-8c4f-283f09e5eee5/undefined
 
 <!-- cd ~/Documents/GitHub/docs-markdown && code . -->
+
+
 <!-- Khả năng đợi xác nhận: text x, voice y -->
 
 Tắt mic khi RAG
@@ -70,3 +72,5 @@ cron và redis : dùng domain, application
 <!-- Queue lỗi gửi lỗi nhận -->
 
 RAGAs
+
+Kong 1 2 = key, request id
