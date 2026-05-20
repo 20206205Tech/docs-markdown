@@ -9,7 +9,10 @@ Hệ thống voice có khả năng Xử lý ngắt lời
 Bị sai input
 Không lấy kêt quả: Có tài liệu Pháp điển=> nhưng AI lại bảo không biết
 
+Hãy xem các file có thay đổi nhưng chưa được git commit:
 
+Tôi muốn khi tải lên file thì fe phải gửi metadata lên livekit cập nhật
+Tương tự như vậy thì khi chuyển nhân vật không được kết thúc voice và cũng gửi thông tin voice cho livekit
 
 <!-- cd ~/Documents/GitHub/docs-markdown && code . -->
 
@@ -32,12 +35,6 @@ overlapping_speech
 
 => dừng RAG
 
-
-
-
-<!-- chuyển nhân vật: Đang Nữ => chuyển Nam, phải hiện nam -->
-
-
 cron và redis : dùng domain, application
 
 <!-- kafka? -->
@@ -46,9 +43,6 @@ cron và redis : dùng domain, application
 
 <!-- Kong 1 2 = key, request id -->
 <!-- # if env.ENVIRONMENT == "development": => không cần request id -->
-
-
-
 
 <!-- RAGAs -->
 
