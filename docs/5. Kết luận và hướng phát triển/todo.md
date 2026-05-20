@@ -1,22 +1,15 @@
 Hỏi file => không hiểu => phải cho ai hiểu metadata, STATE => thêm tool
-
 Do cần thời gian phản hồi nhanh cả gRPC và voice: tôi muốn chủ đề topic = null. Sau đó sẽ được xử lý sau?
-
 Tương tự tôi nghĩ cần bỏ summarize_history và sẽ chạy việc đó sau
 
-<!-- Cần chỉnh lại phần chia sẻ vì có thêm phần nước suy luận và nguồn tài liệu -->
-
-<!-- Khi ấn chia sẻ thì nhận được undefined:  http://localhost:3000/share/01ee2872-36bb-4491-8c4f-283f09e5eee5/undefined -->
-
+Cần chỉnh lại phần chia sẻ vì có thêm phần nước suy luận và nguồn tài liệu
+Khi ấn chia sẻ thì nhận được undefined: http://localhost:3000/share/01ee2872-36bb-4491-8c4f-283f09e5eee5/undefined
 
 <!-- cd ~/Documents/GitHub/docs-markdown && code . -->
-
-<!-- Tắt mic khi RAG -->
 <!-- Khả năng đợi xác nhận: text x, voice y -->
 
+Tắt mic khi RAG
 Xử lý ngắt lời => dừng RAG
-
-<!--  -->
 
 await context.session.say("Let me search for that...")
 context.disallow_interruptions()
