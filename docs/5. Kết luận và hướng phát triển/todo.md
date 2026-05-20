@@ -10,6 +10,10 @@ Khi ấn chia sẻ thì nhận được undefined: http://localhost:3000/share/0
 Ở chế độ nói voice. Tôi hỏi câu hỏi thứ nhất, ngắt lời hỏi cầu hỏi thứ 2. thì ứng dụng  python có trả lời câu hỏi thứ 2 rất nhanh dừng như không dùng langgraph. nhưng sau đó vẫn đọc lên các bước của câu hỏi 1
 
 
+Bị sai input
+
+Không lấy kêt quả
+
 <!-- cd ~/Documents/GitHub/docs-markdown && code . -->
 
 Tắt bằng câu nói?
