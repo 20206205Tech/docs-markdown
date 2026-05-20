@@ -6,11 +6,10 @@ Cần chỉnh lại phần chia sẻ vì có thêm phần nước suy luận và
 Khi ấn chia sẻ thì nhận được undefined: http://localhost:3000/share/01ee2872-36bb-4491-8c4f-283f09e5eee5/undefined
 
 Hệ thống voice có khả năng Xử lý ngắt lời
+Bị sai input
+Không lấy kêt quả: Có tài liệu Pháp điển=> nhưng AI lại bảo không biết
 
-<!-- Bị sai input -->
 
-<!-- Không lấy kêt quả -->
-<!-- Có tài liệu Pháp điển=> nhưng AI lại bảo không biết -->
 
 <!-- cd ~/Documents/GitHub/docs-markdown && code . -->
 
@@ -33,9 +32,11 @@ overlapping_speech
 
 => dừng RAG
 
+
+
+
 <!-- chuyển nhân vật: Đang Nữ => chuyển Nam, phải hiện nam -->
 
-<!-- chat hiện mặc định => đúng -->
 
 cron và redis : dùng domain, application
 
