@@ -14,6 +14,13 @@ Hãy xem các file có thay đổi nhưng chưa được git commit:
 Tôi muốn khi tải lên file thì fe phải gửi metadata lên livekit cập nhật
 Tương tự như vậy thì khi chuyển nhân vật không được kết thúc voice và cũng gửi thông tin voice cho livekit
 
+
+Ở chế độ nói voice.  Khi ứng dụng vừa nói, vừa dùng RAG. Giọng nói sễ bị lag
+ => lag=> queue
+
+
+Ở chế độ nói voice. Tôi hỏi câu hỏi thứ nhất, ngắt lời hỏi cầu hỏi thứ 2. thì
+
 <!-- cd ~/Documents/GitHub/docs-markdown && code . -->
 
 <!-- Ở chế độ nói voice. Tôi hỏi câu hỏi thứ nhất, ngắt lời hỏi cầu hỏi thứ 2. thì ứng dụng python có trả lời câu hỏi thứ 2 rất nhanh dừng như không dùng langgraph. nhưng sau đó vẫn đọc lên các bước của câu hỏi 1 -->
@@ -51,7 +58,9 @@ cron và redis : dùng domain, application
 <!-- Nguồn dữ liệu, Tài nguyên api, VPS -->
 Event scouicng
 
-Khi vừa nói vừa RAG => lag=> queue
 
 
 pesorna data=> ai prompt 
+
+
+INPUT, state lang, voice
