@@ -52,3 +52,6 @@ cron và redis : dùng domain, application
 Event scouicng
 
 Khi vừa nói vừa RAG => lag=> queue
+
+
+pesorna data=> ai prompt 
