@@ -15,6 +15,8 @@ Tôi muốn khi tải lên file thì fe phải gửi metadata lên livekit cập
 Tương tự như vậy thì khi chuyển nhân vật không được kết thúc voice và cũng gửi thông tin voice cho livekit
 
 
+Bị khựng
+
 Ở chế độ nói voice.  Khi ứng dụng vừa nói, vừa dùng RAG. Giọng nói sễ bị lag
  => lag=> queue
 
