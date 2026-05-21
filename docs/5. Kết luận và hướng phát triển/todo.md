@@ -49,3 +49,6 @@ cron và redis : dùng domain, application
 <!-- Quay video demo -->
 
 <!-- Nguồn dữ liệu, Tài nguyên api, VPS -->
+Event scouicng
+
+Khi vừa nói vừa RAG => lag=> queue
