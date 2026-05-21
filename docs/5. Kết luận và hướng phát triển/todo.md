@@ -33,11 +33,9 @@ Tắt bằng câu nói?
 
 <!-- Hướng dẫn ứng dụng -->
 
-agent_false_interruption
-
-overlapping_speech
-
-=> dừng RAG
+<!-- agent_false_interruption -->
+<!-- overlapping_speech -->
+<!-- => dừng RAG -->
 
 cron và redis : dùng domain, application
 
