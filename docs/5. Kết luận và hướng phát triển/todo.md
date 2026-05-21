@@ -14,12 +14,7 @@ Hãy xem các file có thay đổi nhưng chưa được git commit:
 Tôi muốn khi tải lên file thì fe phải gửi metadata lên livekit cập nhật
 Tương tự như vậy thì khi chuyển nhân vật không được kết thúc voice và cũng gửi thông tin voice cho livekit
 
-
-Bị khựng
-
-Ở chế độ nói voice.  Khi ứng dụng vừa nói, vừa dùng RAG. Giọng nói sễ bị lag
- => lag=> queue
-
+Bị khựng: Ở chế độ nói voice. Khi ứng dụng vừa nói, vừa dùng RAG. Giọng nói sễ bị lag => queue
 
 Ở chế độ nói voice. Tôi hỏi câu hỏi thứ nhất, ngắt lời hỏi cầu hỏi thứ 2. thì
 
@@ -58,11 +53,9 @@ cron và redis : dùng domain, application
 <!-- Quay video demo -->
 
 <!-- Nguồn dữ liệu, Tài nguyên api, VPS -->
+
 Event scouicng
 
-
-
-pesorna data=> ai prompt 
-
+pesorna data=> ai prompt
 
 INPUT, state lang, voice
