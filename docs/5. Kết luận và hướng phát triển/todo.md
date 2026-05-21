@@ -11,8 +11,6 @@
 
 <!-- Tôi hỏi câu hỏi thứ nhất, ngắt lời hỏi cầu hỏi thứ 2.  -->
 
-pesorna data       => ai prompt
-
 <!-- cd ~/Documents/GitHub/docs-markdown && code . -->
 
 <!-- Khả năng đợi xác nhận: text, voice  -->
@@ -20,7 +18,12 @@ pesorna data       => ai prompt
 <!-- Nút xác nhận continue -->
 <!-- Xác nhận bằng câu nói -->
 
+
+
+
 <!-- ! -->
+
+
 
 cron và redis : dùng domain, application
 
@@ -32,8 +35,11 @@ SAGA
 
 Event scouicng
 
-<!-- Kong 1 2 = key, request id -->
+<!-- Kong 1 2 = key  ,       request id -->
 <!-- # if env.ENVIRONMENT == "development": => không cần request id -->
+request-kong-secret
+request-id
+
 
 <!-- RAGAs chịu -->
 
