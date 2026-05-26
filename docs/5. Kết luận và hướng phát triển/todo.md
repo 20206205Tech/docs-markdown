@@ -48,3 +48,9 @@ request-id
 <!-- Nguồn dữ liệu, Tài nguyên api, VPS -->
 
 <!-- INPUT, state lang, voice -->
+
+
+
+![alt text](image-11.png)
+
+
