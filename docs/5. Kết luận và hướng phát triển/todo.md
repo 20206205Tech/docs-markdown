@@ -54,3 +54,15 @@ request-id
 ![alt text](image-11.png)
 
 
+<!-- F5 mất xác nhận -->
+
+<!-- Khi chat xong, dùng voice luôn => Câu trả lời stream không đúng -->
+
+Khi dùng voice, Không thấy xử lý xác nhận voice??
+
+
+Khi dùng voice, avatar của AI không có? => Sau đó khi RAG trả lời xong bị thành 2 câu trả lời giống nhau, câu trả lời 1 có phần suy luận, câu trả lời 2 không có phần suy luận
+
+
+
+
