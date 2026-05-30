@@ -75,3 +75,5 @@ Khi dùng voice, avatar của AI không có? => Sau đó khi RAG trả lời xon
 ![alt text](image-14.png)
 
 
+![alt text](image-15.png)
+
