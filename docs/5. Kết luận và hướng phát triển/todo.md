@@ -83,3 +83,13 @@ https://github.com/20206205Tech/code-conversation-service/tree/main/docs
 https://github.com/20206205Tech/code-payment-service/tree/main/docs
 
 ![alt text](image-16.png)
+
+
+https://kafka.apache.org/43/design/design/#message-delivery-semantics
+
+
+https://microservices.io/patterns/data/transactional-outbox.html
+
+
+https://martinfowler.com/articles/201701-event-driven.html
+
