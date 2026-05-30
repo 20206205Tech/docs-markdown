@@ -77,3 +77,8 @@ Khi dùng voice, avatar của AI không có? => Sau đó khi RAG trả lời xon
 
 ![alt text](image-15.png)
 
+https://github.com/20206205Tech/code-conversation-service/tree/main/docs
+
+
+https://github.com/20206205Tech/code-payment-service/tree/main/docs
+
