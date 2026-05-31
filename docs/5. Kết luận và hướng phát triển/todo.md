@@ -97,3 +97,5 @@ Github action=> tele telegram
 
 
 ![alt text](image-17.png)
+
+payment => kafka, redis... heroku
