@@ -94,3 +94,6 @@ https://microservices.io/patterns/data/transactional-outbox.html
 https://martinfowler.com/articles/201701-event-driven.html
 
 Github action=> tele telegram
+
+
+![alt text](image-17.png)
