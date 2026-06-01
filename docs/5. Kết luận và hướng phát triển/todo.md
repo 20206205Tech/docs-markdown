@@ -99,3 +99,6 @@ Github action=> tele telegram
 ![alt text](image-17.png)
 
 payment => kafka, redis... heroku
+
+
+<!-- Chụp phần giao diện tài khoản mới chưa có lịch sử chat -->
