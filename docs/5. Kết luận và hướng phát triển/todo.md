@@ -102,3 +102,6 @@ payment => kafka, redis... heroku
 
 
 <!-- Chụp phần giao diện tài khoản mới chưa có lịch sử chat -->
+
+
+Vẽ hình version +1
