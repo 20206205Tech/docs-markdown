@@ -35,7 +35,7 @@ SAGA
 
 Event scouicng
 
-<!-- Kong 1 2 = key  ,       request id -->
+<!-- Kong 1 2 = key, request id -->
 <!-- # if env.ENVIRONMENT == "development": => không cần request id -->
 request-kong-secret
 request-id
