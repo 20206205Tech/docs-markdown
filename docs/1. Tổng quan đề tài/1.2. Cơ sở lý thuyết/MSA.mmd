@@ -4,8 +4,9 @@ graph TB
     classDef gateway fill:#003459,stroke:#fff,stroke-width:2px,color:#fff;
     classDef external_svc fill:#00a86b,stroke:#fff,stroke-width:1px,color:#fff;
     classDef internal_nest fill:#e0234e,stroke:#fff,stroke-width:1px,color:#fff;
-    classDef internal_python fill:#f96,stroke:#333,stroke-width:1px,color:#000;
+    classDef internal_python fill:#3776ab,stroke:#fff,stroke-width:1px,color:#fff;
     classDef vector_db fill:#007BFF,stroke:#fff,stroke-width:2px,color:#fff;
+    classDef mq fill:#f1c40f,stroke:#333,stroke-width:2px,color:#000;
 
     %% Các thành phần đầu vào
     Client["Client (Next.js)"]:::client
@@ -14,11 +15,14 @@ graph TB
     %% Các dịch vụ bên ngoài (External Services / Cloud)
     Auth["Auth Service (Supabase)"]:::external_svc
     Setting["Setting Service (Neon API)"]:::external_svc
-    Payment["Payment Service (Heroku)"]:::external_svc
+    Payment["Payment Service (Heroku)"]:::internal_nest
+
+    %% Message Broker
+    MQ["Message Queue"]:::mq
 
     %% Các dịch vụ nội bộ NestJS
     Conv["Conversation Service"]:::internal_nest
-    Persona["Persona Service"]:::internal_nest
+    Persona["Persona Service"]:::internal_python
 
     %% Các dịch vụ nội bộ Python
     Chatbot["Chatbot (LangGraph) + Voice (LiveKit)"]:::internal_python
@@ -37,12 +41,20 @@ graph TB
     Kong --> Conv
     Kong --> Persona
     Kong --> Chatbot
-    Kong --> Doc
 
     %% Giao tiếp giữa các dịch vụ nội bộ
     Conv <--> Chatbot
     Chatbot --> Persona
 
     %% Logic xử lý tài liệu mới (Vector Database)
-    Doc -.->|Xử lý & Lưu trữ| VectorDB
     Chatbot -->|Truy vấn| VectorDB
+    Doc -.->|Xử lý & Lưu trữ| VectorDB
+
+    %% Luồng Event-Driven qua Message Queue
+    Payment == Publish Event ==> MQ
+    MQ == Consume Event ==> Conv
+    MQ == Consume Event ==> Doc
+
+
+
+    Kong --> Doc
