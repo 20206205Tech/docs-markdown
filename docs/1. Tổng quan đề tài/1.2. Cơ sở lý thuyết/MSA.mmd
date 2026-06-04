@@ -9,39 +9,44 @@ graph TB
     %% Nodes
     Client["Next.js Client"]:::client
 
-    %% subgraph Gateway_Layer [API Gateway]
-        Kong["Kong API Gateway"]:::gateway
-    %% end
+    %% Gateway Layer
+    Kong["Kong API Gateway"]:::gateway
 
-    %% subgraph NestJS_Services [NestJS Ecosystem]
-        Payment["Payment Service"]:::nestjs
-        Conv["Conversation Service"]:::nestjs
-        Auth["Auth Service"]:::nestjs
-        Supa[("Supabase")]:::database
-        Auth --- Supa
-    %% end
+    %% NestJS Ecosystem
+    Payment["Payment Service"]:::nestjs
+    Conv["Conversation Service"]:::nestjs
+    Auth["Auth Service"]:::nestjs
+    Persona["Persona Service"]:::nestjs
+    Supa[("Supabase")]:::database
+    Auth --- Supa
 
-    %% subgraph Python_Services [Python Ecosystem]
-        Chatbot["Chatbot (LangGraph)"]:::python
-        Doc["Document (Docling)"]:::python
-    %% end
+    %% Python Ecosystem
+    Chatbot["Chatbot (LangGraph) + Voice (LiveKit)"]:::python
+    Doc["Document (Docling)"]:::python
 
-    %% subgraph Other_Services [Others]
-        Setting["Setting Service"]:::nestjs
-        Neon[("Neon API")]:::database
-        Setting --- Neon
-    %% end
+    %% Others
+    Setting["Setting Service"]:::nestjs
+    Neon[("Neon API")]:::database
+    Setting --- Neon
 
     %% Connections
     Client --> Kong
+
+
+
+
+    %% Logic Flow
+    Conv <--> Chatbot
+    Chatbot --> Doc
+    Chatbot --> Persona
+
+
+
 
     Kong --> Auth
     Kong --> Setting
     Kong --> Payment
     Kong --> Conv
+    Kong --> Persona
     Kong --> Chatbot
     Kong --> Doc
-
-    %% Logic Flow
-    Conv <--> Chatbot
-    Chatbot --> Doc
