@@ -1,48 +1,36 @@
 graph TB
     %% Định nghĩa màu sắc (Styles)
-    classDef client fill:#000,stroke:#fff,stroke-width:2px,color:#fff;
-    classDef gateway  fill:#3776ab,stroke:#fff,stroke-width:1px,color:#fff;
-    classDef nestjs fill:#e0234e,stroke:#fff,stroke-width:1px,color:#fff;
-    classDef python fill:#f96,stroke:#333,stroke-width:2px;
-    classDef database  fill:#3776ab,stroke:#fff,stroke-width:1px,color:#fff;
+    classDef client fill:#171717,stroke:#fff,stroke-width:2px,color:#fff;
+    classDef gateway fill:#003459,stroke:#fff,stroke-width:2px,color:#fff;
+    classDef external_svc fill:#00a86b,stroke:#fff,stroke-width:1px,color:#fff;
+    classDef internal_nest fill:#e0234e,stroke:#fff,stroke-width:1px,color:#fff;
+    classDef internal_python fill:#f96,stroke:#333,stroke-width:1px,color:#000;
+    classDef vector_db fill:#007BFF,stroke:#fff,stroke-width:2px,color:#fff;
 
-    %% Nodes
-    Client["Next.js Client"]:::client
-
-    %% Gateway Layer
+    %% Các thành phần đầu vào
+    Client["Client (Next.js)"]:::client
     Kong["Kong API Gateway"]:::gateway
 
-    %% NestJS Ecosystem
-    Payment["Payment Service"]:::nestjs
-    Conv["Conversation Service"]:::nestjs
-    Auth["Auth Service"]:::nestjs
-    Persona["Persona Service"]:::nestjs
-    Supa[("Supabase")]:::database
-    Auth --- Supa
+    %% Các dịch vụ bên ngoài (External Services / Cloud)
+    Auth["Auth Service (Supabase)"]:::external_svc
+    Setting["Setting Service (Neon API)"]:::external_svc
+    Payment["Payment Service (Heroku)"]:::external_svc
 
-    %% Python Ecosystem
-    Chatbot["Chatbot (LangGraph) + Voice (LiveKit)"]:::python
-    Doc["Document (Docling)"]:::python
+    %% Các dịch vụ nội bộ NestJS
+    Conv["Conversation Service"]:::internal_nest
+    Persona["Persona Service"]:::internal_nest
 
-    %% Others
-    Setting["Setting Service"]:::nestjs
-    Neon[("Neon API")]:::database
-    Setting --- Neon
+    %% Các dịch vụ nội bộ Python
+    Chatbot["Chatbot (LangGraph) + Voice (LiveKit)"]:::internal_python
+    Doc["Document (Docling)"]:::internal_python
 
-    %% Connections
+    %% Cơ sở dữ liệu
+    VectorDB[("Vector Database")]:::vector_db
+
+    %% Luồng giao tiếp Client - Gateway
     Client --> Kong
 
-
-
-
-    %% Logic Flow
-    Conv <--> Chatbot
-    Chatbot --> Doc
-    Chatbot --> Persona
-
-
-
-
+    %% Luồng điều hướng từ Gateway
     Kong --> Auth
     Kong --> Setting
     Kong --> Payment
@@ -50,3 +38,11 @@ graph TB
     Kong --> Persona
     Kong --> Chatbot
     Kong --> Doc
+
+    %% Giao tiếp giữa các dịch vụ nội bộ
+    Conv <--> Chatbot
+    Chatbot --> Persona
+
+    %% Logic xử lý tài liệu mới (Vector Database)
+    Doc -.->|Xử lý & Lưu trữ| VectorDB
+    Chatbot -->|Truy vấn| VectorDB
