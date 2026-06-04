@@ -105,3 +105,7 @@ payment => kafka, redis... heroku
 
 
 Vẽ hình version +1
+
+
+
+Trong một số trường hợp nếu văn bản hết hiệu lực thì con người có thể chưa kịp cập nhật thông tin.

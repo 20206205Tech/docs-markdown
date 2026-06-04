@@ -6,4 +6,3 @@ uv run mkdocs serve
 
 touch {0..9}.md
 
-Trong một số trường hợp nếu văn bản hết hiệu lực thì con người có thể chưa kịp cập nhật thông tin.
