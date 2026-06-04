@@ -7,6 +7,7 @@ graph TB
     classDef internal_python fill:#3776ab,stroke:#fff,stroke-width:1px,color:#fff;
     classDef vector_db fill:#007BFF,stroke:#fff,stroke-width:2px,color:#fff;
     classDef mq fill:#f1c40f,stroke:#333,stroke-width:2px,color:#000;
+    classDef rtc fill:#ff5722,stroke:#fff,stroke-width:2px,color:#fff;
 
     %% Các thành phần đầu vào
     Client["Client (Next.js)"]:::client
@@ -20,19 +21,23 @@ graph TB
     %% Message Broker
     MQ["Message Queue"]:::mq
 
+    %% Real-time Communication (Mới)
+    LiveKit["LiveKit Server"]:::rtc
+
     %% Các dịch vụ nội bộ NestJS
     Conv["Conversation Service"]:::internal_nest
     Persona["Persona Service"]:::internal_python
 
     %% Các dịch vụ nội bộ Python
-    Chatbot["Chatbot (LangGraph) + Voice (LiveKit)"]:::internal_python
+    Chatbot["Chatbot + Voice Agent"]:::internal_python
     Doc["Document (Docling)"]:::internal_python
 
     %% Cơ sở dữ liệu
     VectorDB[("Vector Database")]:::vector_db
 
-    %% Luồng giao tiếp Client - Gateway
+    %% Luồng giao tiếp Client
     Client --> Kong
+    Client <-->|WebRTC| LiveKit
 
     %% Luồng điều hướng từ Gateway
     Kong --> Auth
@@ -46,6 +51,10 @@ graph TB
     Conv <--> Chatbot
     Chatbot --> Persona
 
+    %% Tích hợp LiveKit Server (Voice Agent)
+    LiveKit <-->|Audio Stream/Events| Chatbot
+    Conv -->|Cấp Access Token/Webhook| LiveKit
+
     %% Logic xử lý tài liệu mới (Vector Database)
     Chatbot -->|Truy vấn| VectorDB
     Doc -.->|Xử lý & Lưu trữ| VectorDB
@@ -54,7 +63,5 @@ graph TB
     Payment == Publish Event ==> MQ
     MQ == Consume Event ==> Conv
     MQ == Consume Event ==> Doc
-
-
 
     Kong --> Doc
