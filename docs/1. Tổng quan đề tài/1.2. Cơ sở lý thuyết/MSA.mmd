@@ -36,6 +36,10 @@ graph TB
     VectorDB[("Vector Database")]:::vector_db
 
 
+    LiveKit <-->|Audio Stream/Events| Chatbot
+    Conv -->|Cấp Access Token/Webhook| LiveKit
+
+
     Client --> Kong
     Client <-->|WebRTC| LiveKit
 
@@ -52,8 +56,6 @@ graph TB
     Chatbot --> Persona
 
 
-    LiveKit <-->|Audio Stream/Events| Chatbot
-    Conv -->|Cấp Access Token/Webhook| LiveKit
 
 
     Chatbot -->|Truy vấn| VectorDB
