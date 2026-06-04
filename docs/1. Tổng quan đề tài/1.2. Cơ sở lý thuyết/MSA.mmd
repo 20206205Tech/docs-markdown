@@ -36,8 +36,8 @@ graph TB
     VectorDB[("Vector Database")]:::vector_db
 
 
-    LiveKit <-->|Audio Stream/Events| Chatbot
-    Conv -->|Cấp Access Token/Webhook| LiveKit
+    LiveKit <-->|Stream| Chatbot
+    Conv -->|Get Token| LiveKit
 
 
     Client --> Kong
@@ -49,12 +49,12 @@ graph TB
     Kong --> Payment
     Kong --> Conv
     Kong --> Persona
-    Kong --> Chatbot
 
 
     Conv <--> Chatbot
     Chatbot --> Persona
 
+    Kong --> Chatbot
 
 
 
