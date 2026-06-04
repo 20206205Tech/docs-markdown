@@ -41,8 +41,8 @@ graph TB
     Kong --> Persona
 
     Conv <-->|gRPC & Message Queue| Chatbot
+    Chatbot -->|REST | Persona
 
-    Chatbot --> Persona
     Kong --> Chatbot
 
     Chatbot -->|Truy vấn| VectorDB
