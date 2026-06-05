@@ -44,7 +44,6 @@ rectangle "Hệ thống Pháp Luật AI" {
   usecase "Quản lý gói cước VIP" as UC_Admin4
   usecase "Báo cáo Data Pipeline" as UC_Admin5
 
-  usecase "Tải tài liệu & hợp đồng" as UC_VIP3
 
   usecase "Xem giới thiệu & bảng giá" as UC_Guest1
   usecase "Đăng ký tài khoản" as UC_Guest2
@@ -60,10 +59,15 @@ rectangle "Hệ thống Pháp Luật AI" {
   usecase "Đánh dấu & Ghi chú" as UC_User6
   usecase "Chia sẻ cuộc trò chuyện" as UC_User7
 
-  usecase "Sử dụng suy luận" as UC_VIP1
   usecase "Đàm thoại Voice" as UC_VIP2
 
-  (UC_Guest3) .> (UC_User1) : <<include>>
+
+  usecase "Tải tài liệu & hợp đồng" as UC_VIP3
+
+  usecase "Sử dụng suy luận" as UC_VIP1
+
+
+  (UC_Guest3) ..> (UC_User1) : <<include>>
   (UC_User4) <.. (UC_VIP1) : <<extend>>
   (UC_VIP2) <.. (UC_VIP1) : <<extend>>
 }
