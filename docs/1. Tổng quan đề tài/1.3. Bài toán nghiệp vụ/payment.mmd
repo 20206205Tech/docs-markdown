@@ -1,11 +1,42 @@
 sequenceDiagram
-    participant Client
-    participant Server
+    actor User
+    participant PaymentService as Payment Service
+    participant Database as Database
+    participant PaymentGateway as Payment Gateway (MoMo/VNPay)
 
-    %% Ví dụ với HTTP GET
-    Client->>+Server: GET /api/data
-    Server-->>-Client: HTTP 200 OK (Trả về dữ liệu)
+    User->>+PaymentService: POST
 
-    %% Ví dụ với HTTP POST
-    Client->>+Server: POST /api/data (Kèm theo Body/Payload)
-    Server-->>-Client: HTTP 201 Created (Tạo mới thành công)
+    PaymentService->>+Database: GET thông tin Plan & Kiểm tra hợp lệ
+    Database-->>-PaymentService: Trả về thông tin Plan
+
+    PaymentService->>+Database: INSERT Pending Order (Trạng thái: 'pending')
+    Database-->>-PaymentService: Trả về order_id
+
+    PaymentService->>+PaymentGateway: API: Yêu cầu tạo URL thanh toán
+    PaymentGateway-->>-PaymentService: Trả về payment_url
+
+    PaymentService-->>-User: HTTP 200 OK (Kèm payment_url)
+
+    User->>PaymentGateway: Chuyển hướng đến payment_url
+    Note over User, PaymentGateway: User nhập thẻ/quét mã QR và thanh toán
+    PaymentGateway-->>User: Redirect về trang Web/App của hệ thống
+
+    Note over PaymentGateway, Database: Xảy ra bất đồng bộ ở background
+    PaymentGateway->>+PaymentService: POST /api/payments/webhook (Payload: Trạng thái GD, Chữ ký bảo mật)
+
+    PaymentService->>PaymentService: Validate Chữ ký (Signature/Checksum)
+
+    alt Chữ ký không hợp lệ
+        PaymentService-->>PaymentGateway: HTTP 400 Bad Request
+    else Chữ ký hợp lệ & Thanh toán thành công
+        PaymentService->>+Database: UPDATE Order status = 'paid'
+        Database-->>-PaymentService: OK
+
+        PaymentService->>+Database: Nâng cấp User lên VIP (Cập nhật role/expire_date)
+        Database-->>-PaymentService: OK
+
+        PaymentService-->>-PaymentGateway: HTTP 200 OK (Xác nhận đã nhận)
+    end
+
+
+%% Tôi có cần thêm Redis BullMQ hẹn giờ hay không?
