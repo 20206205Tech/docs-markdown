@@ -1,4 +1,20 @@
 @startwbs
+<style>
+wbsDiagram {
+  :depth(0) {
+    BackgroundColor LightBlue
+  }
+  :depth(1) {
+    BackgroundColor LightPink
+  }
+  :depth(2) {
+    BackgroundColor LightYellow
+  }
+  :depth(3) {
+    BackgroundColor LightGreen
+  }
+}
+</style>
 * Cấp 0: Hệ thống Hỏi đáp và Tư vấn Pháp luật Việt Nam
 ** 1. Phân hệ Cốt lõi (Core Subdomain)
 *** 1.1 Dịch vụ Trò chuyện (Conversation Service)
