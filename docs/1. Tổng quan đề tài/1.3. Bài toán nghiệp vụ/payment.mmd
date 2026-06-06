@@ -2,41 +2,59 @@ sequenceDiagram
     actor User
     participant PaymentService as Payment Service
     participant Database as Database
-    participant PaymentGateway as Payment Gateway (MoMo/VNPay)
+    participant Redis as Redis (BullMQ)
+    participant PaymentGateway as Payment Gateway
 
-    User->>+PaymentService: POST
+    %% PHẦN 1: TẠO ĐƠN VÀ HẸN GIỜ HỦY
+    User->>+PaymentService: POST /api/payments/create
+    PaymentService->>+Database: GET Plan & Validate
+    Database-->>-PaymentService: Plan Info
 
-    PaymentService->>+Database: GET thông tin Plan & Kiểm tra hợp lệ
-    Database-->>-PaymentService: Trả về thông tin Plan
+    PaymentService->>+Database: INSERT Pending Order ('pending')
+    Database-->>-PaymentService: order_id
 
-    PaymentService->>+Database: INSERT Pending Order (Trạng thái: 'pending')
-    Database-->>-PaymentService: Trả về order_id
+    %% Đẩy Delay Job vào BullMQ
+    PaymentService->>+Redis: Thêm Delay Job 'check_expired' (Delay 15 phút)
+    Redis-->>-PaymentService: job_id
 
-    PaymentService->>+PaymentGateway: API: Yêu cầu tạo URL thanh toán
-    PaymentGateway-->>-PaymentService: Trả về payment_url
+    PaymentService->>+PaymentGateway: Yêu cầu tạo URL
+    PaymentGateway-->>-PaymentService: payment_url
+    PaymentService-->>-User: HTTP 200 OK (payment_url)
 
-    PaymentService-->>-User: HTTP 200 OK (Kèm payment_url)
+    %% PHẦN 2: THANH TOÁN
+    User->>PaymentGateway: Chuyển hướng & Thanh toán
+    PaymentGateway-->>User: Redirect về Web/App
 
-    User->>PaymentGateway: Chuyển hướng đến payment_url
-    Note over User, PaymentGateway: User nhập thẻ/quét mã QR và thanh toán
-    PaymentGateway-->>User: Redirect về trang Web/App của hệ thống
+    %% PHẦN 3: WEBHOOK & NHẬN JOB BẤT ĐỒNG BỘ
+    Note over PaymentGateway, Redis: Luồng xử lý Webhook bất đồng bộ
+    PaymentGateway->>+PaymentService: POST /api/payments/webhook
+    PaymentService->>PaymentService: Validate Signature
 
-    Note over PaymentGateway, Database: Xảy ra bất đồng bộ ở background
-    PaymentGateway->>+PaymentService: POST /api/payments/webhook (Payload: Trạng thái GD, Chữ ký bảo mật)
-
-    PaymentService->>PaymentService: Validate Chữ ký (Signature/Checksum)
-
-    alt Chữ ký không hợp lệ
+    alt Chữ ký hợp lệ
+        %% Thay vì xử lý DB ngay, đẩy vào Queue
+        PaymentService->>+Redis: Thêm Job 'process_payment' (Payload: Data Webhook)
+        Redis-->>-PaymentService: job_id
+        PaymentService-->>-PaymentGateway: HTTP 200 OK (Phản hồi Gateway lập tức)
+    else Chữ ký không hợp lệ
         PaymentService-->>PaymentGateway: HTTP 400 Bad Request
-    else Chữ ký hợp lệ & Thanh toán thành công
-        PaymentService->>+Database: UPDATE Order status = 'paid'
-        Database-->>-PaymentService: OK
-
-        PaymentService->>+Database: Nâng cấp User lên VIP (Cập nhật role/expire_date)
-        Database-->>-PaymentService: OK
-
-        PaymentService-->>-PaymentGateway: HTTP 200 OK (Xác nhận đã nhận)
     end
 
+    %% PHẦN 4: XỬ LÝ JOB THANH TOÁN THÀNH CÔNG (Chạy ngầm trong Payment Service)
+    Note over PaymentService, Database: Payment Service tự xử lý Job thanh toán
+    PaymentService->>+Redis: Nhận Job 'process_payment' từ Queue
+    Redis-->>-PaymentService: Dữ liệu giao dịch
+    PaymentService->>+Database: UPDATE Order status = 'paid'
+    Database-->>-PaymentService: OK
+    PaymentService->>+Database: Nâng cấp User VIP
+    Database-->>-PaymentService: OK
+    PaymentService->>Redis: Đánh dấu Job hoàn thành (Completed)
 
-%% Tôi có cần thêm Redis BullMQ hẹn giờ hay không?
+    %% PHẦN 5: XỬ LÝ DELAY JOB (Sau 15 phút nếu chưa thanh toán)
+    Note over PaymentService, Database: 15 phút sau: Payment Service xử lý hủy đơn
+    PaymentService->>+Redis: Nhận Delay Job 'check_expired' từ Queue
+    Redis-->>-PaymentService: order_id
+    PaymentService->>+Database: Kiểm tra trạng thái Order hiện tại
+    Database-->>-PaymentService: Trạng thái: 'pending' (Chưa ai đổi sang paid)
+    PaymentService->>+Database: UPDATE Order status = 'cancelled'
+    Database-->>-PaymentService: OK
+    PaymentService->>Redis: Đánh dấu Job hoàn thành
