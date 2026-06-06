@@ -2,15 +2,13 @@ sequenceDiagram
     actor User
     participant PaymentService as Payment Service
     participant PaymentDatabase as Payment Database
-    participant Redis as Redis (BullMQ)
-    participant PaymentGateway as Payment Gateway (VNPay, Momo)
-    participant Kafka as Kafka (Event Bus)
-    participant ConversationService as Conversation Service
-    participant ConversationDatabase as Conversation Database
-    participant DocumentService as Document Service
-    participant DocumentDatabase as Document Database
+    participant Redis as Redis <br>(BullMQ)
+    participant PaymentGateway as Payment Gateway <br>(VNPay, Momo, ZaloPay, SePay)
+    participant Kafka as Kafka <br>(Event Bus)
+    participant ConsumeService as Consume service <br>(conversation service, document service)
+    participant ConsumeDatabase as Consume database <br>(conversation database, document database)
 
-    %% PHẦN 1: TẠO ĐƠN VÀ HẸN GIỜ HỦY (Giữ nguyên Redis)
+    %% PHẦN 1: TẠO ĐƠN VÀ HẸN GIỜ HỦY
     User->>+PaymentService: POST /api/payments/create
     PaymentService->>+PaymentDatabase: GET Plan & Validate
     PaymentDatabase-->>-PaymentService: Plan Info
@@ -51,17 +49,10 @@ sequenceDiagram
     end
 
     %% Các service khác tự động Consume Event từ Kafka
-    par Xử lý Event đồng thời
-        Kafka-->>+ConversationService: Consume 'PaymentSucceeded'
-        ConversationService->>+ConversationDatabase: Cập nhật quyền truy cập / Limit
-        ConversationDatabase-->>-ConversationService: OK
-        ConversationService-->>-Kafka: Commit Offset
-    and
-        Kafka-->>+DocumentService: Consume 'PaymentSucceeded'
-        DocumentService->>+DocumentDatabase: Cập nhật dung lượng / Limit
-        DocumentDatabase-->>-DocumentService: OK
-        DocumentService-->>-Kafka: Commit Offset
-    end
+    Kafka-->>+ConsumeService: Consume service
+    ConsumeService->>+ConsumeDatabase: Consume database
+    ConsumeDatabase-->>-ConsumeService: OK
+    ConsumeService-->>-Kafka: Commit Offset
 
     %% PHẦN 5: XỬ LÝ DELAY JOB (Sau 15 phút nếu chưa thanh toán)
     Note over PaymentService, PaymentDatabase: 15 phút sau: Payment Service xử lý hủy đơn qua Redis
