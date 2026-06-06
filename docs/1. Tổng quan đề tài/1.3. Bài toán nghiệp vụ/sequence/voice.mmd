@@ -1,19 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 sequenceDiagram
     actor User
     participant Persona as Persona Service
@@ -54,7 +38,7 @@ sequenceDiagram
 
     %% AI CHỦ ĐỘNG CHÀO USER
     alt tts_engine == 'edge_tts' / 'piper_tts'
-        Agent->>+Persona: POST /code-persona-service/audio/v1 (TTS câu chào)
+        Agent->>+Persona: POST /code-persona-service/audio/v1/audio/speech (TTS câu chào)
         Persona-->>-Agent: Trả về Audio stream câu chào
     else tts_engine == 'elevenlabs'
         Agent->>+ElevenLabs: Yêu cầu TTS câu chào (API key)
@@ -79,7 +63,7 @@ sequenceDiagram
 
         %% TTS phản hồi
         alt tts_engine == 'edge_tts' / 'piper_tts'
-            Agent->>+Persona: POST /code-persona-service/audio/v1 (TTS phản hồi)
+            Agent->>+Persona: POST /code-persona-service/audio/v1/audio/speech (TTS phản hồi)
             Persona-->>-Agent: Trả về Audio stream phản hồi
         else tts_engine == 'elevenlabs'
             Agent->>+ElevenLabs: Yêu cầu TTS phản hồi (API key)
