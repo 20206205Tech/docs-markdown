@@ -1,26 +1,37 @@
 
-
 sequenceDiagram
     actor User
     participant ConvService as Conversation Service
-    participant DB as Database
+    participant ConvDB as Conversation DB
     participant Chatbot as Chatbot Service (gRPC)
+    participant ChatbotDB as Chatbot DB
     participant LLM as LangGraph + LLM
 
     %% Khởi tạo kết nối
     User->>+ConvService: POST /code-conversation-service/chats/stream (Yêu cầu SSE)
 
-    %% Kiểm tra điều kiện suy luận & VIP
+    %% Kiểm tra điều kiện suy luận & VIP (trên Conversation DB)
     alt use_reasoning == true
-        ConvService->>+DB: Kiểm tra trạng thái VIP (isVip)
-        DB-->>-ConvService: Trả về trạng thái VIP
+        ConvService->>+ConvDB: Kiểm tra trạng thái VIP (isVip)
+        ConvDB-->>-ConvService: Trả về trạng thái VIP
         alt Không phải VIP
             ConvService-->>User: Trả về lỗi HTTP 403 Forbidden (Hủy luồng)
         end
     end
 
+    %% Kiểm tra Chat tồn tại (trên Conversation DB)
+    ConvService->>+ConvDB: Kiểm tra Chat tồn tại (findById)
+    ConvDB-->>-ConvService: Trả về thông tin Chat
+    alt Chat không tồn tại
+        ConvService-->>User: Trả về lỗi HTTP 404 Not Found (Hủy luồng)
+    end
+
     %% Gọi sang service AI bằng gRPC
     ConvService->>+Chatbot: Gọi AskAI qua gRPC Stream (query, chat_id, use_reasoning)
+
+    %% Chatbot lưu tin nhắn User trước khi gọi LLM (vào Chatbot DB)
+    Chatbot->>+ChatbotDB: Lưu tin nhắn User (role='human', content=query)
+    ChatbotDB-->>-Chatbot: OK
 
     %% Khởi tạo luồng sinh text
     Chatbot->>+LLM: Kích hoạt luồng LangGraph + LLM
@@ -40,10 +51,10 @@ sequenceDiagram
     %% Khi sinh xong, LangGraph kết thúc
     LLM-->>-Chatbot: Tín hiệu kết thúc (Done)
 
-    %% Hậu xử lý (Lưu trữ & Chạy ngầm)
-    Note over Chatbot, DB: Chatbot xử lý lưu trữ trước khi ngắt gRPC
-    Chatbot->>+DB: Lưu tin nhắn AI (role='ai', full_content, reasoning_steps, sources)
-    DB-->>-Chatbot: OK
+    %% Hậu xử lý (Lưu trữ tin nhắn AI vào Chatbot DB)
+    Note over Chatbot, ChatbotDB: Chatbot xử lý lưu trữ trước khi ngắt gRPC
+    Chatbot->>+ChatbotDB: Lưu tin nhắn AI (role='ai', full_content, reasoning_steps, sources)
+    ChatbotDB-->>-Chatbot: OK
 
     opt Nếu chat chưa có tiêu đề
         Chatbot->>Chatbot: Kích hoạt Task chạy ngầm sinh tiêu đề (start_background_topic_generation)
