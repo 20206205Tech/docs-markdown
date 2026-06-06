@@ -1,17 +1,22 @@
 sequenceDiagram
     actor User
     participant PaymentService as Payment Service
-    participant Database as Database
+    participant PaymentDatabase as Payment Database
     participant Redis as Redis (BullMQ)
-    participant PaymentGateway as Payment Gateway
+    participant PaymentGateway as Payment Gateway (VNPay, Momo)
+    participant Kafka as Kafka (Event Bus)
+    participant ConversationService as Conversation Service
+    participant ConversationDatabase as Conversation Database
+    participant DocumentService as Document Service
+    participant DocumentDatabase as Document Database
 
-    %% PHẦN 1: TẠO ĐƠN VÀ HẸN GIỜ HỦY
+    %% PHẦN 1: TẠO ĐƠN VÀ HẸN GIỜ HỦY (Giữ nguyên Redis)
     User->>+PaymentService: POST /api/payments/create
-    PaymentService->>+Database: GET Plan & Validate
-    Database-->>-PaymentService: Plan Info
+    PaymentService->>+PaymentDatabase: GET Plan & Validate
+    PaymentDatabase-->>-PaymentService: Plan Info
 
-    PaymentService->>+Database: INSERT Pending Order ('pending')
-    Database-->>-PaymentService: order_id
+    PaymentService->>+PaymentDatabase: INSERT Pending Order ('pending')
+    PaymentDatabase-->>-PaymentService: order_id
 
     %% Đẩy Delay Job vào BullMQ
     PaymentService->>+Redis: Thêm Delay Job 'check_expired' (Delay 15 phút)
@@ -25,36 +30,50 @@ sequenceDiagram
     User->>PaymentGateway: Chuyển hướng & Thanh toán
     PaymentGateway-->>User: Redirect về Web/App
 
-    %% PHẦN 3: WEBHOOK & NHẬN JOB BẤT ĐỒNG BỘ
-    Note over PaymentGateway, Redis: Luồng xử lý Webhook bất đồng bộ
+    %% PHẦN 3 & 4: WEBHOOK & KAFKA PUB/SUB
+    Note over PaymentGateway, Kafka: Luồng Webhook kích hoạt Event-Driven via Kafka
     PaymentGateway->>+PaymentService: POST /api/payments/webhook
     PaymentService->>PaymentService: Validate Signature
 
     alt Chữ ký hợp lệ
-        %% Thay vì xử lý DB ngay, đẩy vào Queue
-        PaymentService->>+Redis: Thêm Job 'process_payment' (Payload: Data Webhook)
-        Redis-->>-PaymentService: job_id
+        PaymentService->>+PaymentDatabase: UPDATE Order status = 'paid'
+        PaymentDatabase-->>-PaymentService: OK
+        PaymentService->>+PaymentDatabase: Nâng cấp User VIP
+        PaymentDatabase-->>-PaymentService: OK
+
+        %% Publish Event lên Kafka
+        PaymentService->>+Kafka: Publish Event 'PaymentSucceeded' (Topic: payments)
+        Kafka-->>-PaymentService: Ack
+
         PaymentService-->>-PaymentGateway: HTTP 200 OK (Phản hồi Gateway lập tức)
     else Chữ ký không hợp lệ
         PaymentService-->>PaymentGateway: HTTP 400 Bad Request
     end
 
-    %% PHẦN 4: XỬ LÝ JOB THANH TOÁN THÀNH CÔNG (Chạy ngầm trong Payment Service)
-    Note over PaymentService, Database: Payment Service tự xử lý Job thanh toán
-    PaymentService->>+Redis: Nhận Job 'process_payment' từ Queue
-    Redis-->>-PaymentService: Dữ liệu giao dịch
-    PaymentService->>+Database: UPDATE Order status = 'paid'
-    Database-->>-PaymentService: OK
-    PaymentService->>+Database: Nâng cấp User VIP
-    Database-->>-PaymentService: OK
-    PaymentService->>Redis: Đánh dấu Job hoàn thành (Completed)
+    %% Các service khác tự động Consume Event từ Kafka
+    par Xử lý Event đồng thời
+        Kafka-->>+ConversationService: Consume 'PaymentSucceeded'
+        ConversationService->>+ConversationDatabase: Cập nhật quyền truy cập / Limit
+        ConversationDatabase-->>-ConversationService: OK
+        ConversationService-->>-Kafka: Commit Offset
+    and
+        Kafka-->>+DocumentService: Consume 'PaymentSucceeded'
+        DocumentService->>+DocumentDatabase: Cập nhật dung lượng / Limit
+        DocumentDatabase-->>-DocumentService: OK
+        DocumentService-->>-Kafka: Commit Offset
+    end
 
     %% PHẦN 5: XỬ LÝ DELAY JOB (Sau 15 phút nếu chưa thanh toán)
-    Note over PaymentService, Database: 15 phút sau: Payment Service xử lý hủy đơn
+    Note over PaymentService, PaymentDatabase: 15 phút sau: Payment Service xử lý hủy đơn qua Redis
     PaymentService->>+Redis: Nhận Delay Job 'check_expired' từ Queue
     Redis-->>-PaymentService: order_id
-    PaymentService->>+Database: Kiểm tra trạng thái Order hiện tại
-    Database-->>-PaymentService: Trạng thái: 'pending' (Chưa ai đổi sang paid)
-    PaymentService->>+Database: UPDATE Order status = 'cancelled'
-    Database-->>-PaymentService: OK
-    PaymentService->>Redis: Đánh dấu Job hoàn thành
+    PaymentService->>+PaymentDatabase: Kiểm tra trạng thái Order hiện tại
+
+    alt Trạng thái là 'pending'
+        PaymentDatabase-->>PaymentService: Trạng thái: 'pending'
+        PaymentService->>PaymentDatabase: UPDATE Order status = 'cancelled'
+        PaymentService->>Redis: Đánh dấu Job hoàn thành
+    else Đã thanh toán
+        PaymentDatabase-->>-PaymentService: Trạng thái: 'paid'
+        PaymentService->>Redis: Bỏ qua & Đánh dấu Job hoàn thành
+    end
