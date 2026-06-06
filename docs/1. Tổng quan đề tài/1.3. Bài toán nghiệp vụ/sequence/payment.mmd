@@ -6,8 +6,8 @@ sequenceDiagram
     participant Redis as Redis <br>(BullMQ)
     participant PaymentGateway as Payment Gateway <br>(VNPay, Momo, ZaloPay, SePay)
     participant Kafka as Kafka <br>(Event Bus)
-    participant ConsumeService as Consume service <br>(conversation service)
-    participant ConsumeDatabase as Consume database <br>(conversation database)
+    participant ConsumeService as Consume service <br>(conversation service, document service)
+    participant ConsumeDatabase as Consume database <br>(conversation database, document database)
 
     %% PHẦN 1: TẠO ĐƠN VÀ HẸN GIỜ HỦY
     User->>+PaymentService: POST /code-payment-service/subscriptions/purchase

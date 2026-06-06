@@ -47,6 +47,7 @@ DATA = [
         "vie": "Xử lý ngôn ngữ tự nhiên",
     },
     {"abbr": "CSDL", "eng": "Cơ sở dữ liệu", "vie": "Cơ sở dữ liệu"},
+    {"abbr": "SSE", "eng": "Server-sent events", "vie": "Sự kiện máy chủ gửi"},
 ]
 
 
