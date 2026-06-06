@@ -8,51 +8,38 @@ sequenceDiagram
     participant ChatbotDB as Chatbot DB
     participant R2 as R2 Object Storage
 
-    %% Giai đoạn 1: Khởi tạo Share Link
     User->>+Conv: POST /code-conversation-service/chats/share (Kèm chatId & lastMessageId)
-
-    %% Kiểm tra quyền & ghi nhận giao dịch bằng Outbox Pattern
     Conv->>+ConvDB: Kiểm tra quyền sở hữu Chat
     ConvDB-->>-Conv: OK
 
     Conv->>+ConvDB: INSERT Share (status='PENDING') & INSERT Outbox (ShareGeneratedEvent)
     ConvDB-->>-Conv: Commit Transaction (Atomic)
 
-    %% Trả về link ngay lập tức cho User
     Conv-->>-User: HTTP 201 Created (Trả về shareId & shareUrl tạm thời)
 
-    %% Giai đoạn 2: Cron Job quét Outbox gửi RabbitMQ
-    Note over Conv, RabbitMQ: Cron job OutboxRelay chạy định kỳ quét DB
+    Note over Conv, RabbitMQ: Cron job OutboxRelay quét DB định kỳ gửi event
     Conv->>+ConvDB: SELECT PENDING OutboxEvents
     ConvDB-->>-Conv: Danh sách events
-
-    Conv->>+RabbitMQ: Publish Event 'ShareGeneratedEvent' (Queue: share_generated)
+    Conv->>+RabbitMQ: Publish 'ShareGeneratedEvent' (Queue: share_generated)
     RabbitMQ-->>-Conv: Ack
-
     Conv->>+ConvDB: UPDATE Outbox status='DONE'
     ConvDB-->>-Conv: OK
 
-    %% Giai đoạn 3: Python xử lý sinh file JSONL & Upload R2
-    RabbitMQ-->>+Chatbot: Consume 'ShareGeneratedEvent' (args: shareId, chatId, lastMessageId)
-
-    Chatbot->>+ChatbotDB: Query danh sách tin nhắn của Chat đến lastMessageId
+    RabbitMQ-->>+Chatbot: Consume 'ShareGeneratedEvent'
+    Chatbot->>+ChatbotDB: Query tin nhắn của Chat đến lastMessageId
     ChatbotDB-->>-Chatbot: Danh sách tin nhắn
-
-    Note over Chatbot: Xử lý build nội dung chat thành định dạng JSONL
+    Note over Chatbot: Xử lý build nội dung chat thành JSONL
 
     Chatbot->>+R2: Upload file JSONL (Key: shared_chats/{userId}/{shareId}.jsonl)
     R2-->>-Chatbot: Trả về file_url
-
-    Chatbot->>+ChatbotDB: Lưu thông tin Share và Version mới để đồng bộ dữ liệu
+    Chatbot->>+ChatbotDB: Lưu thông tin Share và Version mới để đồng bộ
     ChatbotDB-->>-Chatbot: OK
 
-    %% Trả kết quả hoàn thành về NestJS
     Chatbot->>+RabbitMQ: Publish 'ShareUploadCompletedEvent' (Queue: share_upload_completed)
     RabbitMQ-->>-Chatbot: Ack
     Chatbot-->>-RabbitMQ: Acknowledge (Hoàn thành Task gốc)
 
-    %% Giai đoạn 4: NestJS nhận kết quả và kích hoạt Share Link
-    RabbitMQ-->>+Conv: Consume 'ShareUploadCompletedEvent' (args: shareId, fileUrl, isSuccess)
+    RabbitMQ-->>+Conv: Consume 'ShareUploadCompletedEvent'
     Conv->>+ConvDB: Cập nhật Share (status='ACTIVE', fileUrl=fileUrl)
     ConvDB-->>-Conv: OK
     Conv-->>-RabbitMQ: Acknowledge
