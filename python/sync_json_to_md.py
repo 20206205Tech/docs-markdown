@@ -50,7 +50,7 @@ DATA = [
     {"abbr": "SSE", "eng": "Server-sent events", "vie": "Sự kiện máy chủ gửi"},
 ]
 
-
+# Ack
 # <!-- UML -->
 
 
