@@ -1,0 +1,11 @@
+sequenceDiagram
+    participant Client
+    participant Server
+
+    %% Ví dụ với HTTP GET
+    Client->>+Server: GET /api/data
+    Server-->>-Client: HTTP 200 OK (Trả về dữ liệu)
+
+    %% Ví dụ với HTTP POST
+    Client->>+Server: POST /api/data (Kèm theo Body/Payload)
+    Server-->>-Client: HTTP 201 Created (Tạo mới thành công)
