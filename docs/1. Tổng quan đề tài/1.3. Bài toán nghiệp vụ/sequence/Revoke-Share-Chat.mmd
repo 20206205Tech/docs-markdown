@@ -8,89 +8,23 @@ sequenceDiagram
     participant ChatbotDB as Chatbot DB
     participant R2 as R2 Object Storage
 
-    %% ==========================================
-    %% PHẦN 1: TẠO LINK CHIA SẺ (GENERATE SHARE)
-    %% ==========================================
-    Note over User, R2: [PHẦN 1] TẠO LINK CHIA SẺ (GENERATE SHARE)
-
-    User->>+Conv: POST /code-conversation-service/chats/share (Kèm chatId & lastMessageId)
-
-    Conv->>+ConvDB: Kiểm tra quyền sở hữu Chat
-    ConvDB-->>-Conv: OK
-
-    Conv->>+ConvDB: INSERT Share (status='PENDING') & INSERT Outbox (ShareGeneratedEvent)
-    ConvDB-->>-Conv: Commit Transaction (Atomic)
-
-    %% Trả về link ngay lập tức cho User
-    Conv-->>-User: HTTP 201 Created (Trả về shareId & shareUrl tạm thời)
-
-    %% Cron Job quét Outbox gửi đi
-    Note over Conv, RabbitMQ: Cron job OutboxRelay quét DB định kỳ
-    Conv->>+ConvDB: SELECT PENDING OutboxEvents
-    ConvDB-->>-Conv: Danh sách events
-
-    Conv->>+RabbitMQ: Publish 'ShareGeneratedEvent' (Queue: share_generated)
-    RabbitMQ-->>-Conv: Ack
-
-    Conv->>+ConvDB: UPDATE Outbox status='DONE'
-    ConvDB-->>-Conv: OK
-
-    %% Python xử lý sinh file JSONL & Upload R2
-    RabbitMQ-->>+Chatbot: Consume 'ShareGeneratedEvent' (args: shareId, chatId, lastMessageId)
-
-    Chatbot->>+ChatbotDB: Query danh sách tin nhắn của Chat đến lastMessageId
-    ChatbotDB-->>-Chatbot: Danh sách tin nhắn
-
-    Note over Chatbot: Xử lý build nội dung chat thành định dạng JSONL
-
-    Chatbot->>+R2: Upload file JSONL (Key: shared_chats/{userId}/{shareId}.jsonl)
-    R2-->>-Chatbot: Trả về file_url
-
-    Chatbot->>+ChatbotDB: Lưu thông tin Share và Version mới để đồng bộ dữ liệu
-    ChatbotDB-->>-Chatbot: OK
-
-    %% Trả kết quả hoàn thành về NestJS
-    Chatbot->>+RabbitMQ: Publish 'ShareUploadCompletedEvent' (Queue: share_upload_completed)
-    RabbitMQ-->>-Chatbot: Ack
-    Chatbot-->>-RabbitMQ: Acknowledge (Hoàn thành Task gốc)
-
-    %% NestJS nhận kết quả và kích hoạt Share Link
-    RabbitMQ-->>+Conv: Consume 'ShareUploadCompletedEvent' (args: shareId, fileUrl, isSuccess)
-    Conv->>+ConvDB: Cập nhật Share (status='ACTIVE', fileUrl=fileUrl)
-    ConvDB-->>-Conv: OK
-    Conv-->>-RabbitMQ: Acknowledge
-
-    %% ==========================================
-    %% PHẦN 2: THU HỒI LINK CHIA SẺ (REVOKE SHARE)
-    %% ==========================================
-    Note over User, R2: [PHẦN 2] THU HỒI LINK CHIA SẺ (REVOKE SHARE)
-
     User->>+Conv: POST /code-conversation-service/shares/:id/revoke
-
-    Conv->>+ConvDB: Kiểm tra quyền sở hữu & Hủy kích hoạt Share
-    Conv->>ConvDB: UPDATE Share (isActive=false) & INSERT Outbox (ShareRevokedEvent)
+    Conv->>+ConvDB: UPDATE Share (isActive=false) & INSERT Outbox (ShareRevokedEvent)
     ConvDB-->>-Conv: Commit Transaction (Atomic)
-
     Conv-->>-User: HTTP 200 OK (Xác nhận thu hồi thành công)
 
-    %% Cron Job quét Outbox gửi đi
-    Note over Conv, RabbitMQ: Cron job OutboxRelay quét DB định kỳ
+    Note over Conv, RabbitMQ: Cron job OutboxRelay quét DB định kỳ gửi event
     Conv->>+ConvDB: SELECT PENDING OutboxEvents
     ConvDB-->>-Conv: Danh sách events
-
     Conv->>+RabbitMQ: Publish 'ShareRevokedEvent' (Queue: share_revoked)
     RabbitMQ-->>-Conv: Ack
-
     Conv->>+ConvDB: UPDATE Outbox status='DONE'
     ConvDB-->>-Conv: OK
 
-    %% Python xử lý xóa file R2 & cập nhật DB
-    RabbitMQ-->>+Chatbot: Consume 'ShareRevokedEvent' (args: shareId, fileUrl, version)
-
+    RabbitMQ-->>+Chatbot: Consume 'ShareRevokedEvent'
     Chatbot->>+R2: Yêu cầu xóa file JSONL khỏi R2 (delete_file)
     R2-->>-Chatbot: OK (Đã xóa file)
 
     Chatbot->>+ChatbotDB: UPDATE Share (is_revoked=True, version=version)
     ChatbotDB-->>-Chatbot: OK
-
     Chatbot-->>-RabbitMQ: Acknowledge (Hoàn thành)
