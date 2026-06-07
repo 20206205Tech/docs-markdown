@@ -56,6 +56,12 @@ DATA = [
     {"abbr": "2FA", "eng": "Two-Factor Authentication", "vie": "Xác thực hai yếu tố"},
     {"abbr": "MFA", "eng": "Multi-Factor Authentication", "vie": "Xác thực đa yếu tố"},
     {"abbr": "VIP", "eng": "Very Important Person", "vie": "Người rất quan trọng"},
+    {"abbr": "CI", "eng": "Continuous Integration", "vie": "Tích hợp liên tục"},
+    {
+        "abbr": "CD",
+        "eng": "Continuous Delivery / Deployment",
+        "vie": "Chuyển giao/Triển khai liên tục",
+    },
 ]
 
 # <!-- *	SMTP: Simple Mail Transfer Protocol (Giao thức truyền thư đơn giản) -->
