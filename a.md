@@ -1,6 +1,7 @@
 
 
 Các sơ đồ database
+## Cấu hình trong Kong API Gateway
 
 ![alt text](image.png)
 ![alt text](image-1.png)
