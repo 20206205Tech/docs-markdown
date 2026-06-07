@@ -48,10 +48,6 @@ DATA = [
     },
     {"abbr": "CSDL", "eng": "Cơ sở dữ liệu", "vie": "Cơ sở dữ liệu"},
     {"abbr": "SSE", "eng": "Server-sent events", "vie": "Sự kiện máy chủ gửi"},
-    # {"abbr": "TOTP", "eng": "Server-sent events", "vie": "Sự kiện máy chủ gửi"},
-    # {"abbr": "2FA", "eng": "Server-sent events", "vie": "Sự kiện máy chủ gửi"},
-    # {"abbr": "MFA", "eng": "Server-sent events", "vie": "Sự kiện máy chủ gửi"},
-    # {"abbr": "VIP", "eng": "Server-sent events", "vie": "Sự kiện máy chủ gửi"},
     {
         "abbr": "TOTP",
         "eng": "Time-based One-Time Password",
