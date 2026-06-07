@@ -48,7 +48,24 @@ DATA = [
     },
     {"abbr": "CSDL", "eng": "Cơ sở dữ liệu", "vie": "Cơ sở dữ liệu"},
     {"abbr": "SSE", "eng": "Server-sent events", "vie": "Sự kiện máy chủ gửi"},
+    # {"abbr": "TOTP", "eng": "Server-sent events", "vie": "Sự kiện máy chủ gửi"},
+    # {"abbr": "2FA", "eng": "Server-sent events", "vie": "Sự kiện máy chủ gửi"},
+    # {"abbr": "MFA", "eng": "Server-sent events", "vie": "Sự kiện máy chủ gửi"},
+    # {"abbr": "VIP", "eng": "Server-sent events", "vie": "Sự kiện máy chủ gửi"},
+    {
+        "abbr": "TOTP",
+        "eng": "Time-based One-Time Password",
+        "vie": "Mật khẩu dùng một lần dựa trên thời gian",
+    },
+    {"abbr": "2FA", "eng": "Two-Factor Authentication", "vie": "Xác thực hai yếu tố"},
+    {"abbr": "MFA", "eng": "Multi-Factor Authentication", "vie": "Xác thực đa yếu tố"},
+    {"abbr": "VIP", "eng": "Very Important Person", "vie": "Người rất quan trọng"},
 ]
+
+# <!-- *	SMTP: Simple Mail Transfer Protocol (Giao thức truyền thư đơn giản) -->
+
+# <!-- *	UI: User Interface (Giao diện người dùng) -->
+
 
 # Ack
 # <!-- UML -->
