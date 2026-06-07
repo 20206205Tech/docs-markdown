@@ -11,11 +11,14 @@
 
 <!-- Destination -->
 
-<!-- ![alt text](xxxxx/Data-Pipeline.excalidraw.png) -->
+<!-- ![alt text](Data-Pipeline.excalidraw.png) -->
+
+
+
 
 <!-- # Sơ đồ thu thập dữ liệu -->
 
-<!-- ![alt text](xxxxx/crawl-data.excalidraw.png) -->
+<!-- ![alt text](crawl-data.excalidraw.png) -->
 
 <!-- # Sơ đồ tiền xử lý dữ liệu ETL -->
 
@@ -32,11 +35,3 @@
 <!-- - [ ] Sử dụng python để chuyển thành markdown -->
 
 <!-- - [ ] Sử dụng langchain : Chunking và embeddings dữ liệu -->
-
-<!-- # Sơ đồ Tổng quan chung về backend AI -->
-
-<!-- Backend và AI cùng chung 1 dự án, sau này có thể tách thành 1 backend hoặc microservice NestJS (dự kiến) -->
-
-<!-- ![alt text](xxxxx/be-ai.excalidraw.png) -->
-
-<!-- ![alt text](<Client App API Gateway-2026-04-23-030755.png>) -->
