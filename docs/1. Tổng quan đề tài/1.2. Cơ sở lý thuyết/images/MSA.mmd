@@ -28,6 +28,11 @@ graph TB
 
     VectorDB[("Vector Database")]:::vector_db
 
+    %% --- ĐỊNH NGHĨA 2 SERVICE MỚI ---
+    VBPL["VBPL Service"]:::internal_python
+    PhapDien["PhapDien Service"]:::internal_python
+    %% --------------------------------
+
     LiveKit <-->|Stream| Chatbot
     Conv -->|Get Token| LiveKit
 
@@ -40,6 +45,11 @@ graph TB
     Kong --> Conv
     Kong --> Persona
 
+    %% --- KẾT NỐI 2 SERVICE MỚI VỚI GATEWAY ---
+    Kong --> VBPL
+    Kong --> PhapDien
+    %% -----------------------------------------
+
     Conv <-->|gRPC & Message Queue| Chatbot
     Chatbot -->|REST | Persona
 
@@ -51,6 +61,5 @@ graph TB
     Payment == Publish Event ==> MQ
     MQ == Consume Event ==> Conv
     MQ == Consume Event ==> Doc
-
 
     Kong --> Doc
