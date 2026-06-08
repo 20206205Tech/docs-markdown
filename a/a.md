@@ -9,7 +9,7 @@ api swagger
 ![alt text](image-2.png)
 
 ![alt text](image-3.png)
-![alt text](image-4.png)
+<!-- ![alt text](../docs/2. Công nghệ sử dụng/3.1. Tổng quan hệ thống/images/image-4.png) -->
 
 ![alt text](image-5.png)
 
