@@ -61,13 +61,13 @@ flowchart TD
     DocService -->|"Trích xuất & Vector hóa (Docling)"| Qdrant
 
     %% Conversation & Chatbot Luồng (Quan trọng)
-    ConvService <-->|"gRPC / gRPC Stream\n(Gửi Text, ID, File VIP)"| ChatbotService
-    ConvService -->|"Bắn Event: Xóa Chat"| Kafka
+    ConvService <-->|"gRPC"| ChatbotService
+    ConvService -->|"Xóa Chat"| Kafka
 
     ChatbotService <-->|"Truy vấn VBPL"| Pinecone
     ChatbotService <-->|"Truy vấn Pháp điển"| NeonDB_Phapdien
     ChatbotService <-->|"Truy vấn File VIP"| Qdrant
-    ChatbotService <-->|"Suy luận Agentic AI"| LLM
+    ChatbotService <-->|"call"| LLM
 
     %% --- LUỒNG CONSUMER NHẬN EVENT TỪ KAFKA ---
     Kafka -.->|"Lắng nghe: payment_success\n(Mở khóa VIP tải file)"| DocService
