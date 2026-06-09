@@ -22,13 +22,12 @@ flowchart TD
 
     %% Nhóm Core Services (Vùng Cốt lõi)
     subgraph CoreDomain [Vùng Cốt lõi - Core Domain]
-        ConvService["Conversation Service\n(Quản lý Chat, Bookmark, Share)"]
-        ChatbotService["Chatbot Service\n(Langgraph Agentic AI)"]
+        ConvService["Conversation Service"]
+        ChatbotService["Chatbot Service"]
     end
 
-    %% Nhóm Supporting Services (Vùng Hỗ trợ)
     subgraph SupportDomain [Vùng Hỗ trợ - Supporting]
-        DocService["Document Service\n(Chỉ VIP: Xử lý file, Docling, RAG)"]
+        DocService["Document Service"]
     end
 
     %% Nhóm Generic Services (Vùng Chung)
@@ -54,7 +53,7 @@ flowchart TD
 
     %% Payment Luồng
     PaymentSvc <-->|"Xử lý giao dịch"| Payment
-    PaymentSvc -->|"Bắn Event: payment_success"| Kafka
+    PaymentSvc -->|"payment_success"| Kafka
     PaymentSvc <-->|"Lên lịch tác vụ (BullMQ)"| Redis
 
     %% Document Processing Luồng
