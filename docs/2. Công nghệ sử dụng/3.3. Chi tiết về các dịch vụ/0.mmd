@@ -51,7 +51,7 @@ flowchart TD
 
     %% Payment Luồng
     PaymentSvc <-->|"Xử lý giao dịch"| Payment
-    PaymentSvc -->|"payment_success"| Kafka
+    PaymentSvc -->|"Publish Event: payment_success"| Kafka
     PaymentSvc <-->|"Lên lịch tác vụ (BullMQ)"| Redis
 
     %% Document Processing Luồng
@@ -68,7 +68,8 @@ flowchart TD
     ChatbotService <-->|"call"| LLM
 
     %% --- LUỒNG CONSUMER NHẬN EVENT TỪ KAFKA ---
-    Kafka -.->|"Lắng nghe: payment_success\n(Mở khóa VIP tải file)"| DocService
+    Kafka -.->|"Consume Event: payment_success"| DocService
+    Kafka -.->|"Consume Event: payment_success"| ChatbotService
     Kafka -.->|"Lắng nghe: delete_chat\n(Xóa lịch sử AI context)"| ChatbotService
 
     %% Style Định dạng màu sắc chung
