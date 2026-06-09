@@ -20,18 +20,16 @@ flowchart TD
         Kafka[["Kafka Broker"]]
         Redis[("Redis & BullMQ")]
 
-    %% Nhóm Core Services (Vùng Cốt lõi)
-    subgraph CoreDomain [Vùng Cốt lõi - Core Domain]
+    subgraph CoreDomain [Core Subdomain]
         ConvService["Conversation Service"]
         ChatbotService["Chatbot Service"]
     end
 
-    subgraph SupportDomain [Vùng Hỗ trợ - Supporting]
+    subgraph SupportDomain [Supporting Subdomain]
         DocService["Document Service"]
     end
 
-    %% Nhóm Generic Services (Vùng Chung)
-    subgraph GenericDomain [Vùng Chung - Generic]
+    subgraph GenericDomain [Generic Subdomain]
         AuthService["Auth Service"]
         SettingService["Setting Service"]
         PaymentSvc["Payment Service"]
