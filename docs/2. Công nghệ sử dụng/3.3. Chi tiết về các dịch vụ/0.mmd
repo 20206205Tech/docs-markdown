@@ -1,15 +1,7 @@
-
 flowchart TD
     Client(["NextJS"])
     Gateway{"Kong API Gateway"}
-
-
-
     Client <-->|"request"| Gateway
-
-
-
-
 
     %% Nhóm Database & Storage
     subgraph Databases [Databases & Storage]
@@ -23,8 +15,6 @@ flowchart TD
         %% Dùng liên kết vô hình để ép thứ tự từ trái sang phải
         R2 ~~~ Qdrant ~~~ Pinecone ~~~ NeonDB_Phapdien
     end
-
-
 
     %% Nhóm Message Broker & Cache
         Kafka[["Kafka Broker\n(Events: payment_success, delete_chat)"]]
@@ -43,32 +33,29 @@ flowchart TD
 
     %% Nhóm Generic Services (Vùng Chung)
     subgraph GenericDomain [Vùng Chung - Generic]
-        UserService["User Service\n(Quản lý Profile, Auth Google)"]
+        AuthService["Auth Service\n(Quản lý Profile, Auth Google)"]
         SettingService["Setting Service\n(Lưu cấu hình User)"]
-        SubService["Subscription Service\n(Quản lý Plan, Coupon, Invoice)"]
+        PaymentSvc["Payment Service\n(Quản lý Plan, Coupon, Invoice)"]
     end
 
     %% External Systems
     LLM(("LLM"))
     Payment(("Cổng Thanh Toán\n(VNPay, Momo, Zalo - DDD Interface)"))
 
-    %% --- ĐỊNH NGHĨA LUỒNG GIAO TIẾP ---
-
-    %% Gateway to Services
-    Gateway -->|"Auth, Profile, Upload Avatar"| UserService
+    Gateway -->|"Auth, MFA, Profile, Avatar"| AuthService
     Gateway -->|"GET/POST Settings"| SettingService
-    Gateway -->|"Mua gói, Hủy gói"| SubService
+    Gateway -->|"Mua gói, Hủy gói"| PaymentSvc
     Gateway -->|"Upload File (VIP)"| DocService
     Gateway <-->|"Nhận Request / Gửi response"| ConvService
 
     %% Service to Database/Storage
-    UserService <-->|"Đọc/Ghi/Upload"| SupabaseDB
+    AuthService <-->|"Đọc/Ghi/Upload"| SupabaseDB
     SettingService <-->|"RESTful API"| NeonDB_Setting
 
     %% Payment Luồng
-    SubService <-->|"Xử lý giao dịch"| Payment
-    SubService -->|"Bắn Event: payment_success"| Kafka
-    SubService <-->|"Lên lịch tác vụ (BullMQ)"| Redis
+    PaymentSvc <-->|"Xử lý giao dịch"| Payment
+    PaymentSvc -->|"Bắn Event: payment_success"| Kafka
+    PaymentSvc <-->|"Lên lịch tác vụ (BullMQ)"| Redis
 
     %% Document Processing Luồng
     DocService -->|"Lưu file vật lý"| R2
@@ -95,7 +82,7 @@ flowchart TD
 
     class ConvService,ChatbotService core
     class DocService support
-    class UserService,SettingService,SubService generic
+    class AuthService,SettingService,PaymentSvc generic
     class SupabaseDB,NeonDB_Setting,NeonDB_Phapdien,Pinecone,Qdrant,R2 db
 
     %% --- TÔ MÀU ĐỘC LẬP THEO YÊU CẦU ---
