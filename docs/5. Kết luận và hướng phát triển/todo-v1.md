@@ -101,7 +101,7 @@ https://testcontainers.com
 <!-- Sự kiện phải được đánh phiên bản là số thứ tự -->
 <!-- Sự kiện phải được đánh phiên bản là số thứ tự -->
 <!-- Bị ngược rabbit, kafka vì người dùng mua ít, dùng doc nhiều -->
-<!-- @contextScopeItemMention @contextScopeItemMention Tôi muốn bạn dựa vào RabbitMqAdapter -->
+<!-- @contextScopeItemMention @contextScopeItemMention Tôi muốn   dựa vào RabbitMqAdapter -->
 
 <!-- Thêm phần nếu Queue bị lỗi => cần xử lý lại -->
 
