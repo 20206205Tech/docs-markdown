@@ -4,6 +4,9 @@ Các sơ đồ database
 ## Cấu hình trong Kong API Gateway
 api swagger
 
+database migration
+<!--  -->
+
 ![alt text](image.png)
 ![alt text](image-1.png)
 ![alt text](image-2.png)
