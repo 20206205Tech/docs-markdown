@@ -17,8 +17,8 @@ flowchart TD
     end
 
     %% Nhóm Message Broker & Cache
-        Kafka[["Kafka Broker\n(Events: payment_success, delete_chat)"]]
-        Redis[("Redis & BullMQ\n(Rate Limit, Hủy thanh toán)")]
+        Kafka[["Kafka Broker"]]
+        Redis[("Redis & BullMQ")]
 
     %% Nhóm Core Services (Vùng Cốt lõi)
     subgraph CoreDomain [Vùng Cốt lõi - Core Domain]
@@ -40,11 +40,11 @@ flowchart TD
 
     %% External Systems
     LLM(("LLM"))
-    Payment(("Cổng Thanh Toán\n(VNPay, Momo, Zalo - DDD Interface)"))
+    Payment(("Cổng Thanh Toán"))
 
     Gateway -->|"Auth, MFA, Profile, Avatar"| AuthService
     Gateway -->|"GET/POST Settings"| SettingService
-    Gateway -->|"Mua gói, Hủy gói"| PaymentSvc
+    Gateway -->|"Thanh toán"| PaymentSvc
     Gateway -->|"Upload File (VIP)"| DocService
     Gateway <-->|"Nhận Request / Gửi response"| ConvService
 
