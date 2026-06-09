@@ -36,6 +36,9 @@ wbsDiagram {
 **** 2.2.1 Cung cấp danh sách nhân vật cho người dùng lựa chọn
 **** 2.2.2 Quản trị nhân vật ảo (Dành cho ADMIN)
 **** 2.2.3 Quản trị cấu hình giọng nói (Dành cho ADMIN)
+*** 2.3 Quản trị Bảng điều khiển (Admin Dashboard)
+**** 2.3.1 Báo cáo thống kê Pipeline dữ liệu văn bản pháp luật (Nguồn vbpl.vn)
+**** 2.3.2 Báo cáo thống kê Pipeline dữ liệu Pháp Điển
 
 ** 3. Phân hệ Chung (Generic Subdomain)
 *** 3.1 Dịch vụ Xác thực (Auth Service - Supabase)
@@ -53,7 +56,4 @@ wbsDiagram {
 **** 3.3.2 Xử lý nâng cấp tài khoản \n(Tích hợp cổng thanh toán VNPay, MoMo, ZaloPay...)
 **** 3.3.3 Tra cứu lịch sử giao dịch
 **** 3.3.4 Quản trị các gói dịch vụ (Dành cho ADMIN)
-*** 3.4 Quản trị Bảng điều khiển (Admin Dashboard)
-**** 3.4.1 Báo cáo thống kê Pipeline dữ liệu văn bản pháp luật (Nguồn vbpl.vn)
-**** 3.4.2 Báo cáo thống kê Pipeline dữ liệu Pháp Điển
 @endwbs
