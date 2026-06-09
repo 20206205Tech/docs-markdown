@@ -1,19 +1,27 @@
-flowchart TD
-    %% Định nghĩa Client & Gateway
-    Client(["Client: NextJS Web / App"])
-    Gateway{"Kong API Gateway\n(Base: /api/dev hoặc /prod)"}
+Hướng dẫn chỉnh lại toàn bộ sơ đồ Mermaid
+theo logic dự án hiện tại
 
-    Client <-->|"HTTPS / WebSocket"| Gateway
+
+flowchart TD
+    Client(["NextJS"])
+    Gateway{"Kong API Gateway"}
+
+
+
+    Client <-->|"request"| Gateway
+
+
+
 
 
     %% Nhóm Database & Storage
     subgraph Databases [Databases & Storage]
-        SupabaseDB[("Supabase\n(Profiles, Bucket Avatars)")]
-        NeonDB_Setting[("Neon Postgres\n(Settings - DB độc lập)")]
-        Pinecone[("Pinecone\n(VBPL Vector)")]
-        Qdrant[("Qdrant\n(User Doc Vector)")]
-        NeonDB_Phapdien[("Neon Postgres\n(Pháp điển Vector)")]
-        R2[("Cloudflare R2\n(Lưu File Raw)")]
+        SupabaseDB[("Supabase")]
+        NeonDB_Setting[("Neon Postgres")]
+        Pinecone[("Pinecone")]
+        Qdrant[("Qdrant")]
+        NeonDB_Phapdien[("Neon Postgres")]
+        R2[("Cloudflare R2")]
 
         %% Dùng liên kết vô hình để ép thứ tự từ trái sang phải
         R2 ~~~ Qdrant ~~~ Pinecone ~~~ NeonDB_Phapdien
