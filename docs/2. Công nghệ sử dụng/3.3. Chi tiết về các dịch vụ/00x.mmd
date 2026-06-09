@@ -1,42 +1,44 @@
-flowchart TD
-    Client(["NextJS FE (code-fe-ui)"])
-    Gateway{"Kong API Gateway"}
-
-    Client <-->|"HTTP / WebSockets"| Gateway
-    Client <-->|"WebRTC Stream (VIP Voice)"| LiveKit(("LiveKit Server\n(Voice Chat Engine)"))
+%% Client <-->|"WebRTC Stream (VIP Voice)"| LiveKit(("LiveKit Server\n(Voice Chat Engine)"))
 
 
-    subgraph Databases [Databases & Storage]
+
+
+
+
+
+
         SupabaseAuth[("Supabase Auth\n(Google Sign-In)")]
-        SupabaseStorage[("Supabase Storage\n(Persona Avatars & Audios)")]
+%% SupabaseStorage[("Supabase Storage\n(Persona Avatars & Audios)")]
+
         NeonDB_Settings[("Neon Postgres\n(User Settings DB)")]
+
         NeonDB_Services[("Neon Postgres\n(Microservices DBs)")]
+
         Pinecone[("Pinecone\n(VBPL Vectors)")]
         Qdrant[("Qdrant\n(Pháp điển Vectors)")]
-        Milvus[("Milvus\n(VIP User Files Vectors)")]
-        R2[("Cloudflare R2\n(VIP Documents & Share HTML)")]
-    end
+%% Milvus[("Milvus\n(VIP User Files Vectors)")]
+
 
     %% Nhóm Message Broker & Cache
     subgraph Brokers [Brokers & Caches]
         Kafka[["Kafka Broker\n(Events: payment-events)"]]
         RabbitMQ[["RabbitMQ Broker\n(Celery Tasks, Chat/Share events)"]]
-        RedisCache[("Redis Caches\n(Persona Cache & BullMQ Queue)")]
+%% RedisCache[("Redis Caches\n(Persona Cache & BullMQ Queue)")]
     end
 
     %% Nhóm Core Services (Vùng Cốt lõi)
     subgraph CoreDomain [Vùng Cốt lõi - Core Domain]
         ConvService["Conversation Service\n(NestJS - Chat, Bookmark, Share)"]
         ChatbotService["Chatbot Service\n(Python - Langgraph Agentic AI)"]
-        PersonaService["Persona Service\n(Python - Trợ lý ảo & TTS config)"]
+%% PersonaService["Persona Service\n(Python - Trợ lý ảo & TTS config)"]
     end
 
     %% Nhóm Supporting Services (Vùng Hỗ trợ)
     subgraph SupportDomain [Vùng Hỗ trợ - Supporting]
         DocService["Document Service\n(FastAPI - Quản lý File VIP)"]
-        DocWorker["Document Worker\n(Celery Worker - Parsing & RAG)"]
-        PipelinePhapdien["Data Pipeline Pháp điển\n(Moj.gov.vn -> DB & Qdrant)"]
-        PipelineVBPL["Data Pipeline VBPL\n(Scraper -> DB & Pinecone)"]
+%% DocWorker["Document Worker\n(Celery Worker - Parsing & RAG)"]
+%% PipelinePhapdien["Data Pipeline Pháp điển\n(Moj.gov.vn -> DB & Qdrant)"]
+%% PipelineVBPL["Data Pipeline VBPL\n(Scraper -> DB & Pinecone)"]
     end
 
     %% Nhóm Generic Services (Vùng Chung)

@@ -3,7 +3,6 @@ flowchart TD
     Gateway{"Kong API Gateway"}
     Client <-->|"request"| Gateway
 
-    %% Nhóm Database & Storage
     subgraph Databases [Databases & Storage]
         SupabaseDB[("Supabase")]
         NeonDB_Setting[("Neon Postgres")]
@@ -12,13 +11,11 @@ flowchart TD
         NeonDB_Phapdien[("Neon Postgres")]
         R2[("Cloudflare R2")]
 
-        %% Dùng liên kết vô hình để ép thứ tự từ trái sang phải
         R2 ~~~ Qdrant ~~~ Pinecone ~~~ NeonDB_Phapdien
     end
 
-    %% Nhóm Message Broker & Cache
-        Kafka[["Kafka Broker"]]
-        Redis[("Redis & BullMQ")]
+    Broker[["Kafka, RabbitMQ"]]
+    Redis[("Redis & BullMQ")]
 
     subgraph CoreDomain [Core Subdomain]
         ConvService["Conversation Service"]
@@ -35,44 +32,40 @@ flowchart TD
         PaymentSvc["Payment Service"]
     end
 
-    %% External Systems
-    LLM(("LLM"))
+
+
+    LLM(("Large Language Model"))
     Payment(("Cổng Thanh Toán"))
 
     Gateway -->|"Auth, MFA, Profile, Avatar"| AuthService
-    Gateway -->|"GET/POST Settings"| SettingService
+    Gateway -->|"GET/POST"| SettingService
     Gateway -->|"Thanh toán"| PaymentSvc
     Gateway -->|"Upload File (VIP)"| DocService
-    Gateway <-->|"Nhận Request / Gửi response"| ConvService
+    Gateway <-->|"Request/Response"| ConvService
 
-    %% Service to Database/Storage
     AuthService <-->|"Đọc/Ghi/Upload"| SupabaseDB
     SettingService <-->|"RESTful API"| NeonDB_Setting
 
-    %% Payment Luồng
     PaymentSvc <-->|"Xử lý giao dịch"| Payment
-    PaymentSvc -->|"Publish Event: payment_success"| Kafka
+    PaymentSvc -->|"Publish Event: payment_success"| Broker
     PaymentSvc <-->|"Lên lịch tác vụ (BullMQ)"| Redis
 
-    %% Document Processing Luồng
+    ChatbotService <-->|"Event: Chat & Share"| Broker
+    ConvService <-->|"Event: Chat & Share"| Broker
+
     DocService -->|"Lưu file vật lý"| R2
     DocService -->|"Trích xuất & Vector hóa (Docling)"| Qdrant
 
-    %% Conversation & Chatbot Luồng (Quan trọng)
     ConvService <-->|"gRPC"| ChatbotService
-    ConvService -->|"Xóa Chat"| Kafka
 
     ChatbotService <-->|"Truy vấn VBPL"| Pinecone
     ChatbotService <-->|"Truy vấn Pháp điển"| NeonDB_Phapdien
     ChatbotService <-->|"Truy vấn File VIP"| Qdrant
     ChatbotService <-->|"call"| LLM
 
-    %% --- LUỒNG CONSUMER NHẬN EVENT TỪ KAFKA ---
-    Kafka -.->|"Consume Event: payment_success"| DocService
-    Kafka -.->|"Consume Event: payment_success"| ChatbotService
-    Kafka -.->|"Lắng nghe: delete_chat\n(Xóa lịch sử AI context)"| ChatbotService
+    Broker -.->|"Consume Event: payment_success"| DocService
+    Broker -.->|"Consume Event: payment_success"| ConvService
 
-    %% Style Định dạng màu sắc chung
     classDef core fill:#e1f5fe,stroke:#03a9f4,stroke-width:2px,color:#000
     classDef support fill:#f3e5f5,stroke:#9c27b0,stroke-width:2px,color:#000
     classDef generic fill:#fff3e0,stroke:#ff9800,stroke-width:2px,color:#000
@@ -83,9 +76,8 @@ flowchart TD
     class AuthService,SettingService,PaymentSvc generic
     class SupabaseDB,NeonDB_Setting,NeonDB_Phapdien,Pinecone,Qdrant,R2 db
 
-    %% --- TÔ MÀU ĐỘC LẬP THEO YÊU CẦU ---
     style Redis fill:#ffebee,stroke:#d32f2f,stroke-width:2px,color:#c62828
-    style Kafka fill:#ffe0b2,stroke:#f57c00,stroke-width:2px,color:#e65100
+    style Broker fill:#ffe0b2,stroke:#f57c00,stroke-width:2px,color:#e65100
     style Payment fill:#fffde7,stroke:#fbc02d,stroke-width:2px,color:#000
     style Client fill:#e3f2fd,stroke:#1e88e5,stroke-width:2px,color:#000
     style LLM fill:#f3e5f5,stroke:#8e24aa,stroke-width:2px,color:#000
