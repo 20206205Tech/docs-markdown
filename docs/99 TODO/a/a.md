@@ -1,10 +1,3 @@
-terraform
-
-npm sssssssssssss
-
-
-gói npm và   python
-
 
 
 
