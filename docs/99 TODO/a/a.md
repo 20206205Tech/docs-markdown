@@ -1,24 +1,14 @@
+Kết quả api swagger của dịch vụ
 
+Mô tả chi tiết các chức năng
 
+Cấu hình trong Kong API Gateway
 
-## Cấu hình trong Kong API Gateway
+Thông tin các bảng được lưu trong database
 
-Tạo services có url là https://[PROJECT_REF].supabase.co
-Tạo routes có paths[] là /api/dev/supabase và /api/prod/supabase
-Tạo request-transformer có header=apikey:...
+Thông tin di chuyển cơ sở dữ liệu (database migration)
 
-
-<!-- thiết kế database  -->
-<!-- Các sơ đồ database -->
-
-<!-- api swagger -->
-<!-- ## Cấu hình trong Kong API Gateway -->
-
-
-<!-- database migration -->
-<!-- github action -->
-
-
+Thông tin github action
 
 <!--  -->
 
@@ -27,6 +17,7 @@ Tạo request-transformer có header=apikey:...
 ![alt text](image-2.png)
 
 ![alt text](image-3.png)
+
 <!-- ![alt text](../docs/2. Công nghệ sử dụng/3.1. Tổng quan hệ thống/images/image-4.png) -->
 
 ![alt text](image-5.png)
@@ -36,7 +27,5 @@ Tạo request-transformer có header=apikey:...
 ![alt text](image-7.png)
 
 ![alt text](image-8.png)
-
-
 
 ![alt text](image-4.png)
