@@ -1,0 +1,86 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+actor "Admin" as Admin
+actor "VIP"   as VIP
+actor "User"  as User
+actor "Guest" as Guest
+
+actor "LiveKit"    as LiveKit    << System >>
+actor "ElevenLabs" as ElevenLabs << System >>
+actor "Supabase"   as Supabase   << System >>
+actor "Neon"       as Neon       << System >>
+
+VIP   -|> User
+User  -|> Guest
+Admin -|> User
+
+rectangle "Hệ thống Pháp Luật AI" {
+
+  usecase "Quản lý trợ lý ảo"             as UC_Admin1
+  usecase "Quản lý TTS Engine & Voices"   as UC_Admin2
+  usecase "Quản lý gói cước VIP"          as UC_Admin4
+  usecase "Báo cáo Data Pipeline"         as UC_Admin5
+
+  usecase "Xem giới thiệu & bảng giá"     as UC_Guest1
+  usecase "Đăng ký tài khoản"             as UC_Guest2
+  usecase "Đăng nhập (Google / Mật khẩu)" as UC_Guest3
+  usecase "Nghe thử giọng nói AI"         as UC_Guest4
+  usecase "Xem cuộc trò chuyện chia sẻ"   as UC_Guest5
+
+  usecase "Thay đổi cài đặt"              as UC_User3
+
+  usecase "Hỏi đáp pháp lý"               as UC_User4
+  usecase "Mua gói cước VIP"              as UC_User5
+  usecase "Đánh dấu & Ghi chú"            as UC_User6
+  usecase "Chia sẻ cuộc trò chuyện"       as UC_User7
+  usecase "Quản lý hồ sơ cá nhân"         as UC_User2
+
+  usecase "Đàm thoại Voice"               as UC_VIP2
+
+  usecase "Tải tài liệu & hợp đồng"       as UC_VIP3
+
+  usecase "Sử dụng suy luận"              as UC_VIP1
+
+  usecase "Xác thực 2FA (TOTP)"           as UC_User1
+
+  (UC_Guest3) ..> (UC_User1) : <<include>>
+  (UC_User4)  <.. (UC_VIP1)  : <<extend>>
+  (UC_VIP2)   <.. (UC_VIP1)  : <<extend>>
+}
+
+Admin -- UC_Admin1
+Admin -- UC_Admin2
+Admin -- UC_Admin4
+Admin -- UC_Admin5
+
+Guest -- UC_Guest1
+Guest -- UC_Guest2
+Guest -- UC_Guest3
+Guest -- UC_Guest4
+Guest -- UC_Guest5
+
+User  -- UC_User3
+User  -- UC_User4
+User  -- UC_User5
+User  -- UC_User6
+User  -- UC_User7
+User  -- UC_User2
+
+VIP   -- UC_VIP1
+VIP   -- UC_VIP2
+VIP   -- UC_VIP3
+
+UC_VIP2   --- LiveKit
+UC_Admin2 --- ElevenLabs
+
+UC_User3  --- Neon
+
+UC_Guest2 --- Supabase
+UC_Guest3 --- Supabase
+UC_User2  --- Supabase
+
+UC_User1  --- Supabase
+@enduml

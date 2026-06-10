@@ -1,0 +1,2895 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Tài liệu dự án">
+      
+      
+        <meta name="author" content="Vũ Văn Nghĩa">
+      
+      
+      
+        <link rel="prev" href="../1/">
+      
+      
+        <link rel="next" href="../../../2.%20C%C3%B4ng%20ngh%E1%BB%87%20s%E1%BB%AD%20d%E1%BB%A5ng/2.1.%20T%E1%BB%95ng%20quan%20h%E1%BB%87%20th%E1%BB%91ng/1/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Phân tích thiết kế hệ thống - Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#phan-tich-thiet-ke-he-thong" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Documentation" class="md-header__button md-logo" aria-label="Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Phân tích thiết kế hệ thống
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Chuyển sang chế độ tối"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Chuyển sang chế độ tối" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Chuyển sang chế độ sáng"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Chuyển sang chế độ sáng" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Documentation" class="md-nav__button md-logo" aria-label="Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    0
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    0
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../0/1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NHẬN XÉT CỦA GIẢNG VIÊN HƯỚNG DẪN
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../0/2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PHIẾU BÁO CÁO TIẾN ĐỘ ĐỒ ÁN
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../0/3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lời cảm ơn
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../0/4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MỤC LỤC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../0/9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Danh sách viết tắt
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Tổng quan đề tài
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    1. Tổng quan đề tài
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.1. Giới thiệu
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    1.1. Giới thiệu
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.1.%20Gi%E1%BB%9Bi%20thi%E1%BB%87u/1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Giới thiệu
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.2. Cơ sở lý thuyết
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    1.2. Cơ sở lý thuyết
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.2.%20C%C6%A1%20s%E1%BB%9F%20l%C3%BD%20thuy%E1%BA%BFt/1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mô hình ngôn ngữ lớn​ LLM (Large Language Model​)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.2.%20C%C6%A1%20s%E1%BB%9F%20l%C3%BD%20thuy%E1%BA%BFt/2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tạo tăng cường truy xuất RAG (Retrieval Augmented Generation)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.2.%20C%C6%A1%20s%E1%BB%9F%20l%C3%BD%20thuy%E1%BA%BFt/3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kiến trúc vi dịch vụ MSA (Microservice Architecture)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.2.%20C%C6%A1%20s%E1%BB%9F%20l%C3%BD%20thuy%E1%BA%BFt/4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Thiết kế hướng miền (Domain Driven Design)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.3. Bài toán nghiệp vụ
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    1.3. Bài toán nghiệp vụ
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chức năng hệ thống
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phân tích thiết kế hệ thống
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Công nghệ sử dụng
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    2. Công nghệ sử dụng
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.1. Tổng quan hệ thống
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    2.1. Tổng quan hệ thống
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20C%C3%B4ng%20ngh%E1%BB%87%20s%E1%BB%AD%20d%E1%BB%A5ng/2.1.%20T%E1%BB%95ng%20quan%20h%E1%BB%87%20th%E1%BB%91ng/1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tổng quan kiến trúc hệ thống
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20C%C3%B4ng%20ngh%E1%BB%87%20s%E1%BB%AD%20d%E1%BB%A5ng/2.1.%20T%E1%BB%95ng%20quan%20h%E1%BB%87%20th%E1%BB%91ng/2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quản lý các thông tin bí mật (secret)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20C%C3%B4ng%20ngh%E1%BB%87%20s%E1%BB%AD%20d%E1%BB%A5ng/2.1.%20T%E1%BB%95ng%20quan%20h%E1%BB%87%20th%E1%BB%91ng/3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CI/CD bằng Github Action
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20C%C3%B4ng%20ngh%E1%BB%87%20s%E1%BB%AD%20d%E1%BB%A5ng/2.1.%20T%E1%BB%95ng%20quan%20h%E1%BB%87%20th%E1%BB%91ng/4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cơ sở hạ tầng dưới dạng mã
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20C%C3%B4ng%20ngh%E1%BB%87%20s%E1%BB%AD%20d%E1%BB%A5ng/2.1.%20T%E1%BB%95ng%20quan%20h%E1%BB%87%20th%E1%BB%91ng/5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Gateway trong Microservice
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20C%C3%B4ng%20ngh%E1%BB%87%20s%E1%BB%AD%20d%E1%BB%A5ng/2.1.%20T%E1%BB%95ng%20quan%20h%E1%BB%87%20th%E1%BB%91ng/6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Container và GitOps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20C%C3%B4ng%20ngh%E1%BB%87%20s%E1%BB%AD%20d%E1%BB%A5ng/2.1.%20T%E1%BB%95ng%20quan%20h%E1%BB%87%20th%E1%BB%91ng/7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Giao tiếp giữa các services
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.2. Đường ống dữ liệu (Data pipeline)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    2.2. Đường ống dữ liệu (Data pipeline)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20C%C3%B4ng%20ngh%E1%BB%87%20s%E1%BB%AD%20d%E1%BB%A5ng/2.2.%20%C4%90%C6%B0%E1%BB%9Dng%20%E1%BB%91ng%20d%E1%BB%AF%20li%E1%BB%87u%20%28Data%20pipeline%29/0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Đường ống dữ liệu
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20C%C3%B4ng%20ngh%E1%BB%87%20s%E1%BB%AD%20d%E1%BB%A5ng/2.2.%20%C4%90%C6%B0%E1%BB%9Dng%20%E1%BB%91ng%20d%E1%BB%AF%20li%E1%BB%87u%20%28Data%20pipeline%29/1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Đường ống dữ liệu Văn bản pháp luật
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20C%C3%B4ng%20ngh%E1%BB%87%20s%E1%BB%AD%20d%E1%BB%A5ng/2.2.%20%C4%90%C6%B0%E1%BB%9Dng%20%E1%BB%91ng%20d%E1%BB%AF%20li%E1%BB%87u%20%28Data%20pipeline%29/2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Đường ống dữ liệu Pháp Điển
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.3. Chi tiết về các dịch vụ
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    2.3. Chi tiết về các dịch vụ
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20C%C3%B4ng%20ngh%E1%BB%87%20s%E1%BB%AD%20d%E1%BB%A5ng/2.3.%20Chi%20ti%E1%BA%BFt%20v%E1%BB%81%20c%C3%A1c%20d%E1%BB%8Bch%20v%E1%BB%A5/0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tổng quan các Microservice của hệ thống
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20C%C3%B4ng%20ngh%E1%BB%87%20s%E1%BB%AD%20d%E1%BB%A5ng/2.3.%20Chi%20ti%E1%BA%BFt%20v%E1%BB%81%20c%C3%A1c%20d%E1%BB%8Bch%20v%E1%BB%A5/1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dịch vụ xác thực (auth service - dùng supabase)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20C%C3%B4ng%20ngh%E1%BB%87%20s%E1%BB%AD%20d%E1%BB%A5ng/2.3.%20Chi%20ti%E1%BA%BFt%20v%E1%BB%81%20c%C3%A1c%20d%E1%BB%8Bch%20v%E1%BB%A5/2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dịch vụ cài đặt (setting service - dùng neon api)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20C%C3%B4ng%20ngh%E1%BB%87%20s%E1%BB%AD%20d%E1%BB%A5ng/2.3.%20Chi%20ti%E1%BA%BFt%20v%E1%BB%81%20c%C3%A1c%20d%E1%BB%8Bch%20v%E1%BB%A5/3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dịch vụ thanh toán (payment service)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20C%C3%B4ng%20ngh%E1%BB%87%20s%E1%BB%AD%20d%E1%BB%A5ng/2.3.%20Chi%20ti%E1%BA%BFt%20v%E1%BB%81%20c%C3%A1c%20d%E1%BB%8Bch%20v%E1%BB%A5/6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dịch vụ văn bản (document service)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20C%C3%B4ng%20ngh%E1%BB%87%20s%E1%BB%AD%20d%E1%BB%A5ng/2.3.%20Chi%20ti%E1%BA%BFt%20v%E1%BB%81%20c%C3%A1c%20d%E1%BB%8Bch%20v%E1%BB%A5/7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dịch vụ nhân vật (persona service)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20C%C3%B4ng%20ngh%E1%BB%87%20s%E1%BB%AD%20d%E1%BB%A5ng/2.3.%20Chi%20ti%E1%BA%BFt%20v%E1%BB%81%20c%C3%A1c%20d%E1%BB%8Bch%20v%E1%BB%A5/8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dịch vụ trò chuyện (conversation service)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20C%C3%B4ng%20ngh%E1%BB%87%20s%E1%BB%AD%20d%E1%BB%A5ng/2.3.%20Chi%20ti%E1%BA%BFt%20v%E1%BB%81%20c%C3%A1c%20d%E1%BB%8Bch%20v%E1%BB%A5/9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dịch vụ chatbot (chatbot service)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.4. Giao diện chương trình
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    2.4. Giao diện chương trình
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20C%C3%B4ng%20ngh%E1%BB%87%20s%E1%BB%AD%20d%E1%BB%A5ng/2.4.%20Giao%20di%E1%BB%87n%20ch%C6%B0%C6%A1ng%20tr%C3%ACnh/1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Giao diện chương trình
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Kết luận và hướng phát triển
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    3. Kết luận và hướng phát triển
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3.%20K%E1%BA%BFt%20lu%E1%BA%ADn%20v%C3%A0%20h%C6%B0%E1%BB%9Bng%20ph%C3%A1t%20tri%E1%BB%83n/1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kết luận
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3.%20K%E1%BA%BFt%20lu%E1%BA%ADn%20v%C3%A0%20h%C6%B0%E1%BB%9Bng%20ph%C3%A1t%20tri%E1%BB%83n/2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hướng phát triển
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    9
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../9/99/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tài liệu tham khảo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    99 TODO
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    99 TODO
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_1" id="__nav_7_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    New folder
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    New folder
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../99%20TODO/New%20folder/todo-v1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Todo v1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../99%20TODO/New%20folder/todo-v2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Todo v2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../99%20TODO/New%20folder/todo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Todo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_2" id="__nav_7_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    A
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../99%20TODO/a/a/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    99 dev
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    99 dev
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../99%20dev/MOMO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MOMO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../99%20dev/VNPAY/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VNPAY
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../99%20dev/tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="phan-tich-thiet-ke-he-thong">Phân tích thiết kế hệ thống</h1>
+<h1 id="so-o-use-case">Sơ đồ Use Case</h1>
+<!-- ![alt text](images/UseCase/UseCase.png) -->
+
+<p><img alt="alt text" src="../images/UseCase/uuu.excalidraw.png" /></p>
+<p>Đặc điểm người dùng:</p>
+<p>Hệ thống phân chia người dùng thành 4 nhóm đối tượng chính với các đặc quyền được kế thừa và mở rộng dần theo cấp độ:</p>
+<ul>
+<li>Khách vãng lai (Guest):</li>
+<li>Đặc điểm: Là những người dùng chưa có tài khoản hoặc chưa đăng nhập vào hệ thống. Mục đích chính của họ là tìm hiểu thông tin cơ bản về ứng dụng và trải nghiệm thử các tính năng công khai.</li>
+<li>
+<p>Quyền hạn: Có thể xem các trang giới thiệu, bảng giá gói cước; nghe thử các mẫu giọng nói của các nhân vật; xem các đoạn trò chuyện tư vấn pháp luật được người dùng khác chia sẻ công khai. Họ có thể thực hiện đăng ký tài khoản mới hoặc đăng nhập (qua email hoặc Google).</p>
+</li>
+<li>
+<p>Người dùng phổ thông (User):</p>
+</li>
+<li>Đặc điểm: Là những cá nhân đã đăng ký và đăng nhập thành công vào hệ thống. Đây là tệp khách hàng tiêu chuẩn sử dụng các tính năng hỏi đáp pháp lý cơ bản bằng văn bản. Tác nhân này kế thừa toàn bộ quyền của Guest.</li>
+<li>
+<p>Quyền hạn: Có thể chat/hỏi đáp pháp lý cơ bản với AI; sử dụng các công cụ cá nhân hóa như đánh dấu (bookmark), tạo ghi chú, thay đổi cài đặt và quản lý hồ sơ cá nhân. Người dùng có thể chia sẻ cuộc trò chuyện của mình cho người khác, bảo mật tài khoản bằng xác thực 2 lớp (2FA/TOTP) và có thể thực hiện nâng cấp/mua gói cước VIP.</p>
+</li>
+<li>
+<p>Người dùng VIP (VIP):</p>
+</li>
+<li>Đặc điểm: Là những người dùng đã thanh toán và đăng ký gói cước VIP. Họ có nhu cầu giải quyết các vấn đề pháp lý phức tạp, cần phân tích tài liệu chuyên sâu hoặc muốn tương tác rảnh tay qua giọng nói. Tác nhân này kế thừa toàn bộ quyền của User.</li>
+<li>
+<p>Quyền hạn: Được sử dụng các tính năng cao cấp bao gồm: Đàm thoại trực tiếp với AI bằng giọng nói (Voice chat qua LiveKit); tải lên các tài liệu, hợp đồng cá nhân để AI phân tích; và được phép sử dụng các mô hình suy luận (reasoning) nâng cao để giải quyết các truy vấn pháp lý phức tạp (áp dụng cho cả chat văn bản và đàm thoại).</p>
+</li>
+<li>
+<p>Quản trị viên (Admin):</p>
+</li>
+<li>Đặc điểm: Là nhân sự thuộc ban quản trị/vận hành hệ thống. Họ có kiến thức về quản lý hệ thống, theo dõi luồng dữ liệu (Data Pipeline) và cấu hình các dịch vụ tích hợp giọng nói. Tác nhân này kế thừa toàn bộ quyền cơ bản của User.</li>
+<li>Quyền hạn: Có toàn quyền truy cập trang quản trị để: Quản lý các nhân vật trợ lý ảo; thiết lập và quản lý hệ thống chuyển đổi văn bản thành giọng nói (TTS Engine &amp; Voices kết nối với ElevenLabs); quản lý các gói cước VIP; và xem/theo dõi các báo cáo về luồng xử lý dữ liệu pháp luật (Data Pipeline).</li>
+</ul>
+<h1 id="so-o-tuan-tu-sequence-diagram">Sơ đồ tuần tự (Sequence Diagram)</h1>
+<h2 id="so-o-tuan-tu-luong-thanh-toan-goi-dich-vu">Sơ đồ tuần tự Luồng Thanh toán gói dịch vụ</h2>
+<p>Luồng nghiệp vụ này mô tả vòng đời của một giao dịch thanh toán gói dịch vụ (Subscription) trong hệ thống, từ lúc người dùng khởi tạo yêu cầu thanh toán cho đến khi hệ thống xác nhận.</p>
+<p><img alt="alt text" src="../images/sequence/payment.png" /></p>
+<h3 id="cac-thanh-phan-tham-gia">Các thành phần tham gia</h3>
+<table>
+<thead>
+<tr>
+<th>Thành phần</th>
+<th>Phân loại</th>
+<th>Vai trò trong hệ thống</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>User</td>
+<td>Actor</td>
+<td>Người dùng thực hiện thao tác mua gói dịch vụ trên ứng dụng.</td>
+</tr>
+<tr>
+<td>Payment Service</td>
+<td>Microservice</td>
+<td>Dịch vụ xử lý nghiệp vụ thanh toán, xác thực dữ liệu, gọi cổng thanh toán và nhận webhook.</td>
+</tr>
+<tr>
+<td>Payment Database</td>
+<td>Database</td>
+<td>Cơ sở dữ liệu lưu trữ thông tin về dịch vụ thanh toán.</td>
+</tr>
+<tr>
+<td>Redis (BullMQ)</td>
+<td>Queue</td>
+<td>Hệ thống hàng đợi sử dụng để đếm ngược thời gian hết hạn của giao dịch.</td>
+</tr>
+<tr>
+<td>Payment Gateway</td>
+<td>External Service</td>
+<td>Cổng dịch vụ thanh toán bên thứ ba (VNPay, Momo, ZaloPay, SePay) tiếp nhận thanh toán từ người dùng.</td>
+</tr>
+<tr>
+<td>Kafka (Event Bus)</td>
+<td>Message Broker</td>
+<td>Message queue giúp các dịch vụ giao tiếp thông qua sự kiện.</td>
+</tr>
+<tr>
+<td>Consume Service</td>
+<td>Microservice</td>
+<td>Dịch vụ khác trong hệ thống (conversation, document) lắng nghe sự kiện thanh toán thành công để cấp quyền cho người dùng.</td>
+</tr>
+<tr>
+<td>Consume Database</td>
+<td>Database</td>
+<td>Cơ sở dữ liệu của dịch vụ khác thực hiện lưu trữ trạng thái Subscription của người dùng sau khi được cập nhật.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="mo-ta-tong-quan">Mô tả tổng quan</h3>
+<ul>
+<li>Người dùng gửi yêu cầu tạo thanh toán.</li>
+<li>Dịch vụ thanh toán xử lý dữ liệu trong database và hẹn giờ hết hạn với redis, làm việc với cổng thanh toán (payment gateway).</li>
+<li>Dịch vụ thanh toán phản hồi về cho user thông tin đường dẫn thanh toán (payment_url).</li>
+<li>Người dùng thực hiện thanh toán với cổng thanh toán.</li>
+<li>Cổng thanh toán gửi thông báo kết quả giao dịch cho dịch vụ thanh toán.</li>
+<li>Dịch vụ thanh toán xử lý thông tin thanh toán. nếu thanh toán thành công sẽ xử lý dữ liệu và lưu bảng outbox cùng transaction trong database đảm bảo tính nguyên tử (atomic).</li>
+<li>Outbox Relay quét bảng outbox định kỳ lấy ra các sự kiện và gửi đến message queue (kafka).</li>
+<li>Các dịch vụ khác (conversation service, document service) lắng nghe sự kiện, kiểm tra phiên bản và lưu thông tin vào database</li>
+<li>Hệ thống có khả năng xử lý hết hạn giao dịch với bullmq và redis. nếu trạng thái là pending thì cập nhật thành expired. nếu trạng thái là success hoặc failed thì bỏ qua.</li>
+</ul>
+<h2 id="so-o-tuan-tu-luong-xu-ly-tai-lieu">Sơ đồ tuần tự Luồng xử lý tài liệu</h2>
+<p>Luồng nghiệp vụ này mô tả vòng đời của tài liệu khi người dùng tải lên hệ thống, lưu trữ tệp tin, trích xuất nội dung và lưu trữ dữ liệu vector phục vụ tính năng RAG.</p>
+<p><img alt="alt text" src="../images/sequence/document.png" /></p>
+<h3 id="cac-thanh-phan-tham-gia_1">Các thành phần tham gia</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Thành phần</th>
+<th style="text-align: left;">Phân loại</th>
+<th style="text-align: left;">Vai trò trong hệ thống</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">User</td>
+<td style="text-align: left;">Actor</td>
+<td style="text-align: left;">Người dùng thực hiện tải lên tài liệu và nhận phản hồi trạng thái từ hệ thống.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Document Service</td>
+<td style="text-align: left;">Microservice</td>
+<td style="text-align: left;">Dịch vụ backend chính chịu trách nhiệm tiếp nhận yêu cầu, kiểm qua gói dịch vụ người dùng (UserSubscription) và kích hoạt các tác vụ.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Database</td>
+<td style="text-align: left;">Database</td>
+<td style="text-align: left;">Cơ sở dữ liệu kiểm tra thông tin gói cước người dùng (UserSubscription) và lưu trữ trạng thái của tài liệu.</td>
+</tr>
+<tr>
+<td style="text-align: left;">R2 Object Storage</td>
+<td style="text-align: left;">Object Storage</td>
+<td style="text-align: left;">Kho lưu trữ dùng để lưu trữ file tài liệu.</td>
+</tr>
+<tr>
+<td style="text-align: left;">RabbitMQ (Celery Broker)</td>
+<td style="text-align: left;">Message Broker</td>
+<td style="text-align: left;">Hàng đợi tác vụ (Task Queue) cho Celery, tiếp nhận và phân phối các công việc.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Document Worker (Celery)</td>
+<td style="text-align: left;">Worker Service</td>
+<td style="text-align: left;">Tiến trình xử lý tải file, trích xuất text, gọi dịch vụ AI và đồng bộ dữ liệu vào Vector Store.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Cloudflare Workers AI</td>
+<td style="text-align: left;">External Service / AI Engine</td>
+<td style="text-align: left;">Dịch vụ trí tuệ nhân tạo tiếp nhận prompt và nội dung tài liệu từ Worker để xử lý và trả về kết quả tóm tắt (Summary).</td>
+</tr>
+<tr>
+<td style="text-align: left;">Milvus (Vector Store)</td>
+<td style="text-align: left;">Vector Database</td>
+<td style="text-align: left;">Cơ sở dữ liệu vector chịu trách nhiệm lưu trữ các đoạn văn bản (chunks) kèm theo nhúng (embeddings) và metadata để phục vụ tìm kiếm ngữ nghĩa (RAG).</td>
+</tr>
+</tbody>
+</table>
+<h3 id="mo-ta-tong-quan_1">Mô tả tổng quan</h3>
+<ul>
+<li>Người dùng gửi yêu cầu tải lên file văn bản.</li>
+<li>Dịch vụ tài liệu kiểm tra điều kiện bảng UserSubscription trong Database.</li>
+<li>Dịch vụ tài liệu lưu file vào R2 Object Storage.</li>
+<li>Dịch vụ tài liệu đẩy thông tin công việc vào hệ thống nhắn tin RabbitMQ.</li>
+<li>Dịch vụ tài liệu trả ngay kết quả tải lên thành công cho người dùng.</li>
+<li>Document Worker tải file từ R2 Object Storage</li>
+<li>Document Worker xử lý tóm tắt và RAG file tài liệu với Cloudflare Workers AI, Vector Database</li>
+<li>Document Worker cập nhật thông tin trong database</li>
+</ul>
+<h2 id="so-o-tuan-tu-luong-nhan-tin-van-ban">Sơ đồ tuần tự Luồng Nhắn tin văn bản</h2>
+<p>Luồng nghiệp vụ này mô tả vòng đời của yêu cầu nhắn tin từ người dùng, qua các bước kiểm tra người dùng, giao tiếp với dịch vụ AI bằng gRPC và trả về kết quả theo thời gian thực thông qua luồng dữ liệu Server-Sent Events (SSE).</p>
+<p><img alt="alt text" src="../images/sequence/conversation.png" /></p>
+<h3 id="cac-thanh-phan-tham-gia_2">Các thành phần tham gia</h3>
+<table>
+<thead>
+<tr>
+<th>Thành phần</th>
+<th>Phân loại</th>
+<th>Vai trò trong hệ thống</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>User</td>
+<td>Actor</td>
+<td>Người dùng khởi tạo yêu cầu gọi API và lắng nghe kết quả phản hồi dạng luồng (stream) từ hệ thống.</td>
+</tr>
+<tr>
+<td>Conversation Service</td>
+<td>Microservice</td>
+<td>Dịch vụ trò chuyện giao tiếp, nhận yêu cầu, quản lý kết nối SSE và làm trung gian giao tiếp.</td>
+</tr>
+<tr>
+<td>Conversation DB</td>
+<td>Database</td>
+<td>Cơ sở dữ liệu lưu trữ thông tin về quyền người dùng VIP và trò chuyện.</td>
+</tr>
+<tr>
+<td>Chatbot Service</td>
+<td>Microservice</td>
+<td>Nhận yêu cầu qua gRPC, xử lý AI, lưu trữ lịch sử trò chuyện.</td>
+</tr>
+<tr>
+<td>Chatbot DB</td>
+<td>Database</td>
+<td>Cơ sở dữ liệu dùng để lưu trữ nội dung tin nhắn (User và AI).</td>
+</tr>
+<tr>
+<td>LangGraph + LLM</td>
+<td>External Service / AI Engine</td>
+<td>Khung xử lý ngôn ngữ tự nhiên, thực hiện tạo chuỗi suy luận (Reasoning) và sinh văn bản phản hồi theo từng chunk.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="mo-ta-tong-quan_2">Mô tả tổng quan</h3>
+<ul>
+<li>Người dùng gửi yêu cầu trò chuyện.</li>
+<li>Dịch vụ trò chuyện kiểm tra điều kiện bảng UserSubscription trong Database nếu tính năng suy luận use_reasoning.</li>
+<li>Dịch vụ trò chuyện trả lỗi 404 nếu không tồn tại vì chưa bắt đầu trò chuyện.</li>
+<li>Sau khi xác thực thành công, dịch vụ trò chuyện mở luồng giao tiếp gRPC tới dịch vụ Chatbot.</li>
+<li>Dịch vụ Chatbot sử dụng LangGraph và LLM tạo câu trả lời.</li>
+<li>Dịch vụ Chatbot lưu thông tin lịch sử trong database.</li>
+</ul>
+<h2 id="so-o-tuan-tu-luong-hoi-thoai-giong-noi">Sơ đồ tuần tự Luồng Hội thoại giọng nói</h2>
+<p>Luồng nghiệp vụ này mô tả Hội thoại giọng nói theo thời gian thực giữa người dùng và AI Voice Agent, bao gồm từ bước cấp quyền, thiết lập phòng họp LiveKit, đến quá trình xử lý ngôn ngữ, tra cứu RAG pháp luật và phản hồi âm thanh (TTS).</p>
+<p><img alt="alt text" src="../images/sequence/voice.png" /></p>
+<h3 id="cac-thanh-phan-tham-gia_3">Các thành phần tham gia</h3>
+<table>
+<thead>
+<tr>
+<th>Thành phần</th>
+<th>Phân loại</th>
+<th>Vai trò trong hệ thống</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>User</td>
+<td>Actor</td>
+<td>Người dùng thực hiện thao tác tương tác bằng giọng nói.</td>
+</tr>
+<tr>
+<td>Persona Service</td>
+<td>Microservice</td>
+<td>Quản lý thông tin cấu hình của các nhân vật và đảm nhiệm sinh giọng nói nếu dùng edge_tts hoặc piper_tts .</td>
+</tr>
+<tr>
+<td>Conversation Service</td>
+<td>Microservice</td>
+<td>Xử lý tạo phiên trò chuyện, kiểm tra quyền người dùng và cấp phát Access Token cục bộ cho dịch vụ LiveKit.</td>
+</tr>
+<tr>
+<td>Conversation DB</td>
+<td>Database</td>
+<td>Lưu trữ dữ liệu phiên chat và thông tin người dùng bảng UserSubscription.</td>
+</tr>
+<tr>
+<td>LiveKit Server</td>
+<td>Cloud Service / WebRTC</td>
+<td>Máy chủ trung gian xử lý các kết nối WebRTC, phân phối và truyền phát luồng dữ liệu giữa User và Agent.</td>
+</tr>
+<tr>
+<td>Voice Agent</td>
+<td>Worker / Microservice</td>
+<td>Đảm nhiệm điều phối trò chuyện, nhận đầu vào người dùng, sử dụng LangGraph, chuyển đổi giọng nói thành văn bản.</td>
+</tr>
+<tr>
+<td>ElevenLabs API</td>
+<td>External Service</td>
+<td>Nền tảng bên thứ ba cung cấp dịch vụ chuyển đổi văn bản thành giọng nói (TTS) chất lượng cao.</td>
+</tr>
+<tr>
+<td>LangGraph + LLM</td>
+<td>External Service / AI Engine</td>
+<td>Khung xử lý ngôn ngữ tự nhiên, thực hiện tạo chuỗi suy luận (Reasoning) và sinh văn bản phản hồi theo từng chunk.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="mo-ta-tong-quan_3">Mô tả tổng quan</h3>
+<ul>
+<li>Người dùng gọi API lấy cấu hình nhân vật hiện có và yêu cầu Voice Token cho chat_id cụ thể.</li>
+<li>Dịch vụ trò chuyện kiểm tra điều kiện bảng UserSubscription.</li>
+<li>Dịch vụ trò chuyện tạo Access Token LiveKit cho người dùng.</li>
+<li>Người dùng sử dụng Token để kết nối WebRTC tới LiveKit Server.</li>
+<li>Voice Agent tham gia vào cùng phòng người dùng.</li>
+<li>Voice Agent lấy thông tin nhân vật và cấu hình giọng nói (Persona Service hoặc ElevenLabs).</li>
+<li>Voice Agent chủ động chào hỏi người dùng.</li>
+<li>Voice Agent sử dụng LangGraph tạo câu trả lời và xử lý cuộc trò chuyện với người dùng.</li>
+</ul>
+<h2 id="so-o-tuan-tu-luong-xoa-cuoc-tro-chuyen">Sơ đồ tuần tự Luồng Xóa cuộc trò chuyện</h2>
+<p>Luồng nghiệp vụ này mô tả quá trình người dùng thực hiện xóa một cuộc trò chuyện, đảm bảo tính nhất quán dữ liệu giữa các dịch vụ thông qua mẫu thiết kế Outbox Pattern và giao tiếp qua RabbitMQ.</p>
+<p><img alt="alt text" src="../images/sequence/Delete-Chat.png" /></p>
+<h3 id="cac-thanh-phan-tham-gia_4">Các thành phần tham gia</h3>
+<table>
+<thead>
+<tr>
+<th>Thành phần</th>
+<th>Phân loại</th>
+<th>Vai trò trong hệ thống</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>User</td>
+<td>Actor</td>
+<td>Người dùng thực hiện thao tác gửi yêu cầu để xóa một cuộc trò chuyện.</td>
+</tr>
+<tr>
+<td>Conversation Service</td>
+<td>Microservice</td>
+<td>Dịch vụ trò chuyện tiếp nhận yêu cầu từ người dùng, cập nhật trạng thái xóa, ghi nhận sự kiện vào Outbox và dùng Cron job để relay sự kiện.</td>
+</tr>
+<tr>
+<td>Conversation DB</td>
+<td>Database</td>
+<td>Cơ sở dữ liệu lưu trữ thông tin trò chuyện và bảng Outbox dùng để đảm bảo tính nguyên tử (atomic) của giao dịch lưu trữ sự kiện.</td>
+</tr>
+<tr>
+<td>RabbitMQ Broker</td>
+<td>Message Broker</td>
+<td>Message Broker nhận sự kiện từ dịch vụ trò chuyện và phân phối đến các dịch vụ Chatbot đăng ký theo dõi (hàng đợi chat_deletions ).</td>
+</tr>
+<tr>
+<td>Chatbot Service</td>
+<td>Microservice</td>
+<td>Dịch vụ AI đóng vai trò tiêu thụ (Consumer), lắng nghe sự kiện xóa để đồng bộ hóa dữ liệu.</td>
+</tr>
+<tr>
+<td>Chatbot DB</td>
+<td>Database</td>
+<td>Cơ sở dữ liệu lưu trữ chi tiết các tin nhắn của cuộc trò chuyện.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="mo-ta-tong-quan_4">Mô tả tổng quan</h3>
+<ul>
+<li>
+<p>Người dùng gửi yêu cầu xóa cuộc trò chuyện.</p>
+</li>
+<li>
+<p>Dịch vụ trò chuyện thực hiện một Database Transaction đồng thời cập nhật trạng thái đoạn chat thành xóa mềm ( isActive=false ) và chèn sự kiện ChatDeletedEvent vào bảng Outbox.</p>
+</li>
+<li>
+<p>Outbox Relay quét bảng outbox định kỳ lấy ra các sự kiện và gửi đến hàng đợi chat_deletions của RabbitMQ.</p>
+</li>
+<li>
+<p>Dịch vụ Chatbot nhận được sự kiện ChatDeletedEvent từ RabbitMQ sẽ tiến hành xóa mềm (Soft Delete) trong database.</p>
+</li>
+</ul>
+<h2 id="so-o-tuan-tu-luong-tao-chia-se-cuoc-tro-chuyen">Sơ đồ tuần tự Luồng Tạo Chia sẻ cuộc trò chuyện</h2>
+<p>Luồng nghiệp vụ này mô tả vòng đời của một yêu cầu chia sẻ cuộc trò chuyện, lưu trữ dữ liệu trò chuyện dưới dạng tệp tin JSONL trên Cloud Storage, và đồng bộ trạng thái giữa các dịch vụ thông qua mô hình Transactional Outbox kết hợp Message Broker.</p>
+<p><img alt="alt text" src="../images/sequence/Share-Chat.png" /></p>
+<h3 id="cac-thanh-phan-tham-gia_5">Các thành phần tham gia</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Thành phần</th>
+<th style="text-align: left;">Phân loại</th>
+<th style="text-align: left;">Vai trò trong hệ thống</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">User</td>
+<td style="text-align: left;">Actor</td>
+<td style="text-align: left;">Người dùng gửi yêu cầu chia sẻ cuộc trò chuyện kèm theo tham số tin nhắn cuối để giới hạn phạm vi chia sẻ.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Conversation Service</td>
+<td style="text-align: left;">Microservice</td>
+<td style="text-align: left;">Dịch vụ quản lý chịu trách nhiệm tiếp nhận API từ người dùng, quản lý giao dịch Outbox và cập nhật trạng thái chia sẻ cuối cùng.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Conversation DB</td>
+<td style="text-align: left;">Database</td>
+<td style="text-align: left;">Cơ sở dữ liệu của Conversation Service, lưu trữ thông tin chung về trò chuyện, bản ghi chia sẻ và các sự kiện trong bảng Outbox.</td>
+</tr>
+<tr>
+<td style="text-align: left;">RabbitMQ Broker</td>
+<td style="text-align: left;">Message Broker</td>
+<td style="text-align: left;">Hệ thống hàng đợi thông điệp bất đồng bộ, chịu trách nhiệm định tuyến và phân phối các sự kiện ( ShareGeneratedEvent, ShareUploadCompletedEvent ) giữa các dịch vụ.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Chatbot Service</td>
+<td style="text-align: left;">Microservice</td>
+<td style="text-align: left;">Dịch vụ AI, chịu trách nhiệm nhận sự kiện, trích xuất nội dung tin nhắn và tải lên file chia sẻ.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Chatbot DB</td>
+<td style="text-align: left;">Database</td>
+<td style="text-align: left;">Cơ sở dữ liệu của Chatbot Service, lưu trữ lịch sử tin nhắn chi tiết của cuộc trò chuyện và ghi nhận thông tin phiên bản đồng bộ của yêu cầu chia sẻ.</td>
+</tr>
+<tr>
+<td style="text-align: left;">R2 Object Storage</td>
+<td style="text-align: left;">External Service</td>
+<td style="text-align: left;">Hạ tầng lưu trữ đối tượng (Object Storage tương thích S3), sử dụng để lưu trữ tệp tin cấu trúc JSONL chứa nội dung chi tiết của cuộc trò chuyện được chia sẻ.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="mo-ta-tong-quan_5">Mô tả tổng quan</h3>
+<ul>
+<li>Người dùng gửi yêu cầu chia sẻ cung cấp thông tin định danh chatId và lastMessageId.</li>
+<li>Dịch vụ trò chuyện tạo bản ghi chia sẻ với và chèn sự kiện vào bảng outbox cùng transaction trong database đảm bảo tính nguyên tử (atomic).</li>
+<li>Dịch vụ trò chuyện phản hồi đường dẫn liên kết tạm thời shareUrl giúp giảm thiểu độ trễ phản hồi cho người dùng.</li>
+<li>Outbox Relay quét bảng outbox định kỳ lấy ra các sự kiện ShareGeneratedEvent vào hàng đợi share_generated trên RabbitMQ Broker.</li>
+<li>Dịch vụ Chatbot nhận thông điệp ShareGeneratedEvent từ hàng đợi.</li>
+<li>Dịch vụ Chatbot truy vấn danh sách tin nhắn từ Chatbot database tính tới thời điểm lastMessageId.</li>
+<li>Dịch vụ Chatbot tạo tệp tin JSONL và tải lên R2 Object Storage.</li>
+<li>Dịch vụ Chatbot thực hiện lưu thông tin file_url và phiên bản mới của bản ghi chia sẻ.</li>
+<li>Dịch vụ Chatbot gửi thông điệp ShareUploadCompletedEvent chứa thông tin kết quả tới hàng đợi share_upload_completed trên RabbitMQ.</li>
+<li>Dịch vụ trò chuyện nhận thông điệp ShareUploadCompletedEvent từ hàng đợi.</li>
+<li>Dịch vụ trò chuyện cập nhật thông tin đường dẫn fileUrl.</li>
+</ul>
+<h2 id="so-o-tuan-tu-luong-thu-hoi-chia-se-cuoc-tro-chuyen">Sơ đồ tuần tự Luồng Thu hồi chia sẻ cuộc trò chuyện</h2>
+<p>Luồng nghiệp vụ này mô tả vòng đời của một yêu cầu thu hồi quyền chia sẻ cuộc trò chuyện từ người dùng, đảm bảo tính nhất quán dữ liệu giữa các dịch vụ thông qua mẫu thiết kế Transactional Outbox và giao tiếp bất đồng bộ qua RabbitMQ.</p>
+<p><img alt="alt text" src="../images/sequence/Revoke-Share-Chat.png" /></p>
+<h3 id="cac-thanh-phan-tham-gia_6">Các thành phần tham gia</h3>
+<table>
+<thead>
+<tr>
+<th>Thành phần</th>
+<th>Phân loại</th>
+<th>Vai trò trong hệ thống</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>User</td>
+<td>Actor</td>
+<td>Người dùng khởi tạo yêu cầu thu hồi quyền chia sẻ cuộc trò chuyện.</td>
+</tr>
+<tr>
+<td>Conversation Service</td>
+<td>Microservice</td>
+<td>Dịch vụ tiếp nhận yêu cầu từ người dùng, thực hiện cập nhật cơ sở dữ liệu và ghi lại sự kiện vào bảng Outbox.</td>
+</tr>
+<tr>
+<td>Conversation DB</td>
+<td>Database</td>
+<td>Cơ sở dữ liệu chính của Conversation Service, lưu trữ trạng thái bản ghi chia sẻ (Share) và bảng hàng đợi sự kiện (Outbox).</td>
+</tr>
+<tr>
+<td>RabbitMQ Broker</td>
+<td>Message Broker</td>
+<td>Message Broker nhận sự kiện ShareRevokedEvent từ Conversation Service và đẩy tới hàng đợi share_revoked.</td>
+</tr>
+<tr>
+<td>Chatbot Service</td>
+<td>Microservice</td>
+<td>Dịch vụ đóng vai trò là Consumer, lắng nghe sự kiện từ RabbitMQ, thực thi nghiệp vụ xóa file và cập nhật cơ sở dữ liệu.</td>
+</tr>
+<tr>
+<td>Chatbot DB</td>
+<td>Database</td>
+<td>Cơ sở dữ liệu của Chatbot Service, dùng để lưu trữ trạng thái bản ghi chia sẻ và cơ chế kiểm soát phiên bản.</td>
+</tr>
+<tr>
+<td>R2 Object Storage</td>
+<td>External Service</td>
+<td>Dịch vụ lưu trữ đối tượng bên ngoài, chịu trách nhiệm lưu trữ vật lý các tệp tin dữ liệu cuộc trò chuyện định dạng JSONL.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="mo-ta-tong-quan_6">Mô tả tổng quan</h3>
+<ul>
+<li>Người dùng gửi yêu cầu thu hồi chia sẻ.</li>
+<li>Dịch vụ trò chuyện cập nhật trạng thái bản ghi Share ( isActive=false ) đồng thời chèn (insert) sự kiện ShareRevokedEvent vào bảng Outbox cùng transaction trong database đảm bảo tính nguyên tử (atomic).</li>
+<li>Outbox Relay quét bảng outbox định kỳ lấy ra các sự kiện ShareRevokedEvent vào hàng đợi share_revoked trên RabbitMQ.</li>
+<li>Dịch vụ Chatbot nhận thông điệp ShareRevokedEvent từ hàng đợi.</li>
+<li>Dịch vụ Chatbot xóa ngay tệp tin JSONL trên R2 Object Storage.</li>
+<li>Dịch vụ Chatbot cập nhật trạng thái bản ghi Share trong Chatbot DB ( is_revoked=True )</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../1/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Chức năng hệ thống">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Chức năng hệ thống
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../../2.%20C%C3%B4ng%20ngh%E1%BB%87%20s%E1%BB%AD%20d%E1%BB%A5ng/2.1.%20T%E1%BB%95ng%20quan%20h%E1%BB%87%20th%E1%BB%91ng/1/" class="md-footer__link md-footer__link--next" aria-label="Next: Tổng quan kiến trúc hệ thống">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Tổng quan kiến trúc hệ thống
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.footer", "navigation.keyboard"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
