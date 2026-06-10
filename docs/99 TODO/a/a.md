@@ -1,10 +1,15 @@
+<!-- thiết kế database  -->
+<!-- Các sơ đồ database -->
+
+<!-- api swagger -->
+<!-- ## Cấu hình trong Kong API Gateway -->
 
 
-Các sơ đồ database
-## Cấu hình trong Kong API Gateway
-api swagger
+<!-- database migration -->
+<!-- github action -->
 
-database migration
+
+
 <!--  -->
 
 ![alt text](image.png)
