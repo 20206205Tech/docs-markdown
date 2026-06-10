@@ -51,7 +51,7 @@ request-id
 
 
 
-![alt text](image-11.png)
+![alt text](iiiiiii/image-11.png)
 
 
 <!-- F5 mất xác nhận -->
@@ -67,22 +67,22 @@ Khi dùng voice, avatar của AI không có? => Sau đó khi RAG trả lời xon
 
 
 
-![alt text](image-12.png)
+![alt text](iiiiiii/image-12.png)
 
-![alt text](image-13.png)
-
-
-![alt text](image-14.png)
+![alt text](iiiiiii/image-13.png)
 
 
-![alt text](image-15.png)
+![alt text](iiiiiii/image-14.png)
+
+
+![alt text](iiiiiii/image-15.png)
 
 https://github.com/20206205Tech/code-conversation-service/tree/main/docs
 
 
 https://github.com/20206205Tech/code-payment-service/tree/main/docs
 
-![alt text](image-16.png)
+![alt text](iiiiiii/image-16.png)
 
 
 https://kafka.apache.org/43/design/design/#message-delivery-semantics
@@ -96,7 +96,7 @@ https://martinfowler.com/articles/201701-event-driven.html
 Github action=> tele telegram
 
 
-![alt text](image-17.png)
+![alt text](iiiiiii/image-17.png)
 
 payment => kafka, redis... heroku
 

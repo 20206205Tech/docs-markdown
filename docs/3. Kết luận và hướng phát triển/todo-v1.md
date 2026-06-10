@@ -10,27 +10,27 @@
 
 # ==========================================
 
-![alt text](image-4.png)
+![alt text](iiiiiii/image-4.png)
 
-![alt text](image-5.png)
+![alt text](iiiiiii/image-5.png)
 
 <!-- Giao diện chương trình -->
 
-![alt text](image.png)
+![alt text](iiiiiii/image.png)
 
-![alt text](image-1.png)
+![alt text](iiiiiii/image-1.png)
 
-![alt text](image-2.png)
+![alt text](iiiiiii/image-2.png)
 
-![alt text](image-3.png)
+![alt text](iiiiiii/image-3.png)
 
-<!-- ![alt text](image-6.png) -->
+<!-- ![alt text](iiiiiii/image-6.png) -->
 
-![alt text](image-6.png)
+![alt text](iiiiiii/image-6.png)
 
-![alt text](image-8.png)
+![alt text](iiiiiii/image-8.png)
 
-![alt text](image-7.png)
+![alt text](iiiiiii/image-7.png)
 
 https://testcontainers.com
 
@@ -198,8 +198,8 @@ demo mail
 
 <!-- load ai tương tự 1 lần -->
 
-![alt text](image-9.png)
+![alt text](iiiiiii/image-9.png)
 
-![alt text](image-10.png)
+![alt text](iiiiiii/image-10.png)
 
 <!-- sử dụng thuật toán LRU (Least Recently Used) -->
